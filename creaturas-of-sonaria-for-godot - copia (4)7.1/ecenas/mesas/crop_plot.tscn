@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://32rg4dax8b17"]
+
+[ext_resource type="Script" uid="uid://8mrwliljkdwa" path="res://ecenas/mesas/crop_plot1.gd" id="1_3rkdc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cr50b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3rkdc"]
+
+[node name="crop_plot" type="Area3D" groups=["crop_plot"]]
+script = ExtResource("1_3rkdc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_cr50b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_3rkdc")

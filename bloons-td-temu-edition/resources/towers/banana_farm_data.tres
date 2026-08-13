@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://banana_farm_uid"]
+
+[ext_resource type="Script" uid="uid://c0132satonvoc" path="res://src/resources/tower_data.gd" id="1_tower_data"]
+[ext_resource type="Texture2D" uid="uid://bmmvi7qhvb6sm" path="res://icon.svg" id="2_icon"]
+
+[ext_resource type="Resource" uid="uid://farm_p1_t1" path="res://resources/upgrades/farm_p1_t1.tres" id="3_p1t1"]
+[ext_resource type="Resource" uid="uid://farm_p1_t2" path="res://resources/upgrades/farm_p1_t2.tres" id="4_p1t2"]
+[ext_resource type="Resource" uid="uid://farm_p1_t3" path="res://resources/upgrades/farm_p1_t3.tres" id="5_p1t3"]
+[ext_resource type="Resource" uid="uid://farm_p1_t4" path="res://resources/upgrades/farm_p1_t4.tres" id="6_p1t4"]
+[ext_resource type="Resource" uid="uid://farm_p1_t5" path="res://resources/upgrades/farm_p1_t5.tres" id="7_p1t5"]
+
+[ext_resource type="Resource" uid="uid://farm_p2_t1" path="res://resources/upgrades/farm_p2_t1.tres" id="8_p2t1"]
+[ext_resource type="Resource" uid="uid://farm_p2_t2" path="res://resources/upgrades/farm_p2_t2.tres" id="9_p2t2"]
+[ext_resource type="Resource" uid="uid://farm_p2_t3" path="res://resources/upgrades/farm_p2_t3.tres" id="10_p2t3"]
+[ext_resource type="Resource" uid="uid://farm_p2_t4" path="res://resources/upgrades/farm_p2_t4.tres" id="11_p2t4"]
+[ext_resource type="Resource" uid="uid://farm_p2_t5" path="res://resources/upgrades/farm_p2_t5.tres" id="12_p2t5"]
+
+[ext_resource type="Resource" uid="uid://farm_p3_t1" path="res://resources/upgrades/farm_p3_t1.tres" id="13_p3t1"]
+[ext_resource type="Resource" uid="uid://farm_p3_t2" path="res://resources/upgrades/farm_p3_t2.tres" id="14_p3t2"]
+[ext_resource type="Resource" uid="uid://farm_p3_t3" path="res://resources/upgrades/farm_p3_t3.tres" id="15_p3t3"]
+[ext_resource type="Resource" uid="uid://farm_p3_t4" path="res://resources/upgrades/farm_p3_t4.tres" id="16_p3t4"]
+[ext_resource type="Resource" uid="uid://farm_p3_t5" path="res://resources/upgrades/farm_p3_t5.tres" id="17_p3t5"]
+
+[resource]
+script = ExtResource("1_tower_data")
+tower_id = "banana_farm"
+tower_name = "Granja de Bananas"
+description = "Genera dinero con el tiempo. Fundamental para la economía."
+cost = 1000
+attack_cooldown = 2.0
+range_radius = 50.0
+damage = 0
+pierce = 0
+projectile_speed = 0.0
+tower_texture = ExtResource("2_icon")
+damage_type = 0
+is_radial_shooter = false
+is_hitscan = false
+is_farm = true
+base_gold_generation = 20
+allowed_terrain = 0
+can_see_camo = false
+path_1_upgrades = Array[Resource]([ExtResource("3_p1t1"), ExtResource("4_p1t2"), ExtResource("5_p1t3"), ExtResource("6_p1t4"), ExtResource("7_p1t5")])
+path_2_upgrades = Array[Resource]([ExtResource("8_p2t1"), ExtResource("9_p2t2"), ExtResource("10_p2t3"), ExtResource("11_p2t4"), ExtResource("12_p2t5")])
+path_3_upgrades = Array[Resource]([ExtResource("13_p3t1"), ExtResource("14_p3t2"), ExtResource("15_p3t3"), ExtResource("16_p3t4"), ExtResource("17_p3t5")])

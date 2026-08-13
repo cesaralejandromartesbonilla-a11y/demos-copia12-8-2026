@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bi278oxlu6oee"]
+
+[ext_resource type="Script" uid="uid://dirviora6j0so" path="res://scripts_car/EnsambladorBootstrapper.gd" id="6_rc121"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_uyhl0"]
+
+[node name="Construccion" type="Node3D" unique_id=1056305508]
+
+[node name="EnsambladorBootstrapper" type="Node3D" parent="." unique_id=575884123]
+script = ExtResource("6_rc121")
+congelar_larguero_diagnostico = false
+
+[node name="suelo" type="StaticBody3D" parent="." unique_id=812579370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="suelo" unique_id=447314181]
+shape = SubResource("WorldBoundaryShape3D_uyhl0")

@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://bsxysefjvdyy5"]
+
+[ext_resource type="Script" uid="uid://cvemq7wv6pps3" path="res://ecenas/mesas/crafting_table.gd" id="1_novsc"]
+[ext_resource type="Script" uid="uid://scm4ghxgsjo0" path="res://ecenas/scripts_modulos/inventory_component.gd" id="1_oemgy"]
+[ext_resource type="Script" uid="uid://hgkjb15f0rad" path="res://ecenas/scripts_modulos/burner_component.gd" id="2_im8m0"]
+[ext_resource type="Script" uid="uid://bgxcbs4vbbqp2" path="res://scripts de recursos/RecipeData.gd" id="2_tcrpu"]
+[ext_resource type="Resource" uid="uid://bykcxvv5al08l" path="res://items/data/recipe/bread.tres" id="3_lmuhm"]
+[ext_resource type="Script" uid="uid://cw3ffmom8r6oq" path="res://ecenas/scripts_modulos/processor_component.gd" id="3_mrwbf"]
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="3_tcrpu"]
+[ext_resource type="Script" uid="uid://d2ws72ey5lu2p" path="res://ecenas/scripts_modulos/physical_drop_zone.gd" id="4_f2r0v"]
+[ext_resource type="Resource" uid="uid://ch02rp6blxgdf" path="res://items/data/consumable/refined/flour.tres" id="4_lmuhm"]
+[ext_resource type="Resource" uid="uid://be4q7gs0gebmf" path="res://items/data/consumable/refined/bread.tres" id="5_hckng"]
+
+[sub_resource type="Resource" id="Resource_j5wbp"]
+script = ExtResource("2_tcrpu")
+recipe_name = "pan"
+required_items = Array[ExtResource("3_tcrpu")]([ExtResource("4_lmuhm")])
+result_item = ExtResource("5_hckng")
+metadata/_custom_type_script = "uid://bgxcbs4vbbqp2"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oemgy"]
+size = Vector3(1, 0.7, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_novsc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pghyf"]
+flip_faces = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_novsc"]
+flip_faces = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tcrpu"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lmuhm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hckng"]
+lightmap_size_hint = Vector2i(17, 19)
+flip_faces = true
+height = 2.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j5wbp"]
+size = Vector3(1, 1.9, 1)
+
+[node name="furnace" type="Area3D" unique_id=583080248]
+script = ExtResource("1_novsc")
+available_recipes = Array[ExtResource("2_tcrpu")]([SubResource("Resource_j5wbp")])
+machine_name = "horno"
+
+[node name="InputInventory" type="Node" parent="." unique_id=1002509918]
+script = ExtResource("1_oemgy")
+player_can_extract = false
+metadata/_custom_type_script = "uid://scm4ghxgsjo0"
+
+[node name="FuelInventory" type="Node" parent="." unique_id=674972211]
+script = ExtResource("1_oemgy")
+allowed_categories = Array[String](["combustible"])
+metadata/_custom_type_script = "uid://scm4ghxgsjo0"
+
+[node name="OutputInventory" type="Node" parent="." unique_id=1614958145]
+script = ExtResource("1_oemgy")
+player_can_insert = false
+metadata/_custom_type_script = "uid://scm4ghxgsjo0"
+
+[node name="BurnerComponent" type="Node" parent="." unique_id=1565256507]
+script = ExtResource("2_im8m0")
+metadata/_custom_type_script = "uid://hgkjb15f0rad"
+
+[node name="ProcessorComponent" type="Node" parent="." unique_id=1014115380 node_paths=PackedStringArray("input_inv", "fuel_inv", "output_inv", "burner")]
+script = ExtResource("3_mrwbf")
+input_inv = NodePath("../InputInventory")
+fuel_inv = NodePath("../FuelInventory")
+output_inv = NodePath("../OutputInventory")
+burner = NodePath("../BurnerComponent")
+recipes = Array[ExtResource("2_tcrpu")]([ExtResource("3_lmuhm")])
+metadata/_custom_type_script = "uid://cw3ffmom8r6oq"
+
+[node name="PhysicalDropZoneinput" type="Area3D" parent="." unique_id=1011940101 node_paths=PackedStringArray("target_inventory")]
+script = ExtResource("4_f2r0v")
+target_inventory = NodePath("../InputInventory")
+metadata/_custom_type_script = "uid://d2ws72ey5lu2p"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicalDropZoneinput" unique_id=1002764489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.85, 0)
+shape = SubResource("BoxShape3D_oemgy")
+
+[node name="PhysicalDropZonefuel" type="Area3D" parent="." unique_id=168701884 node_paths=PackedStringArray("target_inventory")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.1, 0, 0)
+script = ExtResource("4_f2r0v")
+target_inventory = NodePath("../FuelInventory")
+metadata/_custom_type_script = "uid://d2ws72ey5lu2p"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PhysicalDropZonefuel" unique_id=756898846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, -1.7763568e-15)
+shape = SubResource("BoxShape3D_oemgy")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=709293742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1803112193]
+mesh = SubResource("BoxMesh_novsc")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=625599269]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.6, 0, 0)
+mesh = SubResource("BoxMesh_pghyf")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=339323898]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -0.1, 0.4, 0)
+mesh = SubResource("CapsuleMesh_novsc")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1815117478]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, -0.1, 0.4, 0)
+mesh = SubResource("CapsuleMesh_tcrpu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=637029941]
+transform = Transform3D(-2.2292808e-08, -0.3, 0, 0.51, -1.3113417e-08, 0, 0, 0, 0.51, 0.2, 0.7, 0)
+mesh = SubResource("CylinderMesh_lmuhm")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=606315231]
+transform = Transform3D(-2.1855694e-08, -0.3, 0, 0.5, -1.3113417e-08, 0, 0, 0, 0.5, 0.20000002, 0.7, 0)
+mesh = SubResource("CylinderMesh_hckng")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1896492776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100000024, 0.45, 0)
+shape = SubResource("BoxShape3D_j5wbp")

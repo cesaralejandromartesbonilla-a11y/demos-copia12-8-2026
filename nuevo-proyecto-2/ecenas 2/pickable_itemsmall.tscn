@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjmgc878dhyo"]
+
+[ext_resource type="Script" uid="uid://blqelpgav0fvh" path="res://ecenas 2/pickable_item.gd" id="1_ckheu"]
+[ext_resource type="Script" uid="uid://cg5o1n0gcvrar" path="res://pickable_item.gd" id="1_n2oe7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy5b1"]
+size = Vector3(2.1659698, 2.0924072, 2.0983276)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n2oe7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n2oe7"]
+size = Vector3(0.5028076, 0.5031738, 0.5007324)
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["small_items"]]
+script = ExtResource("1_ckheu")
+
+[node name="PickableItemsmall" type="Area3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_n2oe7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickableItemsmall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07778931, -0.060791016, -0.002319336)
+shape = SubResource("BoxShape3D_yy5b1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_n2oe7")
+skeleton = NodePath("../PickableItemsmall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017700195, -0.00012207031, 0.0028076172)
+shape = SubResource("BoxShape3D_n2oe7")

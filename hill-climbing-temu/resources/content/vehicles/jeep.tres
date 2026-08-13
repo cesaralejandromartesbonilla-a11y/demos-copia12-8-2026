@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="VehicleDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/content/vehicle_def.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "jeep"
+display_name = "Jeep"
+description = "Vehículo equilibrado. Ideal para empezar."
+scene_path = "res://scenes/game/vehicle.tscn"
+stats_path = "res://resources/vehicle_stats.tres"
+unlock_cost = 0
+preview_color = Color(0.85, 0.25, 0.2, 1)
+available = true

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BloonData" format=3 uid="uid://21ojfwwyggtt"]
+
+[ext_resource type="Script" uid="uid://che2h3n7pduco" path="res://src/resources/bloon_data.gd" id="1_script"]
+[ext_resource type="Resource" uid="uid://dbq4kc27wujdy" path="res://resources/bloons/ceramic_bloon.tres" id="2_ceramic"]
+[ext_resource type="Texture2D" uid="uid://bmmvi7qhvb6sm" path="res://icon.svg" id="3_icon"]
+
+[resource]
+script = ExtResource("1_script")
+children_on_pop = Array[ExtResource("1_script")]([ExtResource("2_ceramic")])
+children_count = 4
+bloon_id = "moab"
+speed = 40.0
+health = 200
+reward_money = 100
+bloon_texture = ExtResource("3_icon")
+scale_multiplier = 3.0
+color_tint = Color(0.2, 0.4, 0.9, 1)

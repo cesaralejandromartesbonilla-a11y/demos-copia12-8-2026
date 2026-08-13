@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dip4woprjpgoe"]
+
+[ext_resource type="Script" uid="uid://bcjra7k2yo56i" path="res://ecenas/parcela/crop_segment_3d.gd" id="1_kqmg2"]
+[ext_resource type="Resource" uid="uid://barad038s87v4" path="res://items/data/seeds/item/arbol_manzana.tres" id="2_3wadk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqmg2"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cq1f1"]
+material = SubResource("StandardMaterial3D_kqmg2")
+
+[node name="hojas" type="Node3D" unique_id=1688448564]
+script = ExtResource("1_kqmg2")
+type = 2
+variant_index = 1
+item_recompensa_especifico = ExtResource("2_3wadk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1592207932]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_cq1f1")

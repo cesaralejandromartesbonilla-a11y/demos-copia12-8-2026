@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://biaeydtpvsjhu"]
+
+[ext_resource type="Script" uid="uid://b5unylbyp3ia8" path="res://ecenas/scripts_modulos/motor_rotativo.gd" id="1_0g4t7"]
+[ext_resource type="Script" uid="uid://cw3ffmom8r6oq" path="res://ecenas/scripts_modulos/processor_component.gd" id="2_sljns"]
+[ext_resource type="Script" uid="uid://cl8ltbn6xfvud" path="res://ecenas/scripts_modulos/PowerReceiverComponent.gd" id="3_ls2g7"]
+[ext_resource type="Script" uid="uid://bc1fro2b5ocus" path="res://ecenas/scripts_modulos/logic_receiver_component.gd" id="4_1mbmd"]
+[ext_resource type="Script" uid="uid://dla70xlsjjqpl" path="res://ecenas/scripts_modulos/machine_connector.gd" id="4_6memt"]
+[ext_resource type="Material" uid="uid://d3aao274f01mx" path="res://materiales/wire.tres" id="5_es0lb"]
+[ext_resource type="Material" uid="uid://b4wodka5j2gpm" path="res://materiales/machine_conector.tres" id="7_ii8ka"]
+[ext_resource type="Script" uid="uid://8rwed126oa2l" path="res://ecenas/scripts_modulos/LogicConnector.gd" id="7_yowjl"]
+[ext_resource type="Material" uid="uid://volhx16orw7k" path="res://materiales/wire_logic.tres" id="8_ii8ka"]
+[ext_resource type="Material" uid="uid://bkv4gwax4hp57" path="res://materiales/logic_conector.tres" id="10_yu3ur"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7kgxd"]
+height = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ls2g7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6memt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_es0lb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yowjl"]
+material = ExtResource("7_ii8ka")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yowjl"]
+radius = 0.25341797
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ii8ka"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yu3ur"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yu3ur"]
+material = ExtResource("10_yu3ur")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8k3s6"]
+radius = 0.25341797
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hlemj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1kvyt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ls2g7"]
+
+[node name="MotorRotativo" type="Area3D" unique_id=1869908015]
+script = ExtResource("1_0g4t7")
+
+[node name="ProcessorComponent" type="Node" parent="." unique_id=1635686962 node_paths=PackedStringArray("power_receiver")]
+script = ExtResource("2_sljns")
+power_receiver = NodePath("../PowerReceiverComponent")
+fuel_mode = 0
+power_mode = 2
+metadata/_custom_type_script = "uid://cw3ffmom8r6oq"
+
+[node name="PowerReceiverComponent" type="Node" parent="." unique_id=506352867]
+script = ExtResource("3_ls2g7")
+metadata/_custom_type_script = "uid://cl8ltbn6xfvud"
+
+[node name="LogicReceiverComponent" type="Node" parent="." unique_id=556427112 node_paths=PackedStringArray("processor")]
+script = ExtResource("4_1mbmd")
+processor = NodePath("../ProcessorComponent")
+metadata/_custom_type_script = "uid://bc1fro2b5ocus"
+
+[node name="Base" type="RigidBody3D" parent="." unique_id=1165759441]
+mass = 1000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base" unique_id=1770862765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9802322e-08, 0)
+shape = SubResource("CylinderShape3D_7kgxd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Base" unique_id=65637156]
+transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ls2g7")
+
+[node name="Rotor" type="RigidBody3D" parent="." unique_id=1940858953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rotor" unique_id=926376493]
+shape = SubResource("BoxShape3D_6memt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rotor" unique_id=387138274]
+mesh = SubResource("BoxMesh_es0lb")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." unique_id=246811022]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.5, 0)
+node_a = NodePath("../Rotor")
+node_b = NodePath("../Base")
+
+[node name="machineconector" type="StaticBody3D" parent="." unique_id=1601043764 node_paths=PackedStringArray("receiver_component", "connection_point", "state_light_mesh", "highlight_mesh")]
+script = ExtResource("4_6memt")
+receiver_component = NodePath("../PowerReceiverComponent")
+cable_material = ExtResource("5_es0lb")
+connection_point = NodePath("Marker3D")
+state_light_mesh = NodePath("luz")
+highlight_mesh = NodePath("MeshInstance3D2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="machineconector" unique_id=1158316950]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -0.8, 0.7, 0.7)
+mesh = SubResource("CylinderMesh_yowjl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="machineconector" unique_id=554742219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.7, 0.7)
+shape = SubResource("CylinderShape3D_yowjl")
+
+[node name="Marker3D" type="Marker3D" parent="machineconector" unique_id=1286345846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 1.8, 0.7)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="machineconector" unique_id=391540231]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.8, 2.1, 0.7)
+mesh = SubResource("CylinderMesh_ii8ka")
+
+[node name="luz" type="MeshInstance3D" parent="machineconector" unique_id=515654136]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.8, 1.8999999, 0.7)
+mesh = SubResource("CapsuleMesh_yu3ur")
+
+[node name="logiconector" type="StaticBody3D" parent="." unique_id=1796875933 node_paths=PackedStringArray("receiver_component", "connection_point", "state_light_mesh", "highlight_mesh")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("7_yowjl")
+receiver_component = NodePath("../LogicReceiverComponent")
+cable_material = ExtResource("8_ii8ka")
+connection_point = NodePath("Marker3D")
+state_light_mesh = NodePath("luz")
+highlight_mesh = NodePath("MeshInstance3D2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="logiconector" unique_id=1614335824]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -0.8, 0.7, 0.7)
+mesh = SubResource("CylinderMesh_yu3ur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="logiconector" unique_id=1532200234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.7, 0.7)
+shape = SubResource("CylinderShape3D_8k3s6")
+
+[node name="Marker3D" type="Marker3D" parent="logiconector" unique_id=1957289388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 1.8, 0.7)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="logiconector" unique_id=1563892910]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.8, 2.1, 0.7)
+mesh = SubResource("CylinderMesh_hlemj")
+
+[node name="luz" type="MeshInstance3D" parent="logiconector" unique_id=759064758]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.8, 1.8999999, 0.7)
+mesh = SubResource("CapsuleMesh_1kvyt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=745059815]
+shape = SubResource("BoxShape3D_ls2g7")

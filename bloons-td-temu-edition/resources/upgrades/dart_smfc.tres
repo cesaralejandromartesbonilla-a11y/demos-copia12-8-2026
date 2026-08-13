@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dart_smfc04"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Super Monkey Fan Club"
+description = "Habilidad Activa: Transforma monos dardo cercanos en Super Monos por 10 segundos."
+cost = 3000
+cooldown_multiplier = 0.5
+range_bonus = 0.0
+damage_bonus = 2
+pierce_bonus = 2
+grant_camo = false
+change_damage_type = 0
+extra_projectiles = 2
+spread_angle = 45.0
+has_active_ability = true
+ability_name = "Fan Club"
+ability_description = "Activa el Super Monkey Fan Club durante 10 segundos."
+ability_duration = 10.0
+ability_cooldown = 60.0

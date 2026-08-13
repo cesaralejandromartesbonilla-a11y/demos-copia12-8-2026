@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=3 uid="uid://q8rh5bpm8btm"]
+
+[ext_resource type="Script" uid="uid://b81vwo060f1ww" path="res://creatures/scripts of creatures/creature_controller.gd" id="1_c86x2"]
+[ext_resource type="Script" uid="uid://dsqbwl28ywklb" path="res://creatures/scrpt modules/effect_manager.gd" id="2_c86x2"]
+[ext_resource type="Script" uid="uid://b31r1yj7utd6v" path="res://creatures/scrpt modules/survival_manager.gd" id="3_a3xlo"]
+[ext_resource type="Script" uid="uid://f5ut6m5076ky" path="res://creatures/scrpt modules/ability_manager.gd" id="3_tpmhu"]
+[ext_resource type="Script" uid="uid://dgds2y4pk25mv" path="res://creatures/scrpt modules/interaction_manager.gd" id="4_2bjl5"]
+[ext_resource type="Script" uid="uid://corr1t2235mox" path="res://creatures/scrpt modules/level_manager.gd" id="6_q3s1y"]
+[ext_resource type="Script" uid="uid://dislycohqex4x" path="res://creatures/scrpt modules/evolution_manager.gd" id="7_ml2bn"]
+[ext_resource type="Script" uid="uid://ccpgmaj6aogfa" path="res://creatures/scrpt modules/stat_scaler.gd" id="8_djoc8"]
+[ext_resource type="Script" uid="uid://cxgohrlgfh2iy" path="res://creatures/scrpt modules/combat_manager.gd" id="9_baah7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvelp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcih4"]
+radius = 1.4961382
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqoqs"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cvelp"]
+material = SubResource("StandardMaterial3D_sqoqs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c86x2"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a3xlo"]
+material = SubResource("StandardMaterial3D_c86x2")
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_c86x2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_cvelp")
+
+[node name="InteractionManager" type="Area3D" parent="."]
+script = ExtResource("4_2bjl5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionManager"]
+shape = SubResource("SphereShape3D_hcih4")
+
+[node name="AbilityManager" type="Node" parent="."]
+script = ExtResource("3_tpmhu")
+equipped_abilities = Array[PackedScene]([null])
+
+[node name="SurvivalManager" type="Node" parent="."]
+script = ExtResource("3_a3xlo")
+
+[node name="effect_manager" type="Node" parent="."]
+script = ExtResource("2_c86x2")
+immunities = Array[String](["burn"])
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("6_q3s1y")
+xp_requirement_base = 50.0
+
+[node name="EvolutionManager" type="Node" parent="."]
+script = ExtResource("7_ml2bn")
+
+[node name="StatScaler" type="Node" parent="."]
+script = ExtResource("8_djoc8")
+start_speed = 0.8
+end_health = 1500.0
+end_damage = 300.0
+end_speed = 3.0
+end_energy = 300.0
+
+[node name="CombatManager" type="Node" parent="."]
+script = ExtResource("9_baah7")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+spring_length = 5.0
+margin = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_cvelp")
+
+[node name="FireParticles3D" type="CPUParticles3D" parent="."]
+visible = false
+amount = 4
+mesh = SubResource("BoxMesh_a3xlo")
+gravity = Vector3(0, 1, 0)
+linear_accel_max = 2.0
+angle_max = 90.0
+scale_amount_min = 0.5
+
+[node name="ModelHolder" type="Node3D" parent="."]

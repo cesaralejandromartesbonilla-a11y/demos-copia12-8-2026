@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bkxmwcwes007e"]
+
+[ext_resource type="Script" uid="uid://bmx151dtsctwf" path="res://slime_test/test/simple_body.gd" id="1_b8nbr"]
+
+[node name="SpawnedCreature" type="CharacterBody3D" unique_id=1860562974]
+script = ExtResource("1_b8nbr")
+is_player_controlled = true

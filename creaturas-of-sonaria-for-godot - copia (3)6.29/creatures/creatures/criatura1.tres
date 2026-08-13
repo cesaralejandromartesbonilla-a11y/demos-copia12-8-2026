@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=13 format=3 uid="uid://igt0xx50hjs3"]
+
+[ext_resource type="Script" uid="uid://bo75guvl3khwr" path="res://scripts de recursos/creature_data.gd" id="1_dm4cl"]
+[ext_resource type="Script" uid="uid://dm0pb2oskd8jo" path="res://scripts de recursos/evolution_stage.gd" id="1_nie5v"]
+[ext_resource type="PackedScene" uid="uid://cr5e7k7fsccet" path="res://habilidades/fireball.tscn" id="2_m3knn"]
+[ext_resource type="PackedScene" uid="uid://c36hk3s3s5can" path="res://models/firts_model1.tscn" id="2_qb7wr"]
+[ext_resource type="PackedScene" uid="uid://5qjx05un0gld" path="res://habilidades/heal_area.tscn" id="3_m5m3k"]
+[ext_resource type="PackedScene" uid="uid://bjwilgncioy4k" path="res://models/second_model2.tscn" id="3_spu8c"]
+[ext_resource type="PackedScene" uid="uid://cqiouhmhg7s4j" path="res://models/trhe_model1.tscn" id="4_dfhpu"]
+[ext_resource type="Script" uid="uid://cvaxbbxmeo50m" path="res://scripts de recursos/BlueprintData.gd" id="5_m5m3k"]
+[ext_resource type="Texture2D" uid="uid://2ik48eqwp8o8" path="res://icon.svg" id="5_spu8c"]
+
+[sub_resource type="Resource" id="Resource_m3knn"]
+script = ExtResource("1_nie5v")
+model_scene = ExtResource("2_qb7wr")
+granted_abilities = Array[PackedScene]([ExtResource("2_m3knn"), ExtResource("3_m5m3k")])
+can_swim = true
+can_fly = true
+metadata/_custom_type_script = "uid://dm0pb2oskd8jo"
+
+[sub_resource type="Resource" id="Resource_m5m3k"]
+script = ExtResource("1_nie5v")
+model_scene = ExtResource("3_spu8c")
+required_level = 2
+required_age_minutes = 3.0
+metadata/_custom_type_script = "uid://dm0pb2oskd8jo"
+
+[sub_resource type="Resource" id="Resource_p285o"]
+script = ExtResource("1_nie5v")
+model_scene = ExtResource("4_dfhpu")
+required_level = 2
+required_age_minutes = 5.0
+metadata/_custom_type_script = "uid://dm0pb2oskd8jo"
+
+[resource]
+script = ExtResource("1_dm4cl")
+creature_name = "Nueva Criatura1"
+icon = ExtResource("5_spu8c")
+evolution_stages = Array[ExtResource("1_nie5v")]([SubResource("Resource_m3knn"), SubResource("Resource_m5m3k"), SubResource("Resource_p285o")])
+creature_scene_path = "uid://q8rh5bpm8btm"
+diet = 0
+metadata/_custom_type_script = "uid://bo75guvl3khwr"

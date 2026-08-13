@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpawnGroup" format=3 uid="uid://dtqyb4ywb4o70"]
+
+[ext_resource type="Resource" uid="uid://dyfd6hern8nyx" path="res://resources/bloons/rainbow_bloon.tres" id="1_cnua5"]
+[ext_resource type="Script" uid="uid://pees5gv7bhvd" path="res://src/resources/spawn_group.gd" id="4_so323"]
+
+[resource]
+script = ExtResource("4_so323")
+bloon_type = ExtResource("1_cnua5")
+metadata/_custom_type_script = "uid://pees5gv7bhvd"

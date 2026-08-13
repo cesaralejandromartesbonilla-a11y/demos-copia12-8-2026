@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfn6a51wqvoic"]
+
+[ext_resource type="Script" uid="uid://cxnllo8hkfoav" path="res://AccesorioBase.gd" id="1_cmsk4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i7x6v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xu82"]
+size = Vector3(1.9884033, 0.017593384, 1.9951172)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ydye4"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_cmsk4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("PlaneMesh_i7x6v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.013301462, -9.053573e-05, 0.0034179688)
+shape = SubResource("BoxShape3D_5xu82")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 1, 0, 0, 0, 0.05, 0, 0.9847239, 0)
+mesh = SubResource("CylinderMesh_ydye4")

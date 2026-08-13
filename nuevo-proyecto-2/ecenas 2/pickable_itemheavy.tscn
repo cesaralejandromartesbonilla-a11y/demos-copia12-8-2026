@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://banxjmueceguk"]
+
+[ext_resource type="Script" uid="uid://cg5o1n0gcvrar" path="res://pickable_item.gd" id="1_87kt3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy5b1"]
+size = Vector3(2.1659698, 2.0924072, 2.0983276)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n2oe7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_87kt3"]
+size = Vector3(1.9848022, 1.9624023, 1.979248)
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["heavy_items"]]
+
+[node name="PickableItemheavy" type="Area3D" parent="."]
+script = ExtResource("1_87kt3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickableItemheavy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002784729, -0.005554199, 0.019683838)
+shape = SubResource("BoxShape3D_yy5b1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_n2oe7")
+skeleton = NodePath("../PickableItemheavy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014007568, -0.008544922, -0.00012207031)
+shape = SubResource("BoxShape3D_87kt3")

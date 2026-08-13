@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ConfiguracionRueda" format=3 uid="uid://c6on4xm4uqet5"]
+
+[ext_resource type="Script" uid="uid://inibxmc8xxrw" path="res://vehicles/scripts de recursos/configuracion_rueda.gd" id="1_eu8os"]
+
+[sub_resource type="Curve" id="Curve_eu8os"]
+_data = [Vector2(0, 0.49690396), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[resource]
+script = ExtResource("1_eu8os")
+masa_soportada_kg = 1000.0
+curva_agarre = SubResource("Curve_eu8os")

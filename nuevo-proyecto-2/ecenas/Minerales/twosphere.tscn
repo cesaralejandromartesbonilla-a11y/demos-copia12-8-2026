@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgcyuln8ocwj0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_b57xh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ppqib"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_b57xh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ppqib")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6718478, 0)
+mesh = SubResource("SphereMesh_b57xh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6776521, 0)
+shape = SubResource("SphereShape3D_ppqib")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://farm_p2_t1"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Cosecha rápida"
+description = "Acelera la generación un 15%"
+cost = 250
+cooldown_multiplier = 0.85

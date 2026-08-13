@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://tack_p2_t4"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Maelstrom"
+description = "Habilidad Activa: Dispara sierras a 360 grados sin parar durante 3 segundos."
+cost = 2700
+cooldown_multiplier = 1.0
+range_bonus = 0.0
+damage_bonus = 0
+pierce_bonus = 0
+grant_camo = false
+change_damage_type = 0
+has_active_ability = true
+ability_name = "Maelstrom"
+ability_cooldown = 45.0
+ability_duration = 3.0

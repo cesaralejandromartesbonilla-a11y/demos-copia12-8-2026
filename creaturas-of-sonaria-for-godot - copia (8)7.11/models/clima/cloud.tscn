@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://brv3x7p0knhmi"]
+
+[ext_resource type="Script" uid="uid://bnbyvolkg7paq" path="res://models/clima/WeatherEntity.gd" id="1_dm4rg"]
+[ext_resource type="PackedScene" uid="uid://hwmegb380hom" path="res://models/clima/tornado.tscn" id="2_jrph0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dh4y"]
+albedo_color = Color(0.5370113, 0.5370113, 0.5370112, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dm4rg"]
+material = SubResource("StandardMaterial3D_1dh4y")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dm4rg"]
+size = Vector3(21, 21, 21)
+
+[node name="WeatherEntity" type="Area3D" groups=["weather_entity"]]
+script = ExtResource("1_dm4rg")
+tornado_scene = ExtResource("2_jrph0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(21, 0, 0, 0, 3, 0, 0, 0, 21, 0, 9, 0)
+mesh = SubResource("BoxMesh_dm4rg")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dm4rg")

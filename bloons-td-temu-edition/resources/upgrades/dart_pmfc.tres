@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dart_pmfc05"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Plasma Monkey Fan Club"
+description = "Habilidad Activa: Fan Club mejorado con proyectiles de plasma que ignoran inmunidades."
+cost = 15000
+cooldown_multiplier = 0.3
+range_bonus = 20.0
+damage_bonus = 5
+pierce_bonus = 5
+grant_camo = true
+change_damage_type = 2
+extra_projectiles = 4
+spread_angle = 60.0
+has_active_ability = true
+ability_name = "Plasma Fan Club"
+ability_description = "Plasma devastador durante 15 segundos. Ignora armadura."
+ability_duration = 15.0
+ability_cooldown = 45.0

@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnx8dyl2ac58n"]
+
+[ext_resource type="Script" uid="uid://bhgnfux23hpa7" path="res://main_menu.gd" id="1_4mpwq"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4mpwq")
+world_scene_path = "uid://csrxj5kbrd274"
+creature_select_path = "uid://csa0kjic3go0k"
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 597
+theme_override_constants/margin_bottom = 273
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(505, 325)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "creaturas of temu"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+
+[node name="CreaturesButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "CRIATURAS"
+
+[node name="CreaturesButton2" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "TIENDAS DE CRIATURAS"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "AJUSTES"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "SALIR"
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+
+[node name="delet" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "no tocar esto borra todos tus datos"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/delet" to="." method="_on_delet_pressed"]

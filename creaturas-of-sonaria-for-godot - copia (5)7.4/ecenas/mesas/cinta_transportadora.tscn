@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d3c6kf73kh83a"]
+
+[ext_resource type="Script" uid="uid://d0ax6ehp8j07" path="res://ecenas/scripts_modulos/cinta_transportadora.gd" id="1_uksi3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ij3d"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uksi3"]
+
+[sub_resource type="Curve" id="Curve_2ij3d"]
+_data = [Vector2(0, 0), 0.0, 3.5977726, 0, 0, Vector2(0.3962848, 1), 2.8982058, 0.0, 0, 0, Vector2(0.4272445, 0.14727724), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uksi3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_hx7nw"]
+material = SubResource("StandardMaterial3D_uksi3")
+shape = 0
+curve = SubResource("Curve_2ij3d")
+
+[node name="CintaTransportadora" type="StaticBody3D" unique_id=517451716]
+script = ExtResource("1_uksi3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1530398436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14999998, 0)
+shape = SubResource("BoxShape3D_2ij3d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=451062248]
+transform = Transform3D(1, 0, 0, 0, 0.55, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_uksi3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=408131974]
+transform = Transform3D(1, 7.1054274e-15, 4.371139e-08, -4.371139e-08, 1.9106855e-15, 1, 7.1054274e-15, -1, 1.9106855e-15, 0, 0.11769457, 0)
+mesh = SubResource("RibbonTrailMesh_hx7nw")

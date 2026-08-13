@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bpv7vmanycrjw"]
+
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="2_bquuq"]
+[ext_resource type="Resource" uid="uid://de7mm5aid4k0y" path="res://items/data/seeds/seedata/semilla_trigo.tres" id="2_bvrir"]
+
+[sub_resource type="Curve" id="Curve_qhfca"]
+_data = [Vector2(0.08645533, 0), 0.0, 0.0, 0, 0, Vector2(0.08933717, 0.82272726), 0.0, 0.0, 0, 0, Vector2(0.3775216, 1), 0.7619934, 0.7619934, 0, 0, Vector2(0.99999, 0.87443185), -2.097055, -2.097055, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyg1w"]
+albedo_color = Color(0.76862746, 0.47843137, 0, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_3bw2h"]
+material = SubResource("StandardMaterial3D_qyg1w")
+curve = SubResource("Curve_qhfca")
+
+[resource]
+script = ExtResource("2_bquuq")
+item_name = "semilla de trigo"
+item_mesh = SubResource("TubeTrailMesh_3bw2h")
+seed_data = ExtResource("2_bvrir")
+compost_value = 5.0
+metadata/_custom_type_script = "uid://pn1ld58jj7o2"

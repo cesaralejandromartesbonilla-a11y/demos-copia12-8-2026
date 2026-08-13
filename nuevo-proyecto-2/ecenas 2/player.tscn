@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccnee5xhisn5e"]
+
+[ext_resource type="Script" uid="uid://diuknp8ey3n5x" path="res://player.gd" id="1_2snae"]
+[ext_resource type="PackedScene" uid="uid://b7j4udydxs8l4" path="res://ecenas 2/slot.tscn" id="2_cmg8e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cmg8e"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j0ugj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q6pgx"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("tool_model")]
+script = ExtResource("1_2snae")
+tool_model = NodePath("Visuals/Mochila")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_cmg8e")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
+mesh = SubResource("CapsuleMesh_j0ugj")
+
+[node name="Mochila" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.169, 0.2)
+mesh = SubResource("BoxMesh_q6pgx")
+
+[node name="Slot2" parent="Visuals" instance=ExtResource("2_cmg8e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.3, -0.12456824, 0.9)
+
+[node name="Slot" parent="Visuals" instance=ExtResource("2_cmg8e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.3, -0.12456824, 0.9)
+
+[node name="Slot3" parent="Visuals" instance=ExtResource("2_cmg8e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.3, 0.124538735, 0.9)
+
+[node name="Slot4" parent="Visuals" instance=ExtResource("2_cmg8e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.3, 0.124538735, 0.9)
+
+[node name="Slot5" parent="Visuals" instance=ExtResource("2_cmg8e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.3, 0.35758203, 0.9)
+
+[node name="Slot6" parent="Visuals" instance=ExtResource("2_cmg8e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.3, 0.35758203, 0.9)
+
+[node name="Slot7" parent="Visuals" instance=ExtResource("2_cmg8e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.3, 0.606689, 0.9)
+
+[node name="Slot8" parent="Visuals" instance=ExtResource("2_cmg8e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.3, 0.606689, 0.9)
+
+[node name="CameraMount" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+spring_length = 6.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraMount/SpringArm3D"]
+
+[node name="VoxelViewer" type="VoxelViewer" parent="."]

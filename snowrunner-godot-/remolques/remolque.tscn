@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://be4ujlujxxmxb"]
+
+[ext_resource type="Script" uid="uid://bx1g7o0myq41k" path="res://scipts/remolque.gd" id="1_o4b5g"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2u2gk"]
+height = 0.2479248
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_weumf"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_tv03u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwntp"]
+size = Vector3(1, 0.053466797, 2.8638306)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o4b5g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2u2gk"]
+size = Vector3(0.5772705, 0.5477295, 0.55358887)
+
+[node name="VehicleBody3D" type="VehicleBody3D" groups=["remolques"]]
+script = ExtResource("1_o4b5g")
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1)
+suspension_stiffness = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleWheel3D3"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.035705566, 0)
+shape = SubResource("CylinderShape3D_2u2gk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D3"]
+transform = Transform3D(-4.371139e-08, -0.11, 0, 1, -4.808253e-09, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_weumf")
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1)
+suspension_stiffness = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleWheel3D4"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.035705566, 0)
+shape = SubResource("CylinderShape3D_2u2gk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheel3D4"]
+transform = Transform3D(-4.371139e-08, -0.11, 0, 1, -4.808253e-09, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_weumf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1.2523313e-07, 1, 0, -2.865, -4.371139e-08, 0, 0.2628367, -0.16697654)
+mesh = SubResource("QuadMesh_tv03u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25319314, -0.00015258789)
+shape = SubResource("BoxShape3D_gwntp")
+
+[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27713615, 1.8178048)
+
+[node name="PuntoPerno" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2972585, 1.8311714)
+
+[node name="PatasApoyo" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0, 0.08584714, 0.6946479)
+mesh = SubResource("BoxMesh_o4b5g")
+skeleton = NodePath("")
+
+[node name="PatasApoyo2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00091552734, 0.08688474, 0.69470894)
+shape = SubResource("BoxShape3D_2u2gk")

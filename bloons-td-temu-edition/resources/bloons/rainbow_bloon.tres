@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="BloonData" format=3 uid="uid://dyfd6hern8nyx"]
+
+[ext_resource type="Script" uid="uid://che2h3n7pduco" path="res://src/resources/bloon_data.gd" id="1_ykt13"]
+[ext_resource type="Resource" uid="uid://egfa5qeh36lr" path="res://resources/bloons/red_bloon.tres" id="2_07mp3"]
+[ext_resource type="Resource" uid="uid://uaavekslgdsy" path="res://resources/bloons/blue_bloon.tres" id="3_0f3ua"]
+
+[sub_resource type="Curve" id="Curve_noay2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_qf1fv"]
+_data = [Vector2(0, 0.35791612), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_pupvc"]
+_data = [Vector2(0.5033334, 0.47225982), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_op2i1"]
+curve_x = SubResource("Curve_noay2")
+curve_y = SubResource("Curve_qf1fv")
+curve_z = SubResource("Curve_pupvc")
+
+[resource]
+script = ExtResource("1_ykt13")
+children_on_pop = Array[ExtResource("1_ykt13")]([ExtResource("2_07mp3"), ExtResource("3_0f3ua")])
+children_count = 5
+bloon_id = "rainbow"
+health = 5
+reward_money = 200
+bloon_texture = SubResource("CurveXYZTexture_op2i1")
+is_camo = true
+metadata/_custom_type_script = "uid://che2h3n7pduco"

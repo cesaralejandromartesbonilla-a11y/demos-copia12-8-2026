@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dux3yl2jf3nug"]
+
+[ext_resource type="PackedScene" uid="uid://bmevcdsqawsfl" path="res://ecenas/grua de construccion.tscn" id="1_lo45t"]
+[ext_resource type="PackedScene" uid="uid://c66rjjkonmg2y" path="res://ecenas/Minerales/box.tscn" id="2_k5y4w"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k5y4w"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fb4jk"]
+
+[node name="Node" type="Node"]
+
+[node name="Grua" parent="." instance=ExtResource("1_lo45t")]
+velocidad_carrito = 0.8
+velocidad_cable = 5.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
+mesh = SubResource("PlaneMesh_k5y4w")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(23, 0, 0, 0, 23, 0, 0, 0, 23, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_fb4jk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8740607, 0.48581678, 0, -0.48581678, 0.8740607, 0, 46.254364, 42.984657)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5484684, 0.83617127, 0, -0.83617127, 0.5484684, 0, 0, 0)
+
+[node name="box" parent="." instance=ExtResource("2_k5y4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5902233, 12.394774)

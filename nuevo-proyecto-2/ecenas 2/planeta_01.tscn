@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp05dk5rst4xx"]
+
+[ext_resource type="Script" uid="uid://dnjdhupadc7wg" path="res://planeta_01.gd" id="1_g32lf"]
+[ext_resource type="VoxelGeneratorGraph" uid="uid://d1rar1bgoiqk5" path="res://ecenas 2/planeta_01.tres" id="1_pccf2"]
+
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_1484l"]
+
+[node name="Planeta_01" type="VoxelLodTerrain"]
+voxel_bounds = AABB(-512, -512, -512, 1024, 1024, 1024)
+lod_distance = 80.0
+generator = ExtResource("1_pccf2")
+mesher = SubResource("VoxelMesherTransvoxel_1484l")
+script = ExtResource("1_g32lf")

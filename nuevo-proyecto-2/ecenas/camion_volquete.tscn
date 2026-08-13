@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://chv4e405m5oyt"]
+
+[ext_resource type="Script" uid="uid://d2fpgtp0l4te2" path="res://ZonaCarga.gd" id="1_c7wlr"]
+[ext_resource type="PackedScene" uid="uid://soelbkfse7qm" path="res://ecenas/TierraFisica.tscn" id="2_7ur0f"]
+[ext_resource type="ArrayMesh" uid="uid://bqrwin8ccgptt" path="res://vehicles/meshes/wheel.res" id="3_y5sxc"]
+[ext_resource type="Texture2D" uid="uid://bju75l2w3r7vq" path="res://vehicles/blob_shadow.png" id="4_a10td"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xtjem"]
+size = Vector3(0.69628906, 0.5024414, 2.0267944)
+
+[sub_resource type="PrismMesh" id="PrismMesh_xtjem"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_anwny"]
+size = Vector3(0.10455322, 1.0908203, 4.17865)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5lj43"]
+
+[node name="camion volquete" type="VehicleBody3D" groups=["remolques"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1842539, -6.062912)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_c7wlr")
+tierra_escena = ExtResource("2_7ur0f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0009765625, 0.4975586, -0.06707764)
+shape = SubResource("BoxShape3D_xtjem")
+
+[node name="visual" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.1, 0, 0.4969082, 0)
+mesh = SubResource("PrismMesh_xtjem")
+
+[node name="PuntoDescarga" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28382516, -2.5936222)
+
+[node name="TWheel1" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 0, 1, 0.4460488, -0.31355906, -1.7240214)
+wheel_roll_influence = 0.4
+wheel_radius = 0.1
+wheel_friction_slip = 1.0
+suspension_stiffness = 28.0
+damping_compression = 0.88
+
+[node name="TWheel1" type="MeshInstance3D" parent="TWheel1"]
+layers = 2
+gi_mode = 2
+mesh = ExtResource("3_y5sxc")
+
+[node name="TWheel2" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 0, 1, 0.4460488, -0.31355906, -1)
+wheel_roll_influence = 0.4
+wheel_radius = 0.23
+wheel_friction_slip = 1.0
+suspension_stiffness = 28.0
+damping_compression = 0.88
+
+[node name="TWheel2" type="MeshInstance3D" parent="TWheel2"]
+layers = 2
+gi_mode = 2
+mesh = ExtResource("3_y5sxc")
+
+[node name="TWheel3" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 0, 1, -0.42665526, -0.31355906, -1)
+wheel_roll_influence = 0.4
+wheel_radius = 0.1
+wheel_friction_slip = 1.0
+suspension_stiffness = 28.0
+damping_compression = 0.88
+
+[node name="TWheel3" type="MeshInstance3D" parent="TWheel3"]
+layers = 2
+gi_mode = 2
+mesh = ExtResource("3_y5sxc")
+
+[node name="TWheel4" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 0, 1, -0.42665526, -0.31355906, -1.7155628)
+wheel_roll_influence = 0.4
+wheel_radius = 0.23
+wheel_friction_slip = 1.0
+suspension_stiffness = 20.0
+damping_compression = 0.88
+
+[node name="TWheel4" type="MeshInstance3D" parent="TWheel4"]
+layers = 2
+gi_mode = 2
+mesh = ExtResource("3_y5sxc")
+
+[node name="BlobShadow" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1212444)
+size = Vector3(1.6, 4, 1.8)
+texture_albedo = ExtResource("4_a10td")
+upper_fade = 2.0
+lower_fade = 1.0
+cull_mask = 1048573
+
+[node name="PuntoAcopleRemolque" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27903008, 1.8320618)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_anwny")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-7.430936e-09, -1.085, 0, 0.17, -4.742686e-08, 0, 0, 0, 4, 0, 0, 0)
+mesh = SubResource("BoxMesh_5lj43")
+skeleton = NodePath("")

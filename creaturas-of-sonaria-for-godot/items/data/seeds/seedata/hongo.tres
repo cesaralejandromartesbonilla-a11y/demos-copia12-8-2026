@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SeedData" format=3 uid="uid://df161fvl7xjx7"]
+
+[ext_resource type="Script" uid="uid://m1igiyj2iiu4" path="res://scripts de recursos/SeedData.gd" id="1_4s5w5"]
+[ext_resource type="Resource" uid="uid://mvw36sv7fmrp" path="res://items/data/consumable/manzana_data.tres" id="1_fr0gj"]
+[ext_resource type="Resource" uid="uid://b50x0ye7k456j" path="res://items/data/seeds/visuals/fungus.tres" id="3_yc052"]
+
+[resource]
+script = ExtResource("1_4s5w5")
+result_item_data = ExtResource("1_fr0gj")
+drop_amount = 2
+visual_data = ExtResource("3_yc052")
+crop_type = 0
+vulnerable_to_pests = false
+is_perennial = true
+retained_growth_ratio = 0.5
+metadata/_custom_type_script = "uid://m1igiyj2iiu4"

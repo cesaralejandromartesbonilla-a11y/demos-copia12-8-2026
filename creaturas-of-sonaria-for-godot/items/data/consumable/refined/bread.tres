@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://be4q7gs0gebmf"]
+
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="1_5me8s"]
+
+[sub_resource type="Curve" id="Curve_5me8s"]
+_data = [Vector2(0, 0.34261364), 0.0, 0.0, 0, 0, Vector2(0.18731987, 0.6897727), 0.0, 0.0, 0, 0, Vector2(0.4697406, 0.80056816), 0.0, 0.0, 0, 0, Vector2(0.75792503, 0.7340909), 0.0, 0.0, 0, 0, Vector2(1, 0.48295456), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_srfwg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_niers"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l7554"]
+noise = SubResource("FastNoiseLite_niers")
+color_ramp = SubResource("Gradient_srfwg")
+normalize = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bn7o"]
+albedo_color = Color(0.85490197, 0.5372549, 0.21960784, 1)
+normal_enabled = true
+normal_scale = 0.26
+normal_texture = SubResource("NoiseTexture2D_l7554")
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_lew2m"]
+material = SubResource("StandardMaterial3D_0bn7o")
+curve = SubResource("Curve_5me8s")
+
+[resource]
+script = ExtResource("1_5me8s")
+item_name = "pan"
+item_mesh = SubResource("TubeTrailMesh_lew2m")
+is_edible = true
+nutrition_value = 50.0
+compost_value = 15.0
+metadata/_custom_type_script = "uid://pn1ld58jj7o2"

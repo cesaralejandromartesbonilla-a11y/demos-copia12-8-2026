@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cm3k0q28xwrtj"]
+
+[ext_resource type="Script" uid="uid://cxabw6fvy4l" path="res://src/ui/main_menu.gd" id="1_menu"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.2, 1)
+
+[node name="LabelTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 80.0
+offset_bottom = 160.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Bloons TD Temu Edition"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/MainPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ButtonJugar" type="Button" parent="CenterContainer/MainPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Jugar"
+
+[node name="ButtonMapas" type="Button" parent="CenterContainer/MainPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Mapas"
+
+[node name="MapsPanel" type="PanelContainer" parent="CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/MapsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/MapsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Selecciona un Mapa"
+horizontal_alignment = 1
+
+[node name="ButtonMapa1" type="Button" parent="CenterContainer/MapsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pradera Extensa"
+
+[node name="ButtonMapa2" type="Button" parent="CenterContainer/MapsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Costa Peligrosa 🌊"
+
+[node name="ButtonVolver" type="Button" parent="CenterContainer/MapsPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Volver"
+
+[connection signal="pressed" from="CenterContainer/MainPanel/VBox/ButtonJugar" to="." method="_on_button_jugar_pressed"]
+[connection signal="pressed" from="CenterContainer/MainPanel/VBox/ButtonMapas" to="." method="_on_button_mapas_pressed"]
+[connection signal="pressed" from="CenterContainer/MapsPanel/VBox/ButtonMapa1" to="." method="_on_button_mapa1_pressed"]
+[connection signal="pressed" from="CenterContainer/MapsPanel/VBox/ButtonMapa2" to="." method="_on_button_mapa2_pressed"]
+[connection signal="pressed" from="CenterContainer/MapsPanel/VBox/ButtonVolver" to="." method="_on_button_volver_pressed"]

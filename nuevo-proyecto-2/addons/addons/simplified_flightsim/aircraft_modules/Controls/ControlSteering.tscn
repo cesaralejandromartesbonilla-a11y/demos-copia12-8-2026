@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxah2sahp5fw"]
+
+[ext_resource type="Script" uid="uid://nka2alwdcr7h" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlSteering.gd" id="1"]
+
+[node name="ControlSteering" type="Node"]
+script = ExtResource("1")

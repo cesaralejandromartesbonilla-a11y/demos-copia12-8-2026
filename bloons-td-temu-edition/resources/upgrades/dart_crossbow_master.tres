@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dart_xbowmaster5"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Crossbow Master"
+description = "Velocidad y daño brutales. Crítico al 50% con multiplicador x5. La torre más rápida."
+cost = 14000
+cooldown_multiplier = 0.3
+range_bonus = 120.0
+damage_bonus = 8
+pierce_bonus = 4
+grant_camo = true
+change_damage_type = 0
+crit_chance = 0.5
+crit_multiplier = 5.0

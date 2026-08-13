@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://coast_map_uid"]
+
+[ext_resource type="Script" uid="uid://swg3jyxkmcp5" path="res://src/entities/maps/track.gd" id="1_track"]
+[ext_resource type="Resource" uid="uid://uaavekslgdsy" path="res://resources/bloons/blue_bloon.tres" id="2_blue_bloon"]
+
+[sub_resource type="Curve2D" id="Curve2D_coast"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 80, 0, 0, 0, 0, 250, 100, 0, 0, 0, 0, 400, 80, 0, 0, 0, 0, 500, 150, 0, 0, 0, 0, 520, 280, 0, 0, 0, 0, 480, 400, 0, 0, 0, 0, 380, 450, 0, 0, 0, 0, 250, 440, 0, 0, 0, 0, 150, 480, 0, 0, 0, 0, 130, 580, 0, 0, 0, 0, 200, 640, 0, 0, 0, 0, 370, 650, 0, 0, 0, 0, 550, 620, 0, 0, 0, 0, 700, 600, 0, 0, 0, 0, 850, 580, 0, 0, 0, 0, 1000, 590, 0, 0, 0, 0, 1100, 640, 0, 0, 0, 0, 1152, 648)
+}
+point_count = 19
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_path_top"]
+size = Vector2(550, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_path_right"]
+size = Vector2(100, 350)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_path_left"]
+size = Vector2(100, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_path_bottom"]
+size = Vector2(700, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_water"]
+size = Vector2(380, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_water2"]
+size = Vector2(200, 180)
+
+[node name="MapCoast" type="Node2D"]
+
+[node name="Track" type="Path2D" parent="."]
+curve = SubResource("Curve2D_coast")
+script = ExtResource("1_track")
+test_bloon_data = ExtResource("2_blue_bloon")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.22, 0.55, 0.22, 1)
+
+[node name="WaterBody" type="ColorRect" parent="."]
+z_index = -9
+offset_left = 160.0
+offset_top = 150.0
+offset_right = 555.0
+offset_bottom = 470.0
+color = Color(0.1, 0.35, 0.7, 1)
+
+[node name="WaterBody2" type="ColorRect" parent="."]
+z_index = -9
+offset_left = 75.0
+offset_top = 490.0
+offset_right = 290.0
+offset_bottom = 648.0
+color = Color(0.1, 0.35, 0.7, 1)
+
+[node name="AreaCaminoTop" type="Area2D" parent="." groups=["camino"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCaminoTop"]
+position = Vector2(275, 90)
+shape = SubResource("RectangleShape2D_path_top")
+
+[node name="AreaCaminoDerecho" type="Area2D" parent="." groups=["camino"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCaminoDerecho"]
+position = Vector2(500, 280)
+shape = SubResource("RectangleShape2D_path_right")
+
+[node name="AreaCaminoIzquierdo" type="Area2D" parent="." groups=["camino"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCaminoIzquierdo"]
+position = Vector2(150, 500)
+shape = SubResource("RectangleShape2D_path_left")
+
+[node name="AreaCaminoBottom" type="Area2D" parent="." groups=["camino"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCaminoBottom"]
+position = Vector2(700, 620)
+shape = SubResource("RectangleShape2D_path_bottom")
+
+[node name="AreaAgua" type="Area2D" parent="." groups=["agua"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAgua"]
+position = Vector2(357, 310)
+shape = SubResource("RectangleShape2D_water")
+
+[node name="AreaAgua2" type="Area2D" parent="." groups=["agua"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAgua2"]
+position = Vector2(182, 569)
+shape = SubResource("RectangleShape2D_water2")

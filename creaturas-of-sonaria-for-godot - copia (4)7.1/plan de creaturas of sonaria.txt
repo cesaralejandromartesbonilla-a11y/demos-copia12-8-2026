@@ -1,0 +1,191 @@
+🗺️ Plan de Desarrollo: Proyecto "Creaturas of Sonaria Temu Edition"
+Etapa 1: El Núcleo de la Criatura (The Biological Framework)
+Antes de tener un mundo, necesitas que la "entidad" funcione. En Godot 4.x, aprovecharemos la potencia de los Node3D y los recursos.
+
+exactamente: es tener sistemas modulares que se activen si es nesesarioentre ellos son 	
+"SurvivalManager","effect_manager", "SpringArm3D","InteractionManager", "AbilityManager","EvolutionManager","StatScaler","CombatManager"
+cada uno cumpliendo con su funcion respectiva.
+
+Sistema de Atributos: Crear una clase base CreatureData (Resource) que contenga estadísticas: hambre, sed, energía, salud y etapa de crecimiento.
+
+exactamente: un sistema para poder tener criaturas e instanciarlas desde ese recurso conteniendo asu ves las limitaciones de cada criatura
+por ejemplo:su daño,si puede volar,sus habilidades,etc.
+
+Locomoción Multimodal: Implementar un controlador que soporte caminar, nadar y, lo más complejo, vuelo.
+
+exactamente: un sistema completo de ragdoll dinamico que interactue con el entorno por ejemplo:cuando lebanta un odjeto,cuando empuña una herramienta,etc.
+
+Crecimiento en Tiempo Real: Un sistema que escale el modelo 3D y modifique las estadísticas a medida que pasa el tiempo (de cría a adulto).
+
+exactamente: un sistema completo que dicte si crece por nivel o por tiempo o incluso si hay una tercera o cuarta variable por ejemplo:
+
+requisitos
+tiempo = 2 minutos
+crecimiento = -.-
+tag = -.-
+igual a adolecente 
+
+requisitos
+tiempo = 15 minutos
+crecimiento = 30%
+tag = -.-
+igual a adulto 
+
+requisitos
+tiempo = 40 minutos
+crecimiento = 70%
+tag = -.-
+igual a anciano
+
+hay que recordar que cada uno tiene un orden el que si el de abajo es el actual (venerado) no por que otro tenga requisitos mas bajos y se cumplen
+se adquier esa etapa
+
+requisitos
+tiempo = 1.3 horas
+crecimiento = 100%
+tag = -.-
+igual a venerado
+
+tambien existen etapas especialesque solo se adquieren con eventos muy especificos
+
+requisitos
+tiempo = 45 minutos
+crecimiento = 70%
+tag = estan en fuego
+igual a adulto con poder de fuego 
+
+el cual no debe de ser super puesto por la etapa de venerado al ser una etapa de menor nivel tiene prioridad solo por debajo de las siguientes
+
+...otras mas.
+
+Etapa 2: Supervivencia y Entorno
+El mundo debe interactuar con la criatura.
+
+Zonas de Interacción: Áreas de agua (bebibles) y fuentes de comida (plantas o restos).
+
+exactamente: no solo seria un sistema de alimentacion simple (come y bebe = estar bien) si no un sistema mas profundo en el que literalmente comer cosas
+en mal estado mata, tambien habrian ecepciones como los que tienen estomago de hierro.
+
+Ciclo Día/Noche Clima y biomas: Un WorldEnvironment dinámico que afecte la temperatura o la visibilidad, influyendo en el gameplay (criaturas nocturnas vs. diurnas).
+
+exactamente: un sistema profundo en el que clima es literalmente un factor clave por ejemplo: para los cultivos, para prevenir una tormenta de nieve mortal,etc. 
+en el que tambien los biomas afectan al comportamiento natural por ejemplo:en el desierto da mas sed,en el artico da mas hambre,etc.
+
+Sistema de Daño y Combate: Implementar hitboxes básicas para mordeduras o habilidades especiales.
+
+exactamente: un sistema en el que si te muerden no es un simple te isieron daño si no tambien un riesgo de contraer enfermedades en forma de efectos
+como por ejemplo:veneno1, fuego1, desangramiento1,etc.
+
+temperatura: sistema de temperatura corporal que afecta al jugador.
+
+exactamente: un sistema que es alterado por el clima,criatura,estado,bioma y entorno que si estas en el desierto no te da sed de forma directa si no 
+es la alta temperatura o cerca de un volcan no solo da mas sed si no tambien al llegar aun limite proboque el desmayo, para contrarestar esto hay criaturas
+que en vez de recibir efectos negativos recibe efectos positivos como curarse con el fuego y otros con el frio, otros simplemente no les afecte en lo adsoluto 
+la temperatura por ejemplo aun golem de piedra.
+
+Etapa 3: Infraestructura de Datos y Guardado
+Sonaria se basa en la persistencia.
+
+Inventario de Criaturas: Una base de datos (JSON o SQLite) para guardar qué criaturas posee el jugador.
+
+exactamente: que se guarden todas las criaturas que el jugador a conseguido hasta ese momento tanto como ranuras con stats y fichas para generar estas ranuras
+
+Serialización: Asegurar que el progreso del crecimiento y la posición se guarden correctamente.
+
+exactamente: un sistema de guardado completo que no solo guardade al jugador si no tambien los odjetos especificos en un grupo (persisten) 
+para lo que son las estructuras y recursos limitados como el agua en lagos o la comida que aparece magicamente 
+
+Agricultura: un sistema simple para cultivar y cosechar cultivos 
+
+exactamente: un sistema completo de agricultura que nesesite cuidado en cada cultivo como regarlos,evitar las plagas como los gusanos o especies invasoras,
+tambien saber que nesecita la plata o hongo es importante ya que no todos los cultivos piden lo mismo por ejemplo:
+
+trigo
+prosesos : plantar,cuidar durante el crecimiento,cosechar,quemar y repetir
+nesecita : agua , fertilizante , cosechar 
+produce : trigo que es nesesario prosesar para sacar productos
+terreno idoneo : tierra fertil , tierra prepara(parcela de cultivo)
+
+algas con frutos
+prosesos : plantar,cuidar de plagas,cosechar y esperar la siguiente cosecha
+nesecita : cuidados con las plagas o especies que comen algas
+produce : frutas de algas , algas , tallos de alga
+terreno idoneo : suelo fertil , sumergido bajo agua
+
+hongos comestibles
+prosesos : plantar,depositar materia organica,cosechar
+nesecita : materia organica 
+produce : hongos , miseleo
+terreno idoneo : parcela para hongos
+
+manzano
+prosesos : plantar,cuidar durante el crecimiento,cosechar y cuidar al arbol hasta la siguiente cosecha
+nesecita : agua , fertilizante , cal 
+produce : manzanas , madera
+terreno idoneo : suelo fertil , parcela de cultivo grande
+
+hay que recordar que de estos 4 ejemplos hay muchos mas que usan los mismos conceptos como los naranjos,algas rojas,setas,etc.
+
+construccion: para hacer el sistema de agricultura un sistema de construccion simple para construir las parcelas,cercas,almacenes,escaleras,pisos,etc.
+
+exactamente: un sistema completo de construccion con regilla del mundo desactibable y con un sistema de primero planifica y luego construye gracias a un sistema de planos con requisitos
+de materiales los cuales no son fisicos pero si interactuan entre si para evitar asolapaciones o estructuras superpuestas, este sistema no solo seria un constructur de paredes y suelo 
+si no seria uno de los mayores fuertes de las criaturas inteligentes poder crear casas,estufas,almacenes,granjas,etc. incluso un sistema tan profundo como en create mod de minecraft
+
+sistema de maquinas
+
+Paso 1: Modificar el Cerebro (ProcessorComponent). Añadirle la capacidad de detectar recetas e iniciarlas solo (sin necesidad del botón de la UI).
+Paso 2: Crear el "Tragaperras" (Receptor). Hacer un script pequeño para un Area3D que absorba objetos físicos al tocarlos y se los pase al ProcessorComponent.
+Paso 3: Construir la Escena. Armar un nuevo .tscn (ej: horno_industrial.tscn) juntando la malla 3D, el Receptor, el Expulsor y el Cerebro.
+Paso 4: Pulido Visual. Añadir las luces, sonidos y partículas que reaccionan al estado de la máquina.
+
+Resumen de tu Arquitectura:
+Mesa Manual: Solo tiene ProcessorComponent. si el power_receiver y fluid_tank están vacíos en el Inspector
+el código se salta esas verificaciones y funciona gratis.
+Horno a Carbón: Tiene ProcessorComponent y BurnerComponent. Funciona con items y carbón.
+Máquina Eléctrica Avanzada: Tiene ProcessorComponent, PowerReceiverComponent y FluidTankComponent. 
+Solo arranca si le enchufas luz, le inyectas agua por tuberías y le metes items físicos por la cinta.
+
+Etapa 4: Optimización y Renderizado
+Considerando que el mundo será amplio, la eficiencia es vital en Godot 4.
+
+LOD (Level of Detail): Configurar niveles de detalle agresivos para los modelos de las criaturas.
+
+Voxel GI o SDFGI: Utilizar las bondades de iluminación de Godot 4 pero optimizadas para mantener una tasa de frames estable.
+
+Shaders de Terreno: Un sistema de texturizado por triplanar para que el mapa se vea cohesivo sin consumir excesiva memoria de video.
+
+Etapa 5: El "Loop" de Colección (Gacha/Tienda)
+Menús de Selección: Una interfaz para elegir criatura antes de aparecer (spawn).
+
+exactamente: un menu para cada parte del juego y que sean escenas aparte preechas que se puedan llamar desde cualquier punto del juego
+y las interfaces serian
+1. menu principal: un menu que sirva para ver las criaturas con stats y poder ver sus stats y instanciar a esas criaturas
+este menu tambien servira para ir a los otros menus esto es para evitar tener interfases encima de interfases
+2. almacen: este sera tipo una bodega de planos no de criaturas este servira para ver las stats base de cada tipo de criatura
+no para instanciarlas desde ahi solo para ver las criaturas instanciables o en posecion
+3. tienda: esta sera un tienda tipo gacha para empezar solo habran 5 tipos de gacha y yo le dire exactamente que criaturas van en cada gacha
+#1. carnivoros
+#2. herviboros
+#3. omniboros
+#4. voladores
+#5. acuaticos
+
+4. misiones: un menu echo para misiones diarias y semanales preeechas las cuales yo asignare mediante recursos y tendran estos factores
+#1. busqueda: recoger un odjeto especifico 
+#2. recoleccion: recoger odjetos o plantas de una especie en concreto
+#3. odjetivo: cada accion tendra su designacion(cultivar,corresr,comer,etc) y su numero de veces a repetir
+#4. hito: estos seran odjetivos para desbloquear nuevas criaturas (llegar a venerado,reproducirse 8 veces,etc)
+
+Sistema de Moneda: Implementar el flujo de ganar recursos por tiempo jugado para desbloquear nuevas especies.
+
+Etapa 6: el repaso y pulido final
+todos los proyectos tienen problemas
+
+optimisacion general: por ejemplo: mapa, shaders excesivos, particulas duplicadas,etc.
+
+añadidos: es un punto donde se añadira muchas cosas que antes eran imposibles como el multijugador u otros
+
+bugs: algunos errores solo salen cuando se termina el proyecto lo que es desesperante
+
+locomocion: un sistema de locomocion completo con animaciones gestos e interacciones con el entorno no animaciones fijas sino animaciones en tiempo real con IK (Invers Kinematic)

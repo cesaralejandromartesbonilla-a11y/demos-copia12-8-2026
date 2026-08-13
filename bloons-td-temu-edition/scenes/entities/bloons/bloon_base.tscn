@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://w2qee5ma5bvm"]
+
+[ext_resource type="Script" path="res://src/entities/bloons/bloon_base.gd" id="1_bloon_base"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vod56"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m5d8w"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vod56"]
+width = 17
+height = 17
+noise = SubResource("FastNoiseLite_m5d8w")
+in_3d_space = true
+as_normal_map = true
+
+[node name="Bloon" type="PathFollow2D" unique_id=394419000 groups=["enemigo"]]
+script = ExtResource("1_bloon_base")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=223281485 groups=["enemigo"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=353257196]
+shape = SubResource("CircleShape2D_vod56")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1690018556]
+texture = SubResource("NoiseTexture2D_vod56")

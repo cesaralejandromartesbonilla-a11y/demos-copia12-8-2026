@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bqql4qhpl7tq2"]
+
+[ext_resource type="Script" uid="uid://bg7tetb80nwkw" path="res://ItemData.gd" id="1_05irw"]
+[ext_resource type="PackedScene" uid="uid://dgq2cvvd8rd17" path="res://ecenas/truck.tscn" id="1_jytes"]
+
+[resource]
+script = ExtResource("1_05irw")
+nombre = "truck"
+precio = 100
+escena_visual = ExtResource("1_jytes")
+metadata/_custom_type_script = "uid://bg7tetb80nwkw"

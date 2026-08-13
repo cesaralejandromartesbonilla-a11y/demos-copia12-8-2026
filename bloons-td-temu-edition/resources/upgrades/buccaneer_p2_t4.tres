@@ -1,0 +1,16 @@
+﻿[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bucc_p2_t4"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Derribo de MOAB"
+description = "Habilidad: Frena a los MOABs al golpearlos."
+cost = 6000
+moab_damage_bonus = 20
+damage_bonus = 3
+has_active_ability = true
+ability_name = "Arpón MOAB"
+ability_cooldown = 45.0
+ability_duration = 5.0
+

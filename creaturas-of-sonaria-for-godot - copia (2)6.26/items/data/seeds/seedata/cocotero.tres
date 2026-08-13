@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SeedData" format=3 uid="uid://5sw5wt68pxdt"]
+
+[ext_resource type="Resource" uid="uid://mvw36sv7fmrp" path="res://items/data/consumable/manzana_data.tres" id="1_hybmy"]
+[ext_resource type="Script" uid="uid://m1igiyj2iiu4" path="res://scripts de recursos/SeedData.gd" id="1_rplmo"]
+[ext_resource type="Resource" uid="uid://c0yn1pbtjx2p" path="res://items/data/seeds/visuals/coconut_procedural.tres" id="3_osq8k"]
+
+[resource]
+script = ExtResource("1_rplmo")
+result_item_data = ExtResource("1_hybmy")
+visual_data = ExtResource("3_osq8k")
+vulnerable_to_pests = false
+metadata/_custom_type_script = "uid://m1igiyj2iiu4"

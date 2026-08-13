@@ -1,0 +1,16 @@
+﻿[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://bucc_p2_t5"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Señor de los Piratas"
+description = "Habilidad mejorada + daño masivo MOAB."
+cost = 22000
+moab_damage_bonus = 80
+damage_bonus = 8
+has_active_ability = true
+ability_name = "Abordaje"
+ability_cooldown = 30.0
+ability_duration = 8.0
+

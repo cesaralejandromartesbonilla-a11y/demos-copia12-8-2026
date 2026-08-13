@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VehicleStats" format=3 uid="uid://dg1cgxq7sfvtk"]
+
+[ext_resource type="Script" uid="uid://b7fnys4q3uxq6" path="res://scripts/vehicle/vehicle_stats.gd" id="1_stats"]
+
+[resource]
+script = ExtResource("1_stats")
+engine_force = 7000.0
+grip = 2.0
+suspension_stiffness = 15000.0
+suspension_damping = 380.0
+fuel_accel_rate = 5.0

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://fogqd55rkgh1"]
+
+[ext_resource type="Script" uid="uid://bwhhktdj22kmb" path="res://slime_test/ConsumableItem.gd" id="1_my6fu"]
+
+[node name="Area3D" type="RigidBody3D" unique_id=353021917]
+script = ExtResource("1_my6fu")
+item_name = ""
+form_to_grant = ""

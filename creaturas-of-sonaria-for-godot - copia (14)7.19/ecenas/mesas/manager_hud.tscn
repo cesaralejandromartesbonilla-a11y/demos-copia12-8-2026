@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b8acyfhh4ple5"]
+
+[ext_resource type="Script" uid="uid://cp15j1dvocbhp" path="res://ecenas/mesas/manager_hud.gd" id="1_hijrx"]
+
+[node name="CraftingUI" type="CanvasLayer" unique_id=967739029]
+script = ExtResource("1_hijrx")
+
+[node name="PanelBackground" type="Panel" parent="." unique_id=228881014]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelBackground" unique_id=14745529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MachineList" type="PanelContainer" parent="PanelBackground/HBoxContainer" unique_id=531792062]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="RecipeList" type="VBoxContainer" parent="PanelBackground/HBoxContainer/MachineList" unique_id=1194763319]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SeccionCentro" type="PanelContainer" parent="PanelBackground/HBoxContainer" unique_id=849798967]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelBackground/HBoxContainer/SeccionCentro" unique_id=1221309590]
+layout_mode = 2
+
+[node name="InventoryList" type="VBoxContainer" parent="PanelBackground/HBoxContainer/SeccionCentro/ScrollContainer" unique_id=746596247]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Botonshift" type="Button" parent="PanelBackground" unique_id=498412606]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 3.0
+offset_right = 418.0
+offset_bottom = 34.0
+text = "apagar sector"
+
+[node name="BotonCerrar" type="Button" parent="PanelBackground" unique_id=359903473]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 31.0
+text = "Cerrar"
+
+[node name="RefreshTimer" type="Timer" parent="." unique_id=1038276068]
+autostart = true

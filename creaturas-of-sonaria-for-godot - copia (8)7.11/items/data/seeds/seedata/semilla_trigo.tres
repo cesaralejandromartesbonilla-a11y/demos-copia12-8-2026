@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SeedData" format=3 uid="uid://de7mm5aid4k0y"]
+
+[ext_resource type="Resource" uid="uid://mvw36sv7fmrp" path="res://items/data/consumable/manzana_data.tres" id="1_ddrhy"]
+[ext_resource type="Script" uid="uid://m1igiyj2iiu4" path="res://scripts de recursos/SeedData.gd" id="1_x0o4j"]
+[ext_resource type="Resource" uid="uid://wc4bhelghmsu" path="res://items/data/seeds/visuals/wheat_visual.tres" id="3_gudob"]
+
+[resource]
+script = ExtResource("1_x0o4j")
+result_item_data = ExtResource("1_ddrhy")
+drop_amount = 2
+visual_data = ExtResource("3_gudob")
+vulnerable_to_pests = false
+is_perennial = true
+leaves_trash_behind = true
+metadata/_custom_type_script = "uid://m1igiyj2iiu4"

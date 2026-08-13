@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GearboxData" load_steps=2 format=3 uid="uid://0k2yqq7wxejs"]
+
+[ext_resource type="Script" uid="uid://c84hnbwewf6id" path="res://vehicles/scripts de recursos/gearbox_data.gd" id="1_hkto2"]
+
+[resource]
+script = ExtResource("1_hkto2")
+requisitos_etiquetas = Array[String]([""])
+metadata/_custom_type_script = "uid://c84hnbwewf6id"

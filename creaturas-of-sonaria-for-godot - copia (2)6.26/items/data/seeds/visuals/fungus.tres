@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="CropVisualData" format=3 uid="uid://b50x0ye7k456j"]
+
+[ext_resource type="Script" uid="uid://5aejr6uf1sel" path="res://scripts de recursos/CropVisualData.gd" id="1_x2ao8"]
+
+[sub_resource type="Curve" id="Curve_x2ao8"]
+_data = [Vector2(0.37313434, 0), 0.0, 0.0, 0, 0, Vector2(0.4119403, 0.7535545), 6.350712, 6.350712, 0, 0, Vector2(0.50447756, 0.761256), -4.5866218, -4.5866218, 0, 0, Vector2(0.5791045, 0.26066357), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvktj"]
+albedo_color = Color(0.7529412, 0.6039216, 0.21960784, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_88erc"]
+material = SubResource("StandardMaterial3D_jvktj")
+curve = SubResource("Curve_x2ao8")
+
+[sub_resource type="Curve" id="Curve_obfm3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.071641795, 0.96919435), 14.61986, 14.61986, 0, 0, Vector2(0.14925373, 1), 34.82968, 34.82968, 0, 0, Vector2(0.26865673, 0.29146922), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk84e"]
+albedo_color = Color(0.91764706, 0.48235294, 0.28627452, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_butvm"]
+material = SubResource("StandardMaterial3D_wk84e")
+curve = SubResource("Curve_obfm3")
+
+[sub_resource type="Curve" id="Curve_abwax"]
+_data = [Vector2(0.6746268, 0), 0.0, -0.21446443, 0, 0, Vector2(0.70746267, 0.4840048), 0.0, 0.0, 0, 0, Vector2(0.8029851, 0.16824651), 0.0, 0.0, 0, 0, Vector2(1, 0.1297394), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6d47j"]
+albedo_color = Color(0.85490197, 0.5372549, 0.21960784, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_r6bcm"]
+material = SubResource("StandardMaterial3D_6d47j")
+curve = SubResource("Curve_abwax")
+
+[resource]
+script = ExtResource("1_x2ao8")
+style = 1
+sprout_mesh = SubResource("TubeTrailMesh_r6bcm")
+growing_mesh = SubResource("TubeTrailMesh_88erc")
+ready_mesh = SubResource("TubeTrailMesh_butvm")
+metadata/_custom_type_script = "uid://5aejr6uf1sel"

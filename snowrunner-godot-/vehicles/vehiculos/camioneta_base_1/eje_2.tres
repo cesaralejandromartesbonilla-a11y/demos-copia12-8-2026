@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DatosEje" format=3 uid="uid://ww7dclk7cck7"]
+
+[ext_resource type="Script" uid="uid://oen3vl1aorvr" path="res://scripts_recursos/datos_eje.gd" id="1_fo01p"]
+
+[resource]
+script = ExtResource("1_fo01p")
+ruta_rueda_izq = NodePath("Trasera")
+ruta_rueda_der = NodePath("Trasera2")
+hueso_brazo_izq = "suspencion.atrasL"
+hueso_brazo_der = "suspencion.atrasR"
+hueso_llanta_izq = "llanta.traseraL"
+hueso_llanta_der = "llanta.traseraR"
+es_eje_rigido = true
+metadata/_custom_type_script = "uid://oen3vl1aorvr"

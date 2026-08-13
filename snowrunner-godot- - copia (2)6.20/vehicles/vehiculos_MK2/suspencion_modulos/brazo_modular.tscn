@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cf87hk1ws3nwk"]
+
+[ext_resource type="Script" uid="uid://dus21s8olk3dx" path="res://vehicles/vehiculos_MK2/modulos_scripts/ModuloSuspensionBrazo.gd" id="1_e2643"]
+[ext_resource type="PhysicsMaterial" uid="uid://dvilktcyy4x6c" path="res://PhyscalMaterial/wheel.tres" id="2_xd6o8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3blt5"]
+size = Vector3(0.6, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e2643"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3blt5"]
+height = 0.40000004
+
+[sub_resource type="Curve" id="Curve_e2643"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xd6o8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ya3dd"]
+curve_x = SubResource("Curve_e2643")
+curve_y = SubResource("Curve_xd6o8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a607"]
+albedo_texture = SubResource("CurveXYZTexture_ya3dd")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y7kbu"]
+material = SubResource("StandardMaterial3D_7a607")
+
+[node name="Node3D" type="Node3D" unique_id=1743925018]
+
+[node name="Brazo" type="RigidBody3D" parent="." unique_id=1649082496]
+mass = 40.0
+script = ExtResource("1_e2643")
+
+[node name="ColisionBrazo" type="CollisionShape3D" parent="Brazo" unique_id=86290100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39999998, -7.450581e-09, 2.9802322e-08)
+shape = SubResource("BoxShape3D_3blt5")
+disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Brazo" unique_id=984676744]
+transform = Transform3D(0.6, 0, 0, 0, 0.19599998, 0, 0, 0, 0.19999999, 0.4, 0, 0)
+mesh = SubResource("BoxMesh_e2643")
+
+[node name="PivoteChasis" type="HingeJoint3D" parent="." unique_id=49822152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+node_a = NodePath("../Brazo")
+angular_limit/enable = true
+angular_limit/upper = 0.5235988
+angular_limit/lower = -0.34906584
+
+[node name="EjeRueda" type="HingeJoint3D" parent="." unique_id=1345814629]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.8, 0, 0)
+node_a = NodePath("../Brazo")
+node_b = NodePath("../Rueda")
+angular_limit/enable = true
+
+[node name="Rueda" type="RigidBody3D" parent="." unique_id=1804545511]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1, 0, 0)
+mass = 80.0
+physics_material_override = ExtResource("2_xd6o8")
+
+[node name="ColisionRueda" type="CollisionShape3D" parent="Rueda" unique_id=1284730935]
+shape = SubResource("CylinderShape3D_3blt5")
+
+[node name="MeshRueda" type="MeshInstance3D" parent="Rueda" unique_id=255356776]
+transform = Transform3D(1, 0, 0, 0, 0.19999999, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_y7kbu")

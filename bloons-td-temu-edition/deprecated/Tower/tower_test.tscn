@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cnjqsh8c0byhi"]
+
+[ext_resource type="Script" uid="uid://bnxcj45vg2sru" path="res://Tower/tower_test.gd" id="1_2xcx2"]
+[ext_resource type="Resource" uid="uid://5t2cw73lcy8h" path="res://Tower/data/tower_test.tres" id="2_s1dj5"]
+[ext_resource type="Texture2D" uid="uid://bmmvi7qhvb6sm" path="res://icon.svg" id="2_vf7ha"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_veg08"]
+radius = 376.02127
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpvtu"]
+size = Vector2(127, 127)
+
+[node name="Tower" type="Node2D" unique_id=1695172933]
+script = ExtResource("1_2xcx2")
+data = ExtResource("2_s1dj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=618251525]
+texture = ExtResource("2_vf7ha")
+
+[node name="RangeArea" type="Area2D" parent="." unique_id=1669207776]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea" unique_id=1477388851]
+shape = SubResource("CircleShape2D_veg08")
+
+[node name="FootprintArea" type="Area2D" parent="." unique_id=1412005765]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FootprintArea" unique_id=579775907]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_qpvtu")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=163917434]
+
+[connection signal="body_entered" from="RangeArea" to="." method="_on_range_area_entered"]
+[connection signal="body_exited" from="RangeArea" to="." method="_on_range_area_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

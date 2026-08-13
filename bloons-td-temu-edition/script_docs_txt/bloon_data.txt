@@ -1,0 +1,18 @@
+class_name BloonData
+extends Resource
+
+@export_group("Hierarchy")
+@export var children_on_pop: Array[BloonData] = []
+@export var children_count: int = 1
+
+@export_group("Base Stats")
+@export var bloon_id: String = ""
+@export var speed: float = 100.0
+@export var health: int = 1
+@export var reward_money: int = 1
+@export var bloon_texture: Texture2D
+@export var immunities: Array[GameEnums.DamageType] = []
+
+@export_group("Special Properties")
+@export var is_camo: bool = false
+@export var is_regrow: bool = false

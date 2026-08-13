@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dg1cgxygbwhgw"]
+
+[ext_resource type="Script" path="res://scripts/vehicle/vehicle_controller.gd" id="1_vehicle"]
+[ext_resource type="Script" path="res://scripts/vehicle/wheel.gd" id="2_wheel"]
+[ext_resource type="Resource" uid="uid://dg1cgxq7sfvtk" path="res://resources/vehicle_stats.tres" id="3_stats"]
+[ext_resource type="Script" path="res://scripts/vehicle/driver.gd" id="4_driver"]
+[ext_resource type="Script" path="res://scripts/vehicle/stunt_tracker.gd" id="5_stunt"]
+[ext_resource type="Script" path="res://scripts/effects/vehicle_effects.gd" id="6_effects"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chassis"]
+size = Vector2(96, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_head"]
+radius = 8.0
+
+[node name="Vehicle" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 1
+mass = 75.0
+angular_damp = 0.6
+linear_damp = 0.05
+can_sleep = false
+continuous_cd = 1
+script = ExtResource("1_vehicle")
+stats = ExtResource("3_stats")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_chassis")
+
+[node name="ChassisVisual" type="Polygon2D" parent="."]
+color = Color(0.85, 0.25, 0.2, 1)
+polygon = PackedVector2Array(-48, -18, 48, -18, 52, 6, -44, 6)
+
+[node name="CabinVisual" type="Polygon2D" parent="."]
+color = Color(0.7, 0.18, 0.15, 1)
+polygon = PackedVector2Array(4, -18, 34, -18, 30, -34, 0, -34)
+
+[node name="DriverHead" type="Polygon2D" parent="."]
+color = Color(0.95, 0.8, 0.65, 1)
+polygon = PackedVector2Array(18, -34, 30, -34, 30, -48, 18, -48)
+
+[node name="DriverHeadArea" type="Area2D" parent="."]
+position = Vector2(24, -41)
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+monitorable = false
+script = ExtResource("4_driver")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DriverHeadArea"]
+shape = SubResource("CircleShape2D_head")
+
+[node name="WheelBack" type="Node2D" parent="."]
+position = Vector2(-36, 10)
+script = ExtResource("2_wheel")
+drive_share = 0.55
+
+[node name="RayCast2D" type="RayCast2D" parent="WheelBack"]
+target_position = Vector2(0, 30)
+collision_mask = 1
+
+[node name="WheelVisual" type="Polygon2D" parent="WheelBack"]
+color = Color(0.12, 0.12, 0.12, 1)
+polygon = PackedVector2Array(-14, 0, -10, -10, 0, -14, 10, -10, 14, 0, 10, 10, 0, 14, -10, 10)
+
+[node name="WheelFront" type="Node2D" parent="."]
+position = Vector2(36, 10)
+script = ExtResource("2_wheel")
+drive_share = 0.45
+
+[node name="RayCast2D" type="RayCast2D" parent="WheelFront"]
+target_position = Vector2(0, 30)
+collision_mask = 1
+
+[node name="WheelVisual" type="Polygon2D" parent="WheelFront"]
+color = Color(0.12, 0.12, 0.12, 1)
+polygon = PackedVector2Array(-14, 0, -10, -10, 0, -14, 10, -10, 14, 0, 10, 10, 0, 14, -10, 10)
+
+[node name="StuntTracker" type="Node" parent="."]
+script = ExtResource("5_stunt")
+
+[node name="VehicleEffects" type="Node" parent="."]
+script = ExtResource("6_effects")

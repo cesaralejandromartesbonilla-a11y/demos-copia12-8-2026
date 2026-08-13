@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://yofsxgxi3nwo"]
+
+[ext_resource type="Script" uid="uid://ctosc1poujm1k" path="res://slime_test/test/boneattachment.gd" id="1_j8i6e"]
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" unique_id=62757017]
+script = ExtResource("1_j8i6e")

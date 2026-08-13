@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b8mapsm1"]
+
+[ext_resource type="Script" uid="uid://swg3jyxkmcp5" path="res://src/entities/maps/track.gd" id="1_track"]
+[ext_resource type="Resource" uid="uid://uaavekslgdsy" path="res://resources/bloons/blue_bloon.tres" id="2_blue_bloon"]
+
+[sub_resource type="Curve2D" id="Curve2D_dg7ii"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 553, 51, 0, 0, 0, 0, 244, 388, 0, 0, 0, 0, 753, 310, 0, 0, 0, 0, 1152, 648)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8odp"]
+size = Vector2(916, 465.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68mvh"]
+size = Vector2(95, 148.75)
+
+[node name="Map1" type="Node2D"]
+
+[node name="Track" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dg7ii")
+script = ExtResource("1_track")
+test_bloon_data = ExtResource("2_blue_bloon")
+
+[node name="Area2D" type="Area2D" parent="." groups=["camino"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(699, 421.75)
+shape = SubResource("RectangleShape2D_o8odp")
+
+[node name="Area2D2" type="Area2D" parent="." groups=["no_apto"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(352, 91)
+shape = SubResource("RectangleShape2D_68mvh")

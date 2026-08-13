@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://garagemenu01"]
+
+[ext_resource type="Script" path="res://scripts/ui/garage_menu.gd" id="1_garage"]
+
+[node name="GarageMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_garage")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32, 0.48, 0.68, 1)
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -280.0
+offset_right = 340.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Garaje"
+horizontal_alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.35, 1)
+theme_override_font_sizes/font_size = 18
+text = "Monedas: 0"
+horizontal_alignment = 1
+
+[node name="LoadoutLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Equipado: Jeep · Campo"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Vehículos" type="ScrollContainer" parent="Panel/VBox/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VehiclesList" type="VBoxContainer" parent="Panel/VBox/TabContainer/Vehículos"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Mapas" type="ScrollContainer" parent="Panel/VBox/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MapsList" type="VBoxContainer" parent="Panel/VBox/TabContainer/Mapas"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Mejoras" type="VBoxContainer" parent="Panel/VBox/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+metadata/_tab_index = 2
+
+[node name="UpgradesVehicleLabel" type="Label" parent="Panel/VBox/TabContainer/Mejoras"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Mejoras de: Jeep"
+
+[node name="EngineLabel" type="Label" parent="Panel/VBox/TabContainer/Mejoras"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Motor"
+
+[node name="EngineButton" type="Button" parent="Panel/VBox/TabContainer/Mejoras"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mejorar"
+
+[node name="SuspensionLabel" type="Label" parent="Panel/VBox/TabContainer/Mejoras"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Suspensión"
+
+[node name="SuspensionButton" type="Button" parent="Panel/VBox/TabContainer/Mejoras"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mejorar"
+
+[node name="TankLabel" type="Label" parent="Panel/VBox/TabContainer/Mejoras"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Tanque"
+
+[node name="TankButton" type="Button" parent="Panel/VBox/TabContainer/Mejoras"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mejorar"
+
+[node name="ButtonsRow" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Panel/VBox/ButtonsRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 44)
+layout_mode = 2
+text = "Menú"
+
+[node name="PlayButton" type="Button" parent="Panel/VBox/ButtonsRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Jugar"

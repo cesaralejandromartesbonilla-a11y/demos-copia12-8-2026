@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyoxxdonvuf84"]
+
+[ext_resource type="Script" uid="uid://ll08qs8381x0" path="res://script/shop.gd" id="1_qhojw"]
+[ext_resource type="Script" uid="uid://bo75guvl3khwr" path="res://scripts de recursos/creature_data.gd" id="2_18yg5"]
+[ext_resource type="Resource" uid="uid://igt0xx50hjs3" path="res://creatures/creatures/criatura1.tres" id="3_18yg5"]
+[ext_resource type="Resource" uid="uid://cos3s620nj2ac" path="res://creatures/creatures/creatura2.tres" id="4_ab4pm"]
+[ext_resource type="Resource" uid="uid://co2mihm48vi5s" path="res://creatures/creatures/criatura3.tres" id="5_a1tp8"]
+
+[node name="shop_creatures" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qhojw")
+catalog = Array[ExtResource("2_18yg5")]([ExtResource("5_a1tp8"), ExtResource("4_ab4pm"), ExtResource("3_18yg5")])
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 597
+theme_override_constants/margin_bottom = 273
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(505, 325)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "creaturas of temu"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "JUGAR"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "SALIR"
+
+[node name="CreatureListContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/ButtonsContainer/CreatureListContainer"]
+layout_mode = 2
+text = "creature"
+
+[node name="HScrollBar" type="HScrollBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HScrollBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="coin label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/ExitButton" to="." method="_on_back_pressed"]

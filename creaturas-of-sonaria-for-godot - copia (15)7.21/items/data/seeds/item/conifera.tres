@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://k8b74gckyegf"]
+
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="1_l7xuk"]
+[ext_resource type="Resource" uid="uid://hwelm0s6ccte" path="res://items/data/seeds/seedata/conifera.tres" id="2_ag7ou"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1twy"]
+albedo_color = Color(0.2901961, 0.7882353, 0.019607844, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8qkdq"]
+material = SubResource("StandardMaterial3D_i1twy")
+
+[resource]
+script = ExtResource("1_l7xuk")
+item_name = "semilla de conifera"
+item_mesh = SubResource("SphereMesh_8qkdq")
+seed_data = ExtResource("2_ag7ou")
+metadata/_custom_type_script = "uid://pn1ld58jj7o2"

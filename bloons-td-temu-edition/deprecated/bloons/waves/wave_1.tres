@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpawnGroup" format=3 uid="uid://dpmr806nlh3a4"]
+
+[ext_resource type="Resource" uid="uid://egfa5qeh36lr" path="res://bloons/bloons/red.tres" id="1_pnxqj"]
+[ext_resource type="Script" uid="uid://b325eus225bql" path="res://script_recurs/SpawnGroup.gd" id="1_uhn7y"]
+
+[resource]
+script = ExtResource("1_uhn7y")
+bloon_type = ExtResource("1_pnxqj")
+count = 20
+metadata/_custom_type_script = "uid://b325eus225bql"

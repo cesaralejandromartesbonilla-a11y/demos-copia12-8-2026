@@ -1,0 +1,79 @@
+[gd_scene load_steps=15 format=3 uid="uid://4a37py7xsiba"]
+
+[ext_resource type="Script" uid="uid://b81vwo060f1ww" path="res://creatures/scripts of creatures/creature_controller.gd" id="1_o57u6"]
+[ext_resource type="Script" uid="uid://dgds2y4pk25mv" path="res://creatures/scrpt modules/interaction_manager.gd" id="2_s720t"]
+[ext_resource type="Script" uid="uid://f5ut6m5076ky" path="res://creatures/scrpt modules/ability_manager.gd" id="3_2y36b"]
+[ext_resource type="Script" uid="uid://b31r1yj7utd6v" path="res://creatures/scrpt modules/survival_manager.gd" id="4_poqs7"]
+[ext_resource type="Script" uid="uid://dsqbwl28ywklb" path="res://creatures/scrpt modules/effect_manager.gd" id="5_wfewh"]
+[ext_resource type="Script" uid="uid://corr1t2235mox" path="res://creatures/scrpt modules/level_manager.gd" id="6_2h301"]
+[ext_resource type="Script" uid="uid://dislycohqex4x" path="res://creatures/scrpt modules/evolution_manager.gd" id="7_es4rv"]
+[ext_resource type="Script" uid="uid://ccpgmaj6aogfa" path="res://creatures/scrpt modules/stat_scaler.gd" id="8_s720t"]
+[ext_resource type="Script" uid="uid://cxgohrlgfh2iy" path="res://creatures/scrpt modules/combat_manager.gd" id="9_poqs7"]
+[ext_resource type="Script" uid="uid://ccewhhv3o6dug" path="res://creatures/scrpt modules/environment_manager.gd" id="10_2h301"]
+[ext_resource type="Script" uid="uid://bnj4h6drbtc71" path="res://creatures/scrpt modules/temperature_manager.gd" id="11_es4rv"]
+[ext_resource type="PackedScene" uid="uid://dou8d5kf7hrju" path="res://models/ice.tscn" id="12_gusx5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ynf8h"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a5hy4"]
+radius = 1.4961382
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_o57u6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ynf8h")
+
+[node name="InteractionManager" type="Area3D" parent="."]
+script = ExtResource("2_s720t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionManager"]
+shape = SubResource("SphereShape3D_a5hy4")
+
+[node name="AbilityManager" type="Node" parent="."]
+script = ExtResource("3_2y36b")
+equipped_abilities = Array[PackedScene]([null, null])
+
+[node name="SurvivalManager" type="Node" parent="."]
+script = ExtResource("4_poqs7")
+
+[node name="effect_manager" type="Node" parent="."]
+script = ExtResource("5_wfewh")
+immunities = Array[String](["burn"])
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("6_2h301")
+xp_requirement_base = 50.0
+
+[node name="EvolutionManager" type="Node" parent="."]
+script = ExtResource("7_es4rv")
+
+[node name="StatScaler" type="Node" parent="."]
+script = ExtResource("8_s720t")
+start_speed = 0.8
+end_health = 1500.0
+end_damage = 300.0
+end_speed = 3.0
+end_energy = 300.0
+
+[node name="CombatManager" type="Node" parent="."]
+script = ExtResource("9_poqs7")
+
+[node name="EnvironmentManager" type="Node" parent="."]
+script = ExtResource("10_2h301")
+
+[node name="TemperatureManager" type="Node" parent="."]
+script = ExtResource("11_es4rv")
+ice_cube_scene = ExtResource("12_gusx5")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+spring_length = 5.0
+margin = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="ModelHolder" type="Node3D" parent="."]
+
+[node name="RoofDetector" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4, -8.742279e-08, 0, 3.496911e-07, -1.0000002, 0, 0, 0)

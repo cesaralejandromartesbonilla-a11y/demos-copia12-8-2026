@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bkrb5poo2rwut"]
+
+[ext_resource type="PackedScene" uid="uid://w2qee5ma5bvm" path="res://bloons/bloon_base.tscn" id="1_8k3c3"]
+[ext_resource type="Resource" uid="uid://uaavekslgdsy" path="res://bloons/bloons/blue.tres" id="2_y5va3"]
+[ext_resource type="Script" uid="uid://5ovoyap5t1ke" path="res://escenas/modulos/WaveManager.gd" id="3_jmhae"]
+[ext_resource type="Script" uid="uid://cpxat5jn7xfyp" path="res://script_recurs/WaveData.gd" id="4_sc4qs"]
+[ext_resource type="Resource" uid="uid://u7xim74pw24k" path="res://bloons/waves/wavedata_1.tres" id="5_eue4e"]
+
+[sub_resource type="Curve2D" id="Curve2D_ope8h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 553, 51, 0, 0, 0, 0, 244, 388, 0, 0, 0, 0, 753, 310, 0, 0, 0, 0, 1152, 648)
+}
+point_count = 5
+
+[node name="Map" type="Node2D" unique_id=183673902]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2099045249]
+curve = SubResource("Curve2D_ope8h")
+
+[node name="Bloon" parent="Path2D" unique_id=394419000 instance=ExtResource("1_8k3c3")]
+rotation = 0.09196409
+data = ExtResource("2_y5va3")
+
+[node name="Node" type="Node" parent="." unique_id=966247849 node_paths=PackedStringArray("path_to_follow")]
+script = ExtResource("3_jmhae")
+waves = Array[ExtResource("4_sc4qs")]([ExtResource("5_eue4e")])
+path_to_follow = NodePath("../Path2D")
+bloon_scene = ExtResource("1_8k3c3")

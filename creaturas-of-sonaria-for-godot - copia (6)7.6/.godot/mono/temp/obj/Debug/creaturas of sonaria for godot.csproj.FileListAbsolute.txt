@@ -1,0 +1,71 @@
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.deps.json
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.runtimeconfig.json
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.pdb
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.csproj.AssemblyReference.cache
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.AssemblyInfoInputs.cache
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.AssemblyInfo.cs
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.csproj.CoreCompileInputs.cache
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.sourcelink.json
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creatura.A637D825.Up2Date
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\refint\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.pdb
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.genruntimeconfig.cache
+C:\Users\cesar\Desktop\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\ref\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.deps.json
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.runtimeconfig.json
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.pdb
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.csproj.AssemblyReference.cache
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.AssemblyInfoInputs.cache
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.AssemblyInfo.cs
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.csproj.CoreCompileInputs.cache
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creatura.A637D825.Up2Date
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\refint\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.pdb
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.genruntimeconfig.cache
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\ref\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.deps.json
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.runtimeconfig.json
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.pdb
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.csproj.AssemblyReference.cache
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.AssemblyInfoInputs.cache
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.AssemblyInfo.cs
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.csproj.CoreCompileInputs.cache
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creatura.A637D825.Up2Date
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\refint\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.pdb
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.genruntimeconfig.cache
+C:\Users\cesar\Desktop\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\ref\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.sourcelink.json
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.deps.json
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.runtimeconfig.json
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\bin\Debug\creaturas of sonaria for godot.pdb
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.csproj.AssemblyReference.cache
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.AssemblyInfoInputs.cache
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.AssemblyInfo.cs
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.csproj.CoreCompileInputs.cache
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.sourcelink.json
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creatura.A637D825.Up2Date
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\refint\creaturas of sonaria for godot.dll
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.pdb
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\creaturas of sonaria for godot.genruntimeconfig.cache
+C:\Users\cesar\Desktop\games\demos - copia\creaturas-of-sonaria-for-godot - copia (6)7.6\.godot\mono\temp\obj\Debug\ref\creaturas of sonaria for godot.dll

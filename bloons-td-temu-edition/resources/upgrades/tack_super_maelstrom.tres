@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://tack_p2_t5"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Super Maelstrom"
+description = "Habilidad Activa: Sierras más grandes, mayor duración y daño masivo."
+cost = 15000
+cooldown_multiplier = 0.8
+range_bonus = 20.0
+damage_bonus = 4
+pierce_bonus = 15
+grant_camo = false
+change_damage_type = 0
+has_active_ability = true
+ability_name = "Super Maelstrom"
+ability_cooldown = 40.0
+ability_duration = 5.0

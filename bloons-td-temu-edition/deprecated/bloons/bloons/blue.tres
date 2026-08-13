@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BloonData" format=3 uid="uid://uaavekslgdsy"]
+
+[ext_resource type="Texture2D" uid="uid://bmmvi7qhvb6sm" path="res://icon.svg" id="1_q0eur"]
+[ext_resource type="Script" uid="uid://bvokitadg4saw" path="res://script_recurs/BloonData.gd" id="2_xqouj"]
+[ext_resource type="Resource" uid="uid://egfa5qeh36lr" path="res://bloons/bloons/red.tres" id="3_6ww25"]
+
+[resource]
+script = ExtResource("2_xqouj")
+children_on_pop = Array[ExtResource("2_xqouj")]([ExtResource("3_6ww25")])
+children_count = 3
+bloon_id = "blue"
+bloon_texture = ExtResource("1_q0eur")
+metadata/_custom_type_script = "uid://bvokitadg4saw"

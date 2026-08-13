@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://y51mimwtey1m"]
+
+[sub_resource type="Gradient" id="Gradient_frgij"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4465n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qiply"]
+noise = SubResource("FastNoiseLite_4465n")
+color_ramp = SubResource("Gradient_frgij")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edspq"]
+albedo_color = Color(1, 0, 0, 1)
+roughness_texture = SubResource("NoiseTexture2D_qiply")
+
+[sub_resource type="SphereMesh" id="SphereMesh_gfmc3"]
+material = SubResource("StandardMaterial3D_edspq")
+is_hemisphere = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_10kcy"]
+
+[node name="semilla_de_manzana" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_gfmc3")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_10kcy")

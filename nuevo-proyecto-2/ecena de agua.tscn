@@ -1,0 +1,137 @@
+[gd_scene load_steps=19 format=3 uid="uid://chjtt12s1y3qy"]
+
+[ext_resource type="Shader" uid="uid://bp7t63ytbho6q" path="res://water.gdshader" id="1_wn64b"]
+[ext_resource type="Shader" uid="uid://d4kqfo5gaw6l5" path="res://bottom.gdshader" id="2_16kek"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gl21a"]
+size = Vector3(320, 0.2, 320)
+subdivide_width = 300
+subdivide_depth = 300
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sqq2y"]
+noise_type = 0
+frequency = 0.007
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bcpi7"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_sqq2y")
+seamless = true
+as_normal_map = true
+seamless_blend_skirt = 0.5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hn1nr"]
+noise_type = 0
+frequency = 0.02
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r4a3k"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_hn1nr")
+seamless = true
+as_normal_map = true
+seamless_blend_skirt = 0.5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_55uo8"]
+frequency = 0.0005
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qdptp"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_55uo8")
+seamless = true
+seamless_blend_skirt = 0.5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vddi4"]
+noise_type = 3
+frequency = 0.0225
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w84gw"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_vddi4")
+seamless = true
+seamless_blend_skirt = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gh1yi"]
+render_priority = -128
+shader = ExtResource("1_wn64b")
+shader_parameter/color_shallow = Color(0.01, 0.2, 0.3, 1)
+shader_parameter/color_deep = Color(0.3, 0.5, 0.6, 1)
+shader_parameter/transparency = 0.6
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.25
+shader_parameter/max_visible_depth = 20.0
+shader_parameter/wave_a = SubResource("NoiseTexture2D_qdptp")
+shader_parameter/wave_b = SubResource("NoiseTexture2D_w84gw")
+shader_parameter/wave_move_direction_a = Vector2(-1, 0)
+shader_parameter/wave_move_direction_b = Vector2(0, 1)
+shader_parameter/wave_noise_scale_a = 15.0
+shader_parameter/wave_noise_scale_b = 15.0
+shader_parameter/wave_time_scale_a = 0.15
+shader_parameter/wave_time_scale_b = 0.15
+shader_parameter/wave_height_scale = 1.0
+shader_parameter/wave_normal_flatness = 50.0
+shader_parameter/surface_normals_a = SubResource("NoiseTexture2D_bcpi7")
+shader_parameter/surface_normals_b = SubResource("NoiseTexture2D_r4a3k")
+shader_parameter/surface_normals_move_direction_a = Vector2(-1, 0.2)
+shader_parameter/surface_normals_move_direction_b = Vector2(0.2, 1)
+shader_parameter/surface_texture_roughness = 0.15
+shader_parameter/surface_texture_scale = 0.1
+shader_parameter/surface_texture_time_scale = 0.06
+shader_parameter/ssr_resolution = 1.0
+shader_parameter/ssr_max_travel = 30.0
+shader_parameter/ssr_max_diff = 4.0
+shader_parameter/ssr_mix_strength = 0.7
+shader_parameter/ssr_screen_border_fadeout = 0.3
+shader_parameter/refraction_intensity = 0.4
+shader_parameter/border_color = Color(1, 1, 1, 1)
+shader_parameter/border_scale = 2.0
+shader_parameter/border_near = 0.5
+shader_parameter/border_far = 300.0
+shader_parameter/cut_out_x = 0.0
+shader_parameter/cut_out_z = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1pht2"]
+size = Vector2(320, 320)
+subdivide_width = 200
+subdivide_depth = 200
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xw2vn"]
+frequency = 0.0056
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lawpj"]
+noise = SubResource("FastNoiseLite_xw2vn")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_boqso"]
+noise_type = 4
+frequency = 0.5041
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ko5xt"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_boqso")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rtar"]
+render_priority = 0
+shader = ExtResource("2_16kek")
+shader_parameter/height_scale = 70.0
+shader_parameter/uv_scale = 400.0
+shader_parameter/texture_scale = 20.0
+shader_parameter/stone_texture = SubResource("NoiseTexture2D_ko5xt")
+shader_parameter/bottom = SubResource("NoiseTexture2D_lawpj")
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.28854, 0, 378.8814)
+
+[node name="WaterSurface" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.76576, 0.112858, -408.21252)
+mesh = SubResource("BoxMesh_gl21a")
+surface_material_override/0 = SubResource("ShaderMaterial_gh1yi")
+
+[node name="Bottom" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.68709, -28.414421, -403.41998)
+mesh = SubResource("PlaneMesh_1pht2")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0rtar")

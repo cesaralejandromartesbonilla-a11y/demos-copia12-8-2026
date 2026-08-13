@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://cr5e7k7fsccet"]
+
+[ext_resource type="Script" uid="uid://dlbwby2bkmi43" path="res://habilidades/fireball.gd" id="1_milkt"]
+[ext_resource type="Script" uid="uid://bjb4cxoa2yuv0" path="res://efectos/burn_effect.gd" id="2_a4r1f"]
+
+[sub_resource type="Resource" id="Resource_2ps8e"]
+script = ExtResource("2_a4r1f")
+effect_name = "burn"
+metadata/_custom_type_script = "uid://bjb4cxoa2yuv0"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a4r1f"]
+radius = 2.0
+
+[sub_resource type="Gradient" id="Gradient_a4r1f"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2ps8e"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qxmvc"]
+noise = SubResource("FastNoiseLite_2ps8e")
+color_ramp = SubResource("Gradient_a4r1f")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_711c3"]
+emission_enabled = true
+emission = Color(0.85490197, 0, 0.8352941, 1)
+emission_texture = SubResource("NoiseTexture2D_qxmvc")
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7ryo"]
+material = SubResource("StandardMaterial3D_711c3")
+
+[node name="Fireball" type="Area3D" groups=["ability_projectile"]]
+script = ExtResource("1_milkt")
+burn_effect = SubResource("Resource_2ps8e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_a4r1f")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+amount = 10
+mesh = SubResource("BoxMesh_e7ryo")
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 5.0

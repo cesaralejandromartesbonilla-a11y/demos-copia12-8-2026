@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://chr25gquak0qn"]
+
+[ext_resource type="Script" uid="uid://ja55ddstvg1q" path="res://habilidades/freeze.gd" id="1_i4ldl"]
+[ext_resource type="Resource" uid="uid://bn37riwy48h1j" path="res://efectos/freeze.tres" id="2_0m5oa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a4r1f"]
+radius = 2.0
+
+[sub_resource type="Gradient" id="Gradient_milkt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a4r1f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2ps8e"]
+noise = SubResource("FastNoiseLite_a4r1f")
+color_ramp = SubResource("Gradient_milkt")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_qxmvc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_711c3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e7ryo"]
+noise = SubResource("FastNoiseLite_711c3")
+color_ramp = SubResource("Gradient_qxmvc")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3131"]
+albedo_color = Color(0.16470589, 0.6039216, 0.61960787, 1)
+metallic = 1.0
+metallic_texture = SubResource("NoiseTexture2D_2ps8e")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_e7ryo")
+
+[sub_resource type="BoxMesh" id="BoxMesh_bmumo"]
+material = SubResource("StandardMaterial3D_w3131")
+
+[node name="freeze" type="Area3D" unique_id=259865436 groups=["ability_projectile"]]
+script = ExtResource("1_i4ldl")
+speed = 2.0
+lifetime = 0.1
+freeze_effect = ExtResource("2_0m5oa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1389903425]
+shape = SubResource("SphereShape3D_a4r1f")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1513211745]
+amount = 10
+mesh = SubResource("BoxMesh_bmumo")
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 5.0

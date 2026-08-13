@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DatosPiezaMecanica" format=3 uid="uid://hclrxw4r4j8j"]
+
+[ext_resource type="Script" uid="uid://drxvfjo88h45h" path="res://scripts_car/DatosPiezaMecanica.gd" id="1_bs5ko"]
+
+[resource]
+script = ExtResource("1_bs5ko")
+metadata/_custom_type_script = "uid://drxvfjo88h45h"

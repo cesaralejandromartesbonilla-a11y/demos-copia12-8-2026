@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=5 format=3 uid="uid://bykcxvv5al08l"]
+
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="1_mhe6p"]
+[ext_resource type="Script" uid="uid://bgxcbs4vbbqp2" path="res://scripts de recursos/RecipeData.gd" id="2_6j48y"]
+[ext_resource type="Resource" uid="uid://ch02rp6blxgdf" path="res://items/data/consumable/refined/flour.tres" id="2_rpopq"]
+[ext_resource type="Resource" uid="uid://be4q7gs0gebmf" path="res://items/data/consumable/refined/bread.tres" id="3_7pv7u"]
+
+[resource]
+script = ExtResource("2_6j48y")
+recipe_name = "pan"
+required_items = Array[ExtResource("1_mhe6p")]([ExtResource("2_rpopq")])
+result_item = ExtResource("3_7pv7u")
+metadata/_custom_type_script = "uid://bgxcbs4vbbqp2"

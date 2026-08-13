@@ -1,0 +1,535 @@
+[gd_scene format=3 uid="uid://bqoxwtxn75hks"]
+
+[ext_resource type="Script" uid="uid://b81vwo060f1ww" path="res://creatures/scripts of creatures/creature_controller.gd" id="1_h4iuv"]
+[ext_resource type="Script" uid="uid://dgds2y4pk25mv" path="res://creatures/scrpt modules/interaction_manager.gd" id="2_7b13i"]
+[ext_resource type="Script" uid="uid://f5ut6m5076ky" path="res://creatures/scrpt modules/ability_manager.gd" id="3_lu3vk"]
+[ext_resource type="Script" uid="uid://b31r1yj7utd6v" path="res://creatures/scrpt modules/survival_manager.gd" id="4_fo1wl"]
+[ext_resource type="PackedScene" uid="uid://cr5e7k7fsccet" path="res://habilidades/fireball.tscn" id="4_gx0cy"]
+[ext_resource type="Script" uid="uid://dsqbwl28ywklb" path="res://creatures/scrpt modules/effect_manager.gd" id="5_mmdv3"]
+[ext_resource type="Script" uid="uid://corr1t2235mox" path="res://creatures/scrpt modules/level_manager.gd" id="6_hlrme"]
+[ext_resource type="Script" uid="uid://dislycohqex4x" path="res://creatures/scrpt modules/evolution_manager.gd" id="7_d85bq"]
+[ext_resource type="Script" uid="uid://ccpgmaj6aogfa" path="res://creatures/scrpt modules/stat_scaler.gd" id="8_nwb0i"]
+[ext_resource type="Script" uid="uid://cxgohrlgfh2iy" path="res://creatures/scrpt modules/combat_manager.gd" id="9_7b13i"]
+[ext_resource type="Script" uid="uid://ccewhhv3o6dug" path="res://creatures/scrpt modules/environment_manager.gd" id="10_lu3vk"]
+[ext_resource type="Script" uid="uid://bnj4h6drbtc71" path="res://creatures/scrpt modules/temperature_manager.gd" id="11_fo1wl"]
+[ext_resource type="PackedScene" uid="uid://dou8d5kf7hrju" path="res://models/ice.tscn" id="12_mmdv3"]
+[ext_resource type="Script" uid="uid://0lxwpcco8gg1" path="res://creatures/scrpt modules/hands_inventory.gd" id="13_hlrme"]
+[ext_resource type="Script" uid="uid://bmtsivkdxf8lt" path="res://creatures/scrpt modules/builder_manager.gd" id="14_d85bq"]
+[ext_resource type="PackedScene" uid="uid://chr25gquak0qn" path="res://habilidades/freeze.tscn" id="14_sat7o"]
+[ext_resource type="PackedScene" uid="uid://cvk0xwlfajo53" path="res://ecenas/construction_site.tscn" id="16_txjcq"]
+[ext_resource type="PackedScene" uid="uid://d1wmmvw17dh61" path="res://ecenas/parcela/crop_plot_basic.tscn" id="18_gx0cy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfa28"]
+
+[sub_resource type="GDScript" id="GDScript_20g0q"]
+script/source = "extends Area3D
+class_name CropPlotGrid
+
+enum State { EMPTY, GROWING, READY, DIRTY, PEST_INFESTED, NEEDS_CLEARING }
+
+@export var cell_world_size: float = 1.0
+@export var plot_type: SeedData.TerrainRequired = SeedData.TerrainRequired.NORMAL_PLOT
+@export var grid_columns: int = 3 # Cambiado a 3 por defecto para tu nuevo estándar
+@export var grid_rows: int = 3
+@export var signals: bool = false
+
+var current_state: State = State.EMPTY
+var growth_progress: float = 0.0
+var planted_seed_data: SeedData = null
+var grid_size: Vector2i = Vector2i(3, 3)
+var occupancy_grid: Array = [] 
+var active_crops: Array[Dictionary] = [] 
+var grid_slots: Dictionary = {}
+var current_water: float = 0.0
+var current_organic_matter: float = 0.0
+var is_fertilized: bool = false
+var is_submerged: bool = false
+var custom_material: StandardMaterial3D
+
+@onready var item_base_scene = preload(\"res://items/pickable_item.tscn\")
+@onready var plot_mesh = $plot_mesh
+@onready var interaction = $CropInteraction
+
+func _ready() -> void:
+	_initialize_grid()
+	area_entered.connect(_on_area_entered)
+	area_exited.connect(_on_area_exited)
+	_scan_environment()
+	
+	if plot_mesh:
+		custom_material = StandardMaterial3D.new()
+		plot_mesh.material_override = custom_material
+		
+	add_to_group(\"crop_plot\")
+	add_to_group(\"estructuras\")
+
+func _initialize_grid() -> void:
+	# Sincronización automática basada en tus nuevos tamaños preestablecidos
+	if plot_type == SeedData.TerrainRequired.NORMAL_PLOT:
+		grid_columns = 3
+		grid_rows = 3
+	elif plot_type == SeedData.TerrainRequired.LARGE_PLOT:
+		grid_columns = 4 # O el tamaño máximo que decidas para parcelas grandes
+		grid_rows = 4
+		
+	grid_size = Vector2i(grid_columns, grid_rows)
+	occupancy_grid.clear()
+	grid_slots.clear()
+	
+	for x in range(grid_size.x):
+		var column = []
+		for y in range(grid_size.y):
+			column.append(false)
+		occupancy_grid.append(column)
+
+func can_fit(crop_size: Vector2i, start_cell: Vector2i, seed_data: SeedData = null) -> bool:
+	if seed_data and seed_data.required_terrain != plot_type:
+		return false
+		
+	if crop_size == grid_size and start_cell == Vector2i(0, 0):
+		return grid_slots.is_empty()
+		
+	# Recorremos el área cuadrada que ocupará el cultivo de forma limpia
+	for x in range(crop_size.x):
+		for y in range(crop_size.y):
+			var target_cell = start_cell + Vector2i(x, y)
+			
+			# Límites físicos de la parcela
+			if target_cell.x < 0 or target_cell.x >= grid_columns or target_cell.y < 0 or target_cell.y >= grid_rows:
+				return false
+				
+			# Verificación de ocupación
+			if grid_slots.has(target_cell) and grid_slots[target_cell] != null:
+				return false
+				
+	return true
+
+func register_new_crop(seed_data: SeedData, origin_cell: Vector2i) -> void:
+	var crop_entry = {
+		\"seed_data\": seed_data,
+		\"origin_cell\": origin_cell,
+		\"growth_progress\": 0.0,
+		\"current_state\": State.GROWING
+	}
+	
+	# Llenamos el bloque usando el tamaño del cultivo (1x1, 2x2, 3x3)
+	for x in range(seed_data.crop_size.x):
+		for y in range(seed_data.crop_size.y):
+			var target_cell = origin_cell + Vector2i(x, y)
+			grid_slots[target_cell] = crop_entry
+			occupancy_grid[target_cell.x][target_cell.y] = true
+	
+	active_crops.append(crop_entry)
+	planted_seed_data = seed_data
+	current_state = State.GROWING
+	
+	var visuals = get_node_or_null(\"CropVisuals\")
+	if visuals and visuals.has_method(\"spawn_crop_visual\"):
+		visuals.spawn_crop_visual(seed_data, origin_cell)
+		
+	if signals: print(\"[Grid] Planta añadida. Tamaño: \", seed_data.crop_size, \" en origen: \", origin_cell)
+
+func plant_crop_in_grid(seed_data: SeedData, origin: Vector2i) -> void:
+	register_new_crop(seed_data, origin)
+
+func interact(player: Node3D, cell: Vector2i = Vector2i(-1, -1)) -> void:
+	if interaction: interaction.handle_interaction(player, cell)
+
+func _scan_environment() -> void:
+	var overlapping = get_overlapping_areas()
+	var found_water = false
+	for area in overlapping:
+		if _is_area_water(area):
+			found_water = true
+			break
+	_update_submerged_state(found_water)
+
+func _on_area_entered(area: Area3D) -> void:
+	if _is_area_water(area): _update_submerged_state(true)
+
+func _on_area_exited(area: Area3D) -> void:
+	if _is_area_water(area): _scan_environment()
+
+func _is_area_water(area: Area3D) -> bool:
+	return area.is_in_group(\"agua\") or area.is_in_group(\"water\")
+
+func _update_submerged_state(submerged: bool) -> void:
+	is_submerged = submerged
+	if is_submerged:
+		if custom_material: custom_material.albedo_color = Color(0.3, 0.2, 0.15) 
+	else:
+		if custom_material: custom_material.albedo_color = Color(0.6, 0.4, 0.2)
+
+func process_grid_growth(tick_energy: float) -> void:
+	if active_crops.is_empty(): return
+	var visuals = get_node_or_null(\"CropVisuals\")
+	
+	for i in range(active_crops.size() - 1, -1, -1):
+		var crop = active_crops[i]
+		if crop[\"current_state\"] == State.READY or crop[\"current_state\"] == State.NEEDS_CLEARING:
+			continue
+			
+		var s_data = crop[\"seed_data\"] as SeedData
+		crop[\"growth_progress\"] += tick_energy
+		var ratio = clampf(crop[\"growth_progress\"] / s_data.grow_time_ticks, 0.0, 1.0)
+		
+		if crop[\"growth_progress\"] >= s_data.grow_time_ticks:
+			crop[\"current_state\"] = State.READY
+			
+		if visuals and visuals.has_method(\"update_crop_visual\"):
+			visuals.update_crop_visual(crop[\"origin_cell\"], s_data, ratio, crop[\"current_state\"])
+
+func cell_to_local_3d(cell: Vector2i) -> Vector3:
+	var start_x = - (grid_columns * cell_world_size) / 2.0
+	var start_z = - (grid_rows * cell_world_size) / 2.0
+	var local_x = start_x + (cell.x + 0.5) * cell_world_size
+	var local_z = start_z + (cell.y + 0.5) * cell_world_size
+	return Vector3(local_x, 0.0, local_z)
+
+func global_to_cell(global_pos: Vector3) -> Vector2i:
+	var local_pos = to_local(global_pos)
+	var start_x = - (grid_columns * cell_world_size) / 2.0
+	var start_z = - (grid_rows * cell_world_size) / 2.0
+	var cell_x = floor((local_pos.x - start_x) / cell_world_size)
+	var cell_z = floor((local_pos.z - start_z) / cell_world_size)
+	return Vector2i(clampi(cell_x, 0, grid_columns - 1), clampi(cell_z, 0, grid_rows - 1))
+
+func save_data() -> Dictionary:
+	var saved_crops_array: Array = []
+	for crop in active_crops:
+		var crop_data = {
+			\"seed_path\": crop[\"seed_data\"].resource_path,
+			\"origin_x\": crop[\"origin_cell\"].x,
+			\"origin_y\": crop[\"origin_cell\"].y,
+			\"growth_progress\": crop[\"growth_progress\"],
+			\"current_state\": crop[\"current_state\"]
+		}
+		saved_crops_array.append(crop_data)
+
+	return {
+		\"filename\" : get_scene_file_path(),
+		\"parent\" : str(get_parent().get_path()) if get_parent() else \"\",
+		\"pos_x\" : global_position.x, \"pos_y\" : global_position.y, \"pos_z\" : global_position.z,
+		\"rot_x\" : global_rotation.x, \"rot_y\" : global_rotation.y, \"rot_z\" : global_rotation.z,
+		\"current_state\" : current_state, \"current_compost\" : is_fertilized, \"is_watered\": is_submerged,
+		\"active_crops_data\": saved_crops_array
+	}
+
+func load_data(saved_dict: Dictionary) -> void:
+	is_fertilized = saved_dict.get(\"current_compost\", false)
+	is_submerged = saved_dict.get(\"is_watered\", false)
+	current_state = saved_dict.get(\"current_state\", State.EMPTY)
+	_update_submerged_state(is_submerged)
+	
+	_initialize_grid()
+	active_crops.clear()
+	if not saved_dict.has(\"active_crops_data\"): return
+	
+	var visuals = get_node_or_null(\"CropVisuals\")
+	for crop_data in saved_dict[\"active_crops_data\"]:
+		var seed_path = crop_data[\"seed_path\"]
+		if ResourceLoader.exists(seed_path):
+			var s_data = load(seed_path) as SeedData
+			var origin = Vector2i(crop_data[\"origin_x\"], crop_data[\"origin_y\"])
+			
+			var restored_crop = {
+				\"seed_data\": s_data, \"origin_cell\": origin,
+				\"growth_progress\": crop_data[\"growth_progress\"], \"current_state\": crop_data[\"current_state\"]
+			}
+			active_crops.append(restored_crop)
+			
+			# Re-bloquear las celdas usando el tamaño cargado
+			for x in range(s_data.crop_size.x):
+				for y in range(s_data.crop_size.y):
+					var target_cell = origin + Vector2i(x, y)
+					grid_slots[target_cell] = restored_crop
+					occupancy_grid[target_cell.x][target_cell.y] = true
+			
+			if visuals and visuals.has_method(\"spawn_crop_visual\"):
+				visuals.spawn_crop_visual(s_data, origin)
+				var ratio = clampf(restored_crop[\"growth_progress\"] / s_data.grow_time_ticks, 0.0, 1.0)
+				if visuals.has_method(\"update_crop_visual\"):
+					visuals.update_crop_visual(origin, s_data, ratio, restored_crop[\"current_state\"])
+				
+	if not active_crops.is_empty(): planted_seed_data = active_crops[0][\"seed_data\"]
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cr50b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3rkdc"]
+
+[sub_resource type="GDScript" id="GDScript_sat7o"]
+script/source = "extends Node3D
+class_name CropVisuals
+
+@onready var plot = get_parent()
+var spawned_nodes: Dictionary = {}
+
+func spawn_crop_visual(seed_data: SeedData, origin_cell: Vector2i) -> void:
+	if seed_data == null or seed_data.visual_data == null: return
+	var v_data = seed_data.visual_data
+	var mesh_instance = MeshInstance3D.new()
+	
+	if v_data.style == CropVisualData.VisualStyle.COLOR_SHIFT:
+		mesh_instance.mesh = v_data.single_mesh
+		var unique_mat = StandardMaterial3D.new()
+		unique_mat.albedo_color = v_data.start_color
+		mesh_instance.material_override = unique_mat
+	else:
+		mesh_instance.mesh = v_data.sprout_mesh
+		
+	add_child(mesh_instance)
+	
+	# --- CENTRADO EN CAJA MATEMÁTICO DIRECTO ---
+	# Obtiene la posición 3D de la celda origen y la celda final del tamaño del cultivo
+	var start_pos = plot.cell_to_local_3d(origin_cell)
+	var end_pos = plot.cell_to_local_3d(origin_cell + seed_data.crop_size - Vector2i(1, 1))
+	
+	# El centro geométrico perfecto es el punto medio entre ambas esquinas
+	mesh_instance.position = (start_pos + end_pos) / 2.0
+	
+	spawned_nodes[origin_cell] = mesh_instance
+
+func update_crop_visual(origin_cell: Vector2i, seed_data: SeedData, ratio: float, current_state: int) -> void:
+	if not spawned_nodes.has(origin_cell): return
+	var mesh_instance = spawned_nodes[origin_cell]
+	var v_data = seed_data.visual_data
+	
+	if v_data.style == CropVisualData.VisualStyle.COLOR_SHIFT:
+		var mat = mesh_instance.material_override as StandardMaterial3D
+		if mat: mat.albedo_color = v_data.start_color.lerp(v_data.ready_color, ratio)
+	else:
+		var target_mesh: Mesh = v_data.sprout_mesh
+		if current_state == plot.State.READY:
+			target_mesh = v_data.ready_mesh
+		elif ratio >= 0.4:
+			target_mesh = v_data.growing_mesh
+			
+		if mesh_instance.mesh != target_mesh:
+			mesh_instance.mesh = target_mesh
+
+func remove_crop_visual(origin_cell: Vector2i) -> void:
+	if spawned_nodes.has(origin_cell):
+		spawned_nodes[origin_cell].queue_free()
+		spawned_nodes.erase(origin_cell)
+"
+
+[sub_resource type="GDScript" id="GDScript_hdr31"]
+script/source = "extends Node
+class_name CropGrowth
+
+var plot
+
+func _ready() -> void:
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_fegob"]
+script/source = "extends Node
+class_name CropInteraction
+
+@onready var plot: CropPlotGrid = get_parent()
+
+func handle_interaction(player: Node3D, cell: Vector2i = Vector2i(-1, -1)) -> void:
+	var hands = player.get_node_or_null(\"HandsInventory\")
+	if not hands: return
+	var held_item = hands.item_in_right
+	
+	if held_item and held_item.data and held_item.data.seed_data:
+		_try_plant_seed_in_slot(held_item, hands, cell)
+	else:
+		_handle_normal_interaction(player)
+
+func _try_plant_seed_in_slot(seed_item: PickableItem, hands: Node, target_cell: Vector2i) -> void:
+	var s_data = seed_item.data.seed_data
+		
+	if s_data.requires_submerged and not plot.is_submerged:
+		return
+
+func _handle_normal_interaction(player: Node3D) -> void:
+	var hit_point = _get_camera_raycast_hit()
+	if hit_point == Vector3.INF: return
+	
+	var clicked_cell = plot.global_to_cell(hit_point)
+	var target_crop_index = _find_crop_at_cell(clicked_cell)
+	
+	if target_crop_index == -1: return
+		
+	var crop = plot.active_crops[target_crop_index]
+	if crop[\"current_state\"] == plot.State.READY:
+		_harvest_crop_at_index(target_crop_index, player)
+
+func _get_camera_raycast_hit() -> Vector3:
+	var camera = get_viewport().get_camera_3d()
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_origin = camera.project_ray_origin(mouse_pos)
+	var ray_end = ray_origin + camera.project_ray_normal(mouse_pos) * 50.0
+	
+	var space_state = plot.get_viewport().world_3d.direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(ray_origin, ray_end)
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	
+	var result = space_state.intersect_ray(query)
+	if result and result.collider == plot:
+		return result.position
+	return Vector3.INF
+
+# COMPROBACIÓN EXTREMADAMENTE OPTIMIZADA POR LÍMITES DE CAJA
+func _find_crop_at_cell(cell: Vector2i) -> int:
+	for i in range(plot.active_crops.size()):
+		var crop = plot.active_crops[i]
+		var origin = crop[\"origin_cell\"] as Vector2i
+		var size = crop[\"seed_data\"].crop_size as Vector2i
+		
+		# Si la celda cliqueada cae dentro del rectángulo (origen -> origen + tamaño), es la planta correcta
+		if cell.x >= origin.x and cell.x < (origin.x + size.x) and cell.y >= origin.y and cell.y < (origin.y + size.y):
+			return i
+	return -1
+
+func _harvest_crop_at_index(index: int, player: Node3D) -> void:
+	var crop = plot.active_crops[index]
+	var s_data = crop[\"seed_data\"] as SeedData
+	var origin = crop[\"origin_cell\"]
+	
+	if s_data.result_item_data: _spawn_reward_item(s_data.result_item_data, s_data.drop_amount)
+	if s_data.secondary_result_data: _spawn_reward_item(s_data.secondary_result_data, 1)
+		
+	var visuals = plot.get_node_or_null(\"CropVisuals\")
+	if visuals and visuals.has_method(\"remove_crop_visual\"):
+		visuals.remove_crop_visual(origin)
+		
+	# Limpiamos las celdas recorriendo el rango de su tamaño cuadrado
+	for x in range(s_data.crop_size.x):
+		for y in range(s_data.crop_size.y):
+			var target_cell = origin + Vector2i(x, y)
+			plot.occupancy_grid[target_cell.x][target_cell.y] = false
+			if plot.grid_slots.has(target_cell):
+				plot.grid_slots.erase(target_cell)
+		
+	plot.active_crops.remove_at(index)
+	if plot.active_crops.is_empty():
+		plot.planted_seed_data = null
+		plot.current_state = plot.State.EMPTY
+
+func _spawn_reward_item(item_data: ItemData, amount: int) -> void:
+	if plot.item_base_scene == null: return
+	for n in range(amount):
+		var item_instance = plot.item_base_scene.instantiate()
+		item_instance.data = item_data
+		plot.get_tree().current_scene.add_child(item_instance)
+		var random_offset = Vector3(randf_range(-0.2, 0.2), 0.5, randf_range(-0.2, 0.2))
+		item_instance.global_position = plot.global_position + random_offset
+"
+
+[sub_resource type="PackedScene" id="PackedScene_o0wpg"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("crop_plot2", "Area3D", "script", "CollisionShape3D", "CollisionShape3D", "shape", "plot_mesh", "MeshInstance3D", "transform", "mesh", "CropVisuals", "Node3D", "script", "CropGrowth", "Node", "script", "plot", "CropInteraction", "Node", "script"),
+"node_count": 6,
+"node_ids": PackedInt32Array(1575484472, 1540090972, 2072151245, 1408501685, 1860246876, 1178903846),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 1, 5, 1, 0, 1073741825, 0, 7, 6, -1, 2, 8, 2, 9, 3, 0, 1073741826, 0, 11, 10, -1, 1, 12, 4, 0, 1073741827, 0, 14, 13, -1, 2, 15, 5, 1073741840, 6, 0, 1073741828, 0, 18, 17, -1, 1, 19, 7, 0),
+"variants": [SubResource("GDScript_20g0q"), SubResource("SphereShape3D_cr50b"), Transform3D(1, 0, 0, 0, 0.39999998, 0, 0, 0, 1, 0, 0, 0), SubResource("BoxMesh_3rkdc"), SubResource("GDScript_sat7o"), SubResource("GDScript_hdr31"), NodePath(".."), SubResource("GDScript_fegob")],
+"version": 3
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a76wf"]
+radius = 1.4961382
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=71737248 groups=["persist", "player"]]
+script = ExtResource("1_h4iuv")
+can_swim = true
+can_fly = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1100711380]
+shape = SubResource("BoxShape3D_nfa28")
+
+[node name="InteractionManager" type="Area3D" parent="." unique_id=1457068211]
+script = ExtResource("2_7b13i")
+enable_farming_override = true
+crop_plot_scene = SubResource("PackedScene_o0wpg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionManager" unique_id=43645724]
+shape = SubResource("SphereShape3D_a76wf")
+
+[node name="AbilityManager" type="Node" parent="." unique_id=159372260]
+script = ExtResource("3_lu3vk")
+equipped_abilities = Array[PackedScene]([ExtResource("4_gx0cy"), null])
+
+[node name="SurvivalManager" type="Node" parent="." unique_id=166208171]
+script = ExtResource("4_fo1wl")
+
+[node name="effect_manager" type="Node" parent="." unique_id=721601794]
+script = ExtResource("5_mmdv3")
+immunities = Array[String](["burn"])
+
+[node name="LevelManager" type="Node" parent="." unique_id=1560484017]
+script = ExtResource("6_hlrme")
+xp_requirement_base = 50.0
+
+[node name="EvolutionManager" type="Node" parent="." unique_id=1975190595]
+script = ExtResource("7_d85bq")
+
+[node name="StatScaler" type="Node" parent="." unique_id=1820475748]
+script = ExtResource("8_nwb0i")
+start_speed = 0.8
+end_health = 1500.0
+end_damage = 300.0
+end_speed = 3.0
+end_energy = 300.0
+
+[node name="CombatManager" type="Node" parent="." unique_id=524174870]
+script = ExtResource("9_7b13i")
+
+[node name="EnvironmentManager" type="Node" parent="." unique_id=33584868]
+script = ExtResource("10_lu3vk")
+
+[node name="TemperatureManager" type="Node" parent="." unique_id=1492102649]
+script = ExtResource("11_fo1wl")
+ice_cube_scene = ExtResource("12_mmdv3")
+cold_effect_scene = ExtResource("14_sat7o")
+
+[node name="HandsInventory" type="Node" parent="." unique_id=1961533835 node_paths=PackedStringArray("left_hand_marker", "right_hand_marker")]
+script = ExtResource("13_hlrme")
+left_hand_marker = NodePath("../HandLeft")
+right_hand_marker = NodePath("../HandRight")
+
+[node name="BuilderManager" type="Node" parent="." unique_id=156781697 node_paths=PackedStringArray("blueprint_label")]
+script = ExtResource("14_d85bq")
+construction_site_scene = ExtResource("16_txjcq")
+crop_plot_scene = SubResource("PackedScene_o0wpg")
+free_crop_scene = ExtResource("18_gx0cy")
+blueprint_label = NodePath("../Label")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1222938228]
+spring_length = 5.0
+margin = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1438358142]
+
+[node name="ModelHolder" type="Node3D" parent="." unique_id=990863047]
+
+[node name="RoofDetector" type="RayCast3D" parent="." unique_id=1356974474]
+transform = Transform3D(1, 0, 0, 0, -4, -8.742279e-08, 0, 3.496911e-07, -1.0000002, 0, 0, 0)
+
+[node name="HandLeft" type="Marker3D" parent="." unique_id=68078122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
+
+[node name="HandRight" type="Marker3D" parent="." unique_id=2005294105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -1)
+
+[node name="GroundDetector" type="RayCast3D" parent="." unique_id=1320776742]
+
+[node name="Label" type="Label" parent="." unique_id=574814710]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "modo:--.--"

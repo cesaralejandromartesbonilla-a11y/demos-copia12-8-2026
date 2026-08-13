@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TowerData" format=3 uid="uid://5t2cw73lcy8h"]
+
+[ext_resource type="Script" uid="uid://pi3noc8g1ck0" path="res://script_recurs/TowerData.gd" id="1_21ijt"]
+[ext_resource type="PackedScene" uid="uid://c1optemcn78b1" path="res://Tower/proyectile/test.tscn" id="1_fjeow"]
+[ext_resource type="Texture2D" uid="uid://bmmvi7qhvb6sm" path="res://icon.svg" id="3_vl1j3"]
+
+[resource]
+script = ExtResource("1_21ijt")
+tower_id = "dart"
+cost = 50
+tower_texture = ExtResource("3_vl1j3")
+projectile_scene = ExtResource("1_fjeow")
+metadata/_custom_type_script = "uid://pi3noc8g1ck0"

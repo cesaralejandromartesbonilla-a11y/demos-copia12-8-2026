@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EngineData" load_steps=3 format=3 uid="uid://gmfti8h4yd8m"]
+
+[ext_resource type="Script" uid="uid://ctt08g6t2sjqp" path="res://vehicles/scripts de recursos/engine_data.gd" id="1_uqif0"]
+
+[sub_resource type="Curve" id="Curve_uqif0"]
+_data = [Vector2(0, 0.29484433), 0.0, 0.0, 0, 0, Vector2(0.55397725, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.6586593), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[resource]
+script = ExtResource("1_uqif0")
+requisitos_etiquetas = Array[String]([""])
+curva_torque = SubResource("Curve_uqif0")
+metadata/_custom_type_script = "uid://ctt08g6t2sjqp"

@@ -1,0 +1,161 @@
+[gd_scene load_steps=6 format=3 uid="uid://d8x8gameworld01"]
+
+[ext_resource type="Script" path="res://scripts/game/game_world.gd" id="1_world"]
+[ext_resource type="Script" path="res://scripts/ui/touch_pedal.gd" id="3_pedal"]
+[ext_resource type="Script" path="res://scripts/terrain/terrain_generator.gd" id="4_terrain"]
+[ext_resource type="Script" path="res://scripts/pickups/pickup_manager.gd" id="5_pickups"]
+[ext_resource type="Script" path="res://scripts/game/follow_camera.gd" id="6_camera"]
+[ext_resource type="Script" path="res://scripts/game/game_parallax.gd" id="7_parallax"]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_world")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("7_parallax")
+
+[node name="SkyLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.06, 0.02)
+motion_offset = Vector2(0, -80)
+
+[node name="Sky" type="ColorRect" parent="ParallaxBackground/SkyLayer"]
+offset_right = 3200.0
+offset_bottom = 900.0
+color = Color(0.55, 0.78, 0.98, 1)
+
+[node name="SkyGradient" type="ColorRect" parent="ParallaxBackground/SkyLayer"]
+modulate = Color(1, 1, 1, 0.35)
+offset_top = 200.0
+offset_right = 3200.0
+offset_bottom = 900.0
+color = Color(0.85, 0.93, 1, 1)
+
+[node name="HillsFarLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.22, 0.04)
+motion_offset = Vector2(0, 60)
+
+[node name="HillsFar" type="Polygon2D" parent="ParallaxBackground/HillsFarLayer"]
+color = Color(0.42, 0.64, 0.38, 1)
+polygon = PackedVector2Array(0, 280, 160, 240, 320, 270, 480, 220, 640, 260, 800, 200, 960, 250, 1120, 210, 1280, 265, 1440, 230, 1600, 275, 1760, 215, 1920, 255, 2080, 225, 2240, 270, 2400, 235, 2560, 280, 2720, 240, 2880, 275, 3040, 250, 3200, 280, 3200, 700, 0, 700)
+
+[node name="HillsNearLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.42, 0.06)
+motion_offset = Vector2(0, 100)
+
+[node name="HillsNear" type="Polygon2D" parent="ParallaxBackground/HillsNearLayer"]
+color = Color(0.48, 0.7, 0.42, 1)
+polygon = PackedVector2Array(0, 340, 120, 300, 260, 330, 400, 270, 540, 320, 700, 260, 860, 310, 1000, 280, 1140, 335, 1280, 290, 1420, 340, 1580, 275, 1720, 325, 1860, 295, 2000, 345, 2140, 285, 2280, 330, 2420, 300, 2560, 350, 2700, 310, 2840, 345, 2980, 305, 3200, 350, 3200, 700, 0, 700)
+
+[node name="TerrainGenerator" type="Node2D" parent="."]
+script = ExtResource("4_terrain")
+
+[node name="PickupManager" type="Node2D" parent="."]
+script = ExtResource("5_pickups")
+
+[node name="VehicleSpawn" type="Marker2D" parent="."]
+position = Vector2(120, 178)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(220, 218)
+zoom = Vector2(1.2, 1.2)
+script = ExtResource("6_camera")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Margin" type="MarginContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="VBox" type="VBoxContainer" parent="HUD/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DistanceLabel" type="Label" parent="HUD/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 22
+text = "Distancia: 0 m"
+
+[node name="CoinsLabel" type="Label" parent="HUD/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.35, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 18
+text = "Monedas: 0"
+
+[node name="FuelRow" type="HBoxContainer" parent="HUD/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FuelLabel" type="Label" parent="HUD/Margin/VBox/FuelRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Gasolina"
+
+[node name="FuelBar" type="ProgressBar" parent="HUD/Margin/VBox/FuelRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 18)
+layout_mode = 2
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="Hint" type="Label" parent="HUD/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.85)
+theme_override_font_sizes/font_size = 14
+text = "A/← Freno  ·  D/→ Gas  ·  Recoge monedas y bidones"
+
+[node name="TouchControls" type="HBoxContainer" parent="HUD"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="BrakePedal" type="Button" parent="HUD/TouchControls"]
+custom_minimum_size = Vector2(150, 88)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Freno"
+script = ExtResource("3_pedal")
+action_name = &"brake"
+
+[node name="GasPedal" type="Button" parent="HUD/TouchControls"]
+custom_minimum_size = Vector2(150, 88)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Gas"
+script = ExtResource("3_pedal")
+
+[node name="EndRunButton" type="Button" parent="HUD"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -60.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Terminar"

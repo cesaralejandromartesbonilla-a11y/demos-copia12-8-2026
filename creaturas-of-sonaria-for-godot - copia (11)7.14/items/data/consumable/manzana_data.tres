@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://mvw36sv7fmrp"]
+
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="1_evuxi"]
+
+[sub_resource type="Gradient" id="Gradient_evuxi"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hj2p1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eqafi"]
+noise = SubResource("FastNoiseLite_hj2p1")
+color_ramp = SubResource("Gradient_evuxi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wx3lq"]
+albedo_color = Color(1, 0, 0, 1)
+roughness_texture = SubResource("NoiseTexture2D_eqafi")
+
+[sub_resource type="SphereMesh" id="SphereMesh_35e4y"]
+material = SubResource("StandardMaterial3D_wx3lq")
+
+[resource]
+script = ExtResource("1_evuxi")
+weight_kg = 0.5
+item_name = "manzana"
+item_mesh = SubResource("SphereMesh_35e4y")
+is_edible = true
+compost_value = 10.0
+metadata/_custom_type_script = "uid://pn1ld58jj7o2"

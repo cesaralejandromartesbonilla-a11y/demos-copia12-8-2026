@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="CropVisualData" format=3 uid="uid://dnvabfy5kp8t3"]
+
+[ext_resource type="Script" uid="uid://5aejr6uf1sel" path="res://scripts de recursos/CropVisualData.gd" id="1_q0g7m"]
+
+[sub_resource type="Curve" id="Curve_1mlsp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.14029852, 1), -4.073645, 0.0, 0, 0, Vector2(0.28059703, 0.24526072), -17.027824, 0.0, 0, 0, Vector2(1, 0.23755926), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5l720"]
+albedo_color = Color(0.4, 0.7921569, 0, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_36uy3"]
+material = SubResource("StandardMaterial3D_5l720")
+curve = SubResource("Curve_1mlsp")
+
+[sub_resource type="Curve" id="Curve_6h8ib"]
+_limits = [0.0, 2.0, 0.0, 2.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.09552239, 1.9229858), 1.3486245, 1.3486245, 0, 0, Vector2(0.35820895, 2), 0.0, 0.0, 0, 0, Vector2(0.6507463, 1.8921802), -2.2216454, 0.0, 0, 0, Vector2(0.7164179, 0.5059242), 0.0, 0.0, 0, 0, Vector2(2, 0.49052143), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqh0a"]
+albedo_color = Color(0.44705883, 0.80784315, 0.39215687, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_ou8ik"]
+material = SubResource("StandardMaterial3D_vqh0a")
+curve = SubResource("Curve_6h8ib")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ub48i"]
+albedo_color = Color(0.4117647, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7518p"]
+material = SubResource("StandardMaterial3D_ub48i")
+
+[resource]
+script = ExtResource("1_q0g7m")
+style = 1
+transition_duration = 5.0
+sprout_mesh = SubResource("BoxMesh_7518p")
+growing_mesh = SubResource("TubeTrailMesh_36uy3")
+ready_mesh = SubResource("TubeTrailMesh_ou8ik")
+metadata/_custom_type_script = "uid://5aejr6uf1sel"

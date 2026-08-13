@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bkrb5poo2rwut"]
+
+[ext_resource type="PackedScene" uid="uid://w2qee5ma5bvm" path="res://scenes/entities/bloons/bloon_base.tscn" id="1_bloon_base"]
+[ext_resource type="Script" uid="uid://swg3jyxkmcp5" path="res://src/entities/maps/track.gd" id="1_r5v2t"]
+[ext_resource type="Resource" uid="uid://uaavekslgdsy" path="res://resources/bloons/blue_bloon.tres" id="2_blue_bloon"]
+[ext_resource type="Script" uid="uid://kw7iwfttexqy" path="res://src/core/wave_manager.gd" id="3_wave_manager"]
+[ext_resource type="Script" uid="uid://ccfqsleb6qt0f" path="res://src/resources/wave_data.gd" id="4_wave_data"]
+[ext_resource type="Resource" uid="uid://u7xim74pw24k" path="res://resources/waves/wave_1.tres" id="5_wave_1"]
+
+[sub_resource type="Curve2D" id="Curve2D_dgfs8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 553, 51, 0, 0, 0, 0, 244, 388, 0, 0, 0, 0, 753, 310, 0, 0, 0, 0, 1152, 648)
+}
+point_count = 5
+
+[node name="MapBase" type="Node2D" unique_id=183673902]
+
+[node name="Track" type="Path2D" parent="." unique_id=1188500742]
+curve = SubResource("Curve2D_dgfs8")
+script = ExtResource("1_r5v2t")
+test_bloon_data = ExtResource("2_blue_bloon")
+
+[node name="WaveManager" type="Node" parent="." unique_id=966247849]
+script = ExtResource("3_wave_manager")
+waves = Array[ExtResource("4_wave_data")]([ExtResource("5_wave_1")])
+bloon_scene = ExtResource("1_bloon_base")

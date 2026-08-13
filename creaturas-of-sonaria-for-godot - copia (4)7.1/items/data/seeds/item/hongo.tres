@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dmd8ajmbchun1"]
+
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="1_8j00m"]
+[ext_resource type="Resource" uid="uid://df161fvl7xjx7" path="res://items/data/seeds/seedata/hongo.tres" id="2_fx70x"]
+
+[sub_resource type="Curve" id="Curve_dkff8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.07520891, 1), 0.0, 0.0, 0, 0, Vector2(0.17548746, 0.19814414), 0.0, 0.0, 0, 0, Vector2(1, 0.3684498), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_1tmiu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pml5p"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a8lna"]
+noise = SubResource("FastNoiseLite_pml5p")
+color_ramp = SubResource("Gradient_1tmiu")
+
+[sub_resource type="Gradient" id="Gradient_3nwu2"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7bll7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6vuo5"]
+noise = SubResource("FastNoiseLite_7bll7")
+color_ramp = SubResource("Gradient_3nwu2")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwb2r"]
+albedo_color = Color(0.92156863, 0.4862745, 0.28627452, 1)
+roughness_texture = SubResource("NoiseTexture2D_6vuo5")
+normal_texture = SubResource("NoiseTexture2D_a8lna")
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_5sqd2"]
+material = SubResource("StandardMaterial3D_jwb2r")
+curve = SubResource("Curve_dkff8")
+
+[resource]
+script = ExtResource("1_8j00m")
+weight_kg = 0.5
+item_name = "miselio"
+item_mesh = SubResource("TubeTrailMesh_5sqd2")
+seed_data = ExtResource("2_fx70x")
+compost_value = 5.0
+metadata/_custom_type_script = "uid://pn1ld58jj7o2"
