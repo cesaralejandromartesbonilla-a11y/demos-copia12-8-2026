@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://shuriken_proj_uid"]
+
+[ext_resource type="Script" path="res://src/entities/projectiles/tack_projectile.gd" id="1_tack"]
+[ext_resource type="Texture2D" uid="uid://bmmvi7qhvb6sm" path="res://icon.svg" id="2_icon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shuriken"]
+size = Vector2(12, 12)
+
+[node name="ShurikenProjectile" type="Area2D" groups=["proyectil"]]
+script = ExtResource("1_tack")
+max_range = 300.0
+speed = 800.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.3, 0.3, 0.3, 1)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_shuriken")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

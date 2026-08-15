@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://spoyqbxcmisr"]
+
+[ext_resource type="Script" uid="uid://c6opmoiuysged" path="res://ecenas/mesas/crafting_ui.gd" id="1_0iser"]
+
+[node name="CraftingUI" type="CanvasLayer" unique_id=630997147]
+script = ExtResource("1_0iser")
+
+[node name="PanelBackground" type="Panel" parent="." unique_id=1220550139]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelBackground" unique_id=1335130733]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SeccionIzquierda" type="PanelContainer" parent="PanelBackground/HBoxContainer" unique_id=641892921]
+custom_minimum_size = Vector2(300, 580)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelBackground/HBoxContainer/SeccionIzquierda" unique_id=1282734613]
+layout_mode = 2
+
+[node name="RecipeList" type="VBoxContainer" parent="PanelBackground/HBoxContainer/SeccionIzquierda/ScrollContainer" unique_id=1771765386]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SeccionCentro" type="PanelContainer" parent="PanelBackground/HBoxContainer" unique_id=254405229]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelBackground/HBoxContainer/SeccionCentro" unique_id=581650208]
+layout_mode = 2
+
+[node name="InventoryList" type="VBoxContainer" parent="PanelBackground/HBoxContainer/SeccionCentro/ScrollContainer" unique_id=940517920]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SeccionDerecha" type="PanelContainer" parent="PanelBackground/HBoxContainer" unique_id=703801521]
+custom_minimum_size = Vector2(344, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelBackground/HBoxContainer/SeccionDerecha" unique_id=570925189]
+layout_mode = 2
+
+[node name="TituloEstado" type="Label" parent="PanelBackground/HBoxContainer/SeccionDerecha/VBoxContainer" unique_id=1952766168]
+layout_mode = 2
+text = "Estado de la Máquina"
+
+[node name="StatusLabel" type="Label" parent="PanelBackground/HBoxContainer/SeccionDerecha/VBoxContainer" unique_id=1952594065]
+layout_mode = 2
+text = "Esperando..."
+
+[node name="TituloTrabajo" type="Label" parent="PanelBackground/HBoxContainer/SeccionDerecha/VBoxContainer" unique_id=1872473463]
+layout_mode = 2
+text = "Progreso:"
+
+[node name="WorkBar" type="ProgressBar" parent="PanelBackground/HBoxContainer/SeccionDerecha/VBoxContainer" unique_id=1954475817]
+layout_mode = 2
+
+[node name="TituloCombustible" type="Label" parent="PanelBackground/HBoxContainer/SeccionDerecha/VBoxContainer" unique_id=537019001]
+layout_mode = 2
+text = "Combustible:"
+
+[node name="FuelBar" type="ProgressBar" parent="PanelBackground/HBoxContainer/SeccionDerecha/VBoxContainer" unique_id=1183112543]
+layout_mode = 2
+
+[node name="BotonCerrar" type="Button" parent="PanelBackground" unique_id=1805833433]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 31.0
+text = "Cerrar"
+
+[node name="TituloPrincipal" type="Label" parent="PanelBackground" unique_id=1617774895]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 1.0
+offset_right = 110.0
+offset_bottom = 24.0
+text = "ni idea master"

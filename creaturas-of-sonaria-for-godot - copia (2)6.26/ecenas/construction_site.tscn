@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cvk0xwlfajo53"]
+
+[ext_resource type="Script" uid="uid://pt2mnwkwnph3" path="res://script/construction_site.gd" id="1_g6arn"]
+[ext_resource type="PackedScene" uid="uid://7b6gbv8xnyxg" path="res://ecenas/parcela/dynamic_free_crop.tscn" id="2_diyhh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_diyhh"]
+
+[node name="ConstructionSite" type="Area3D" unique_id=610326799 groups=["estructuras"]]
+script = ExtResource("1_g6arn")
+free_crop_base_scene = ExtResource("2_diyhh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=928198352]
+shape = SubResource("BoxShape3D_diyhh")

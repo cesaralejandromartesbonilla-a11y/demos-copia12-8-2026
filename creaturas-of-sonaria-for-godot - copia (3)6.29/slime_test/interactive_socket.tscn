@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bav8f1i0eqx6y"]
+
+[ext_resource type="Script" uid="uid://duj8qajx1ngco" path="res://slime_test/interactive_socket.gd" id="1_x502c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x502c"]
+radius = 1.0
+
+[node name="InteractiveSocket" type="Area3D" unique_id=1649575094]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("1_x502c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2077403947]
+shape = SubResource("SphereShape3D_x502c")

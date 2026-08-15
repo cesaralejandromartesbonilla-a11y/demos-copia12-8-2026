@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://pxblrpc11h53"]
+
+[ext_resource type="Script" uid="uid://cisw3taybqjft" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+
+[node name="MainMenu" type="Control" unique_id=348268678]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1045112281]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45, 0.72, 0.95, 1)
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1887002637]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="VBox" unique_id=380342173]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Hill Climbing"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBox" unique_id=1939289403]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Temu Edition"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBox" unique_id=209551513]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBox" unique_id=2129091634]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Jugar"
+
+[node name="GarageButton" type="Button" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 18
+text = "Garaje"
+
+[node name="LoadoutLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Jeep · Campo"
+horizontal_alignment = 1
+
+[node name="BestDistanceLabel" type="Label" parent="VBox" unique_id=2146892031]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Récord: 0 m"
+horizontal_alignment = 1
+
+[node name="TotalCoinsLabel" type="Label" parent="VBox" unique_id=1834515714]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Monedas: 0"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="VBox" unique_id=1450888027]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.25, 0.3, 0.8)
+theme_override_font_sizes/font_size = 14
+text = "Garaje: vehículos, mapas y mejoras"
+horizontal_alignment = 1

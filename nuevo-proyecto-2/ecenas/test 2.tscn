@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwt57vh6os51l"]
+
+[ext_resource type="PackedScene" uid="uid://dp05dk5rst4xx" path="res://ecenas 2/planeta_01.tscn" id="2_2puie"]
+[ext_resource type="Script" uid="uid://cwabp0f82kg45" path="res://voxel_manager.gd" id="2_53xjt"]
+[ext_resource type="PackedScene" uid="uid://ccnee5xhisn5e" path="res://ecenas 2/player.tscn" id="3_53xjt"]
+[ext_resource type="PackedScene" uid="uid://cd3vhb5pq7esj" path="res://ecenas 2/pickable_item.tscn" id="4_q4kh0"]
+[ext_resource type="PackedScene" uid="uid://banxjmueceguk" path="res://ecenas 2/pickable_itemheavy.tscn" id="5_dqpiw"]
+[ext_resource type="Script" uid="uid://blqelpgav0fvh" path="res://ecenas 2/pickable_item.gd" id="6_dqpiw"]
+[ext_resource type="PackedScene" uid="uid://cjmgc878dhyo" path="res://ecenas 2/pickable_itemsmall.tscn" id="6_vwuly"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2puie"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_53xjt"]
+sky_material = SubResource("ProceduralSkyMaterial_2puie")
+
+[sub_resource type="Environment" id="Environment_ewkth"]
+background_mode = 2
+sky = SubResource("Sky_53xjt")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Shader" id="Shader_2puie"]
+code = "shader_type spatial;
+
+void fragment() {
+    // Obtenemos el ID que enviamos desde OutputType (se guarda en COLOR.r o similar según versión)
+    float type_id = floor(COLOR.r * 255.0);
+    
+    vec3 color_bioma;
+    
+    // Generamos colores matemáticamente (Procedimental)
+    if (type_id == 1.0) {
+        // Bioma 1: Tonos azulados dinámicos
+        color_bioma = vec3(0.1, 0.4, 0.7) + (sin(NODE_POSITION_WORLD.x * 0.1) * 0.05);
+    } else {
+        // Bioma 2: Tonos tierra/naranja
+        color_bioma = vec3(0.7, 0.3, 0.1) + (cos(NODE_POSITION_WORLD.z * 0.1) * 0.05);
+    }
+    
+    ALBEDO = color_bioma;
+    ROUGHNESS = 0.8;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53xjt"]
+render_priority = 0
+shader = SubResource("Shader_2puie")
+
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_2puie"]
+
+[node name="Node" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ewkth")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="VoxelManager" type="Node3D" parent="." node_paths=PackedStringArray("player_node")]
+script = ExtResource("2_53xjt")
+player_node = NodePath("../Player")
+
+[node name="CentroPlaneta" type="Marker3D" parent="." groups=["planetas"]]
+
+[node name="Planeta_01" parent="." instance=ExtResource("2_2puie")]
+voxel_bounds = AABB(-512, -512, -512, 1024, 1024, 1152)
+material = SubResource("ShaderMaterial_53xjt")
+mesher = SubResource("VoxelMesherTransvoxel_2puie")
+script = null
+
+[node name="Player" parent="." node_paths=PackedStringArray("debug_planet") instance=ExtResource("3_53xjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 436.1538, 0)
+debug_planet = NodePath("../CentroPlaneta")
+
+[node name="PickableItem" parent="." instance=ExtResource("4_q4kh0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.16671, 251.28046, 0)
+
+[node name="PickableItemheavy" parent="." instance=ExtResource("5_dqpiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.363828, 254.20346, 0)
+script = ExtResource("6_dqpiw")
+
+[node name="PickableItemsmall" parent="." instance=ExtResource("6_vwuly")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.353916, 259.26862, 0)

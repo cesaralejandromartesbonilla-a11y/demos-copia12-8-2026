@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c2veryquick190"]
+
+[ext_resource type="Script" path="res://src/resources/upgrade_data.gd" id="1_upgrade_data"]
+
+[resource]
+script = ExtResource("1_upgrade_data")
+upgrade_name = "Tiro Súper Rápido"
+description = "Dispara aún más rápido."
+cost = 190
+cooldown_multiplier = 0.65
+range_bonus = 0.0
+damage_bonus = 0
+pierce_bonus = 0
+grant_camo = false
+change_damage_type = 0

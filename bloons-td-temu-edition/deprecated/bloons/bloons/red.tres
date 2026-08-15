@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BloonData" format=3 uid="uid://egfa5qeh36lr"]
+
+[ext_resource type="Script" uid="uid://bvokitadg4saw" path="res://script_recurs/BloonData.gd" id="1_g08rf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g08rf"]
+width = 17
+height = 17
+
+[resource]
+script = ExtResource("1_g08rf")
+bloon_id = "red"
+bloon_texture = SubResource("NoiseTexture2D_g08rf")
+metadata/_custom_type_script = "uid://bvokitadg4saw"

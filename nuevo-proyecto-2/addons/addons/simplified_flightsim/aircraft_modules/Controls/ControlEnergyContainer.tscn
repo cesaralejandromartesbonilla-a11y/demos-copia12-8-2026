@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0xm6v4y1rwey"]
+
+[ext_resource type="Script" uid="uid://ch2ptsdamhl64" path="res://addons/simplified_flightsim/aircraft_modules/Controls/ControlEnergyContainer.gd" id="1"]
+
+[node name="ControlEnergyContainer" type="Node"]
+script = ExtResource("1")

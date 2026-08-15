@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="FormData" format=3 uid="uid://bryqf3i45nrhm"]
+
+[ext_resource type="Script" uid="uid://bxff3lw6scxy7" path="res://scripts de recursos/FormData.gd" id="1_sdjhw"]
+[ext_resource type="Shader" uid="uid://c8cw3jiolep6" path="res://materiales/stone.gdshader" id="1_sfs4e"]
+
+[sub_resource type="Gradient" id="Gradient_engcm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8dk30"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jcdmw"]
+noise = SubResource("FastNoiseLite_8dk30")
+color_ramp = SubResource("Gradient_engcm")
+
+[sub_resource type="Gradient" id="Gradient_8dk30"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jcdmw"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ru1vh"]
+noise = SubResource("FastNoiseLite_jcdmw")
+color_ramp = SubResource("Gradient_8dk30")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8dk30"]
+render_priority = 0
+shader = ExtResource("1_sfs4e")
+shader_parameter/base_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/normal_texture = SubResource("NoiseTexture2D_ru1vh")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_jcdmw")
+shader_parameter/damage_level = 0.0
+shader_parameter/edge_color = Color(0.61745477, 0.61745477, 0.6174547, 1)
+shader_parameter/edge_thickness = 0.022000001045
+
+[sub_resource type="BoxMesh" id="BoxMesh_wpav8"]
+
+[resource]
+script = ExtResource("1_sdjhw")
+id = "stone"
+display_name = "piedra"
+mesh = SubResource("BoxMesh_wpav8")
+material_override = SubResource("ShaderMaterial_8dk30")
+metadata/_custom_type_script = "uid://bxff3lw6scxy7"

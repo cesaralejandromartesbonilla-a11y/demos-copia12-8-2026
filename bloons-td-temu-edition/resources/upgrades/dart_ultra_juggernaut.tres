@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://dart_ultrajugg05"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+[ext_resource type="PackedScene" path="res://scenes/entities/projectiles/rock_projectile.tscn" id="2_rock"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Ultra-Juggernaut"
+description = "La bola explota al final de su trayectoria en 6 bolas menores."
+cost = 4000
+cooldown_multiplier = 1.0
+range_bonus = 20.0
+damage_bonus = 6
+pierce_bonus = 5
+grant_camo = false
+change_damage_type = 0
+moab_damage_bonus = 20
+splits_on_expire = true
+split_count = 6
+projectile_scene_override = ExtResource("2_rock")
+

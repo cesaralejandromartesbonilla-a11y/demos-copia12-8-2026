@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://crd43dyy076dc"]
+
+[ext_resource type="Script" uid="uid://cvemq7wv6pps3" path="res://ecenas/mesas/crafting_table.gd" id="1_yfnsc"]
+[ext_resource type="Script" uid="uid://scm4ghxgsjo0" path="res://ecenas/scripts_modulos/inventory_component.gd" id="2_dyc56"]
+[ext_resource type="Script" uid="uid://cw3ffmom8r6oq" path="res://ecenas/scripts_modulos/processor_component.gd" id="3_vdggr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y5r1n"]
+
+[sub_resource type="Gradient" id="Gradient_0w7t3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_drbd3"]
+noise_type = 5
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dth1x"]
+noise = SubResource("FastNoiseLite_drbd3")
+color_ramp = SubResource("Gradient_0w7t3")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_txsjo"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vv56v"]
+noise_type = 5
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nwljo"]
+noise = SubResource("FastNoiseLite_vv56v")
+color_ramp = SubResource("Gradient_txsjo")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsckw"]
+albedo_color = Color(0.19215687, 0.48235294, 0.70980394, 1)
+roughness_texture = SubResource("NoiseTexture2D_nwljo")
+normal_enabled = true
+normal_scale = 0.8
+normal_texture = SubResource("NoiseTexture2D_dth1x")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_spia2"]
+material = SubResource("StandardMaterial3D_lsckw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ktm33"]
+
+[node name="warehouse" type="Area3D" unique_id=1260753890]
+script = ExtResource("1_yfnsc")
+machine_name = "refri"
+metadata/_custom_type_script = "uid://cvemq7wv6pps3"
+
+[node name="InventoryComponent" type="Node" parent="." unique_id=1457132471]
+script = ExtResource("2_dyc56")
+allowed_categories = Array[String](["planta"])
+metadata/_custom_type_script = "uid://scm4ghxgsjo0"
+
+[node name="ProcessorComponent" type="Node" parent="." unique_id=1084372165 node_paths=PackedStringArray("input_inv")]
+script = ExtResource("3_vdggr")
+input_inv = NodePath("../InventoryComponent")
+show_power_button = false
+metadata/_custom_type_script = "uid://cw3ffmom8r6oq"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=952323910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("BoxMesh_y5r1n")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1506640564]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.5, 0)
+mesh = SubResource("PlaneMesh_spia2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1698508554]
+shape = SubResource("BoxShape3D_ktm33")

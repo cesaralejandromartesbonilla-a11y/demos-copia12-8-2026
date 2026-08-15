@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dwv044gju1cju"]
+
+[ext_resource type="PackedScene" uid="uid://cimd7pi8d2qhn" path="res://ecenas/trailer.tscn" id="1_b2yqa"]
+[ext_resource type="Script" uid="uid://bg7tetb80nwkw" path="res://ItemData.gd" id="1_jynpm"]
+
+[resource]
+script = ExtResource("1_jynpm")
+nombre = "trailer"
+precio = 100
+escena_visual = ExtResource("1_b2yqa")
+metadata/_custom_type_script = "uid://bg7tetb80nwkw"

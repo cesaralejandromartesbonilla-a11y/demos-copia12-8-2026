@@ -1,0 +1,289 @@
+[gd_scene load_steps=35 format=3 uid="uid://dis6opmvf370x"]
+
+[ext_resource type="Script" uid="uid://dksh0x4yxyr8b" path="res://garage_manager.gd" id="1_6fk2j"]
+[ext_resource type="Script" uid="uid://dn5qiffohnm0b" path="res://ecenas/scripts/menu_customizacion.gd" id="2_e4vor"]
+[ext_resource type="PackedScene" uid="uid://wqt4xkdjdqj" path="res://mapas/mapa_demo2.tscn" id="2_i2ttm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e4vor"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_i2ttm"]
+sky_material = SubResource("ProceduralSkyMaterial_e4vor")
+
+[sub_resource type="Environment" id="Environment_ic1xg"]
+background_mode = 2
+sky = SubResource("Sky_i2ttm")
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 1.0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_e4vor"]
+
+[sub_resource type="Gradient" id="Gradient_fjmf8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6de5q"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_luq4i"]
+noise = SubResource("FastNoiseLite_6de5q")
+color_ramp = SubResource("Gradient_fjmf8")
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_obarw"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e136w"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6j6vh"]
+noise = SubResource("FastNoiseLite_e136w")
+color_ramp = SubResource("Gradient_obarw")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1nxh"]
+albedo_color = Color(0.10677789, 0.10677789, 0.10677789, 1)
+roughness_texture = SubResource("NoiseTexture2D_6j6vh")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_luq4i")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_amavr"]
+material = SubResource("StandardMaterial3D_w1nxh")
+
+[sub_resource type="Gradient" id="Gradient_y8cai"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nd2op"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_p2q07"]
+noise = SubResource("FastNoiseLite_nd2op")
+color_ramp = SubResource("Gradient_y8cai")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_eq4u0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1dska"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u06ng"]
+noise = SubResource("FastNoiseLite_1dska")
+color_ramp = SubResource("Gradient_eq4u0")
+
+[sub_resource type="Gradient" id="Gradient_8f1ba"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xf3n3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iojsy"]
+noise = SubResource("FastNoiseLite_xf3n3")
+color_ramp = SubResource("Gradient_8f1ba")
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_p0673"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_04m2o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_js7wk"]
+noise = SubResource("FastNoiseLite_04m2o")
+color_ramp = SubResource("Gradient_p0673")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eibuv"]
+albedo_color = Color(0.46666667, 0.16862746, 0.039215688, 1)
+albedo_texture = SubResource("NoiseTexture2D_p2q07")
+metallic = 1.0
+metallic_texture = SubResource("NoiseTexture2D_u06ng")
+roughness_texture = SubResource("NoiseTexture2D_js7wk")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_iojsy")
+
+[sub_resource type="BoxMesh" id="BoxMesh_32b0m"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_eibuv")
+flip_faces = true
+
+[sub_resource type="Gradient" id="Gradient_5q24e"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y8gdb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s01i4"]
+noise = SubResource("FastNoiseLite_y8gdb")
+color_ramp = SubResource("Gradient_5q24e")
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xb1qk"]
+emission_enabled = true
+emission = Color(1, 1, 0.78431374, 1)
+emission_energy_multiplier = 10.0
+emission_operator = 1
+emission_texture = SubResource("NoiseTexture2D_s01i4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q0q7o"]
+material = SubResource("StandardMaterial3D_xb1qk")
+flip_faces = true
+
+[node name="GarajeManager" type="Node3D"]
+script = ExtResource("1_6fk2j")
+mapa_destino = ExtResource("2_i2ttm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ic1xg")
+
+[node name="Entorno" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Entorno"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entorno/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_e4vor")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entorno/StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_amavr")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entorno/StaticBody3D"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 8, 0, 0, 0)
+mesh = SubResource("BoxMesh_32b0m")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Entorno/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("PlaneMesh_q0q7o")
+skeleton = NodePath("../..")
+
+[node name="PosicionesVehiculos" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, 0)
+
+[node name="Pos0" type="Marker3D" parent="PosicionesVehiculos"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, -4, 0, -6.993822e-07)
+
+[node name="Pos1" type="Marker3D" parent="PosicionesVehiculos"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, -2, 0, -3.496911e-07)
+
+[node name="Pos2" type="Marker3D" parent="PosicionesVehiculos"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0)
+
+[node name="Pos3" type="Marker3D" parent="PosicionesVehiculos"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 2, 0, 3.496911e-07)
+
+[node name="Pos4" type="Marker3D" parent="PosicionesVehiculos"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 4, 0, 6.993822e-07)
+
+[node name="PosicionesCamara" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 1, 4)
+
+[node name="CamPos0" type="Marker3D" parent="PosicionesCamara"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -2)
+
+[node name="CamPos1" type="Marker3D" parent="PosicionesCamara"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
+
+[node name="CamPos2" type="Marker3D" parent="PosicionesCamara"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+
+[node name="CamPos3" type="Marker3D" parent="PosicionesCamara"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -2)
+
+[node name="CamPos4" type="Marker3D" parent="PosicionesCamara"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -2)
+
+[node name="CamaraGaraje" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 5)
+
+[node name="UI_Garaje" type="CanvasLayer" parent="."]
+
+[node name="PanelBotones" type="VBoxContainer" parent="UI_Garaje"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HSeparator" type="HSeparator" parent="UI_Garaje/PanelBotones"]
+custom_minimum_size = Vector2(0, 41)
+layout_mode = 2
+
+[node name="BtnCustomizar" type="Button" parent="UI_Garaje/PanelBotones"]
+layout_mode = 2
+text = "Customizar"
+
+[node name="BtnTienda" type="Button" parent="UI_Garaje/PanelBotones"]
+layout_mode = 2
+text = "Tienda"
+
+[node name="BtnMapas" type="Button" parent="UI_Garaje/PanelBotones"]
+layout_mode = 2
+text = "Mapas"
+
+[node name="BtnAlmacen" type="Button" parent="UI_Garaje/PanelBotones"]
+layout_mode = 2
+text = "Almacen"
+
+[node name="BtnSalir" type="Button" parent="UI_Garaje/PanelBotones"]
+layout_mode = 2
+text = "Salir"
+
+[node name="NavegacionSlots" type="HBoxContainer" parent="UI_Garaje"]
+offset_right = 157.0
+offset_bottom = 40.0
+
+[node name="BtnAnterior" type="Button" parent="UI_Garaje/NavegacionSlots"]
+layout_mode = 2
+text = "Anterior"
+
+[node name="BtnSiguiente" type="Button" parent="UI_Garaje/NavegacionSlots"]
+layout_mode = 2
+text = "Siguiente"
+
+[node name="MenuCustomizacion" type="Control" parent="UI_Garaje"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_e4vor")
+
+[node name="PanelFondo" type="ColorRect" parent="UI_Garaje/MenuCustomizacion"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 300.0
+offset_bottom = 608.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Margen" type="MarginContainer" parent="UI_Garaje/MenuCustomizacion"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ContenedorPrincipal" type="VBoxContainer" parent="UI_Garaje/MenuCustomizacion/Margen"]
+layout_mode = 2
+
+[node name="Titulo" type="Label" parent="UI_Garaje/MenuCustomizacion/Margen/ContenedorPrincipal"]
+layout_mode = 2
+text = "MODIFICACIONES
+"
+
+[node name="Separador" type="HSeparator" parent="UI_Garaje/MenuCustomizacion/Margen/ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="ListaCategorias" type="OptionButton" parent="UI_Garaje/MenuCustomizacion/Margen/ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="DetallesPieza" type="RichTextLabel" parent="UI_Garaje/MenuCustomizacion/Margen/ContenedorPrincipal"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="BtnEquipar" type="Button" parent="UI_Garaje/MenuCustomizacion/Margen/ContenedorPrincipal"]
+layout_mode = 2
+text = "Equipar"
+
+[node name="BtnCerrarMenu" type="Button" parent="UI_Garaje/MenuCustomizacion/Margen/ContenedorPrincipal"]
+layout_mode = 2
+text = "CerrarMenu"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI_Garaje/MenuCustomizacion/Margen/ContenedorPrincipal"]
+layout_mode = 2
+
+[node name="ContenedorBotones" type="VBoxContainer" parent="UI_Garaje/MenuCustomizacion/Margen/ContenedorPrincipal/ScrollContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

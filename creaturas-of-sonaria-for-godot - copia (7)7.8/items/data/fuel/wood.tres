@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cnhr3at2ayhur"]
+
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="1_8g6rs"]
+
+[sub_resource type="Curve" id="Curve_8g6rs"]
+_data = [Vector2(0, 1), 0.0, 0.54922915, 0, 0, Vector2(1, 1), -0.37508336, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_b1ah5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ws45l"]
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_avgp1"]
+noise = SubResource("FastNoiseLite_ws45l")
+color_ramp = SubResource("Gradient_b1ah5")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_538x5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dsl46"]
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_db3r4"]
+noise = SubResource("FastNoiseLite_dsl46")
+color_ramp = SubResource("Gradient_538x5")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5bth"]
+albedo_color = Color(0.80784315, 0.36078432, 0, 1)
+roughness_texture = SubResource("NoiseTexture2D_db3r4")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_avgp1")
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_7ccgo"]
+material = SubResource("StandardMaterial3D_s5bth")
+curve = SubResource("Curve_8g6rs")
+
+[resource]
+script = ExtResource("1_8g6rs")
+weight_kg = 2.0
+item_name = "madera"
+item_mesh = SubResource("TubeTrailMesh_7ccgo")
+item_category = "combustible"
+compost_value = 10.0
+metadata/_custom_type_script = "uid://pn1ld58jj7o2"

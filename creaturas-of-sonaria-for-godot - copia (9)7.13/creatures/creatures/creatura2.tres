@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=16 format=3 uid="uid://cos3s620nj2ac"]
+
+[ext_resource type="Script" uid="uid://dm0pb2oskd8jo" path="res://scripts de recursos/evolution_stage.gd" id="2_x2r2f"]
+[ext_resource type="Script" uid="uid://bjb4cxoa2yuv0" path="res://efectos/burn_effect.gd" id="3_1crdj"]
+[ext_resource type="Script" uid="uid://cvaxbbxmeo50m" path="res://scripts de recursos/BlueprintData.gd" id="3_7wahv"]
+[ext_resource type="PackedScene" uid="uid://8shx7jwkrmw5" path="res://models/thre_model.tscn" id="4_8mtqw"]
+[ext_resource type="PackedScene" uid="uid://5qjx05un0gld" path="res://habilidades/heal_area.tscn" id="5_35tuj"]
+[ext_resource type="PackedScene" uid="uid://bxepnghbx4g4g" path="res://models/second_model.tscn" id="6_ynabv"]
+[ext_resource type="PackedScene" uid="uid://cr5e7k7fsccet" path="res://habilidades/fireball.tscn" id="7_pq51v"]
+[ext_resource type="PackedScene" uid="uid://c3jdjlfd3httl" path="res://models/firts_model.tscn" id="8_insk3"]
+[ext_resource type="Texture2D" uid="uid://2ik48eqwp8o8" path="res://icon.svg" id="9_eu8im"]
+[ext_resource type="Script" uid="uid://bo75guvl3khwr" path="res://scripts de recursos/creature_data.gd" id="10_jdmag"]
+
+[sub_resource type="Resource" id="Resource_ihysn"]
+script = ExtResource("2_x2r2f")
+model_scene = ExtResource("8_insk3")
+metadata/_custom_type_script = "uid://dm0pb2oskd8jo"
+
+[sub_resource type="Resource" id="Resource_7wahv"]
+script = ExtResource("3_1crdj")
+effect_name = "burn"
+metadata/_custom_type_script = "uid://bjb4cxoa2yuv0"
+
+[sub_resource type="Resource" id="Resource_x2r2f"]
+script = ExtResource("2_x2r2f")
+model_scene = ExtResource("6_ynabv")
+bite_effect = SubResource("Resource_7wahv")
+required_age_minutes = 2.0
+granted_abilities = Array[PackedScene]([ExtResource("7_pq51v")])
+can_swim = true
+start_health = 50.0
+end_health = 150.0
+start_damage = 10.0
+end_damage = 50.0
+start_speed = 1.0
+end_speed = 1.5
+start_energy = 50.0
+end_energy = 150.0
+metadata/_custom_type_script = "uid://dm0pb2oskd8jo"
+
+[sub_resource type="Resource" id="Resource_1crdj"]
+script = ExtResource("3_1crdj")
+effect_name = "burn"
+metadata/_custom_type_script = "uid://bjb4cxoa2yuv0"
+
+[sub_resource type="Resource" id="Resource_8mtqw"]
+script = ExtResource("2_x2r2f")
+model_scene = ExtResource("4_8mtqw")
+bite_effect = SubResource("Resource_1crdj")
+required_age_minutes = 5.0
+granted_abilities = Array[PackedScene]([ExtResource("7_pq51v"), ExtResource("5_35tuj")])
+can_swim = true
+stage_immunities = Array[String](["burn", "poison"])
+start_health = 150.0
+end_health = 500.0
+start_damage = 50.0
+end_damage = 150.0
+start_speed = 1.5
+end_speed = 2.0
+start_energy = 150.0
+end_energy = 300.0
+metadata/_custom_type_script = "uid://dm0pb2oskd8jo"
+
+[resource]
+script = ExtResource("10_jdmag")
+creature_name = "Nueva Criatura2"
+icon = ExtResource("9_eu8im")
+evolution_stages = Array[ExtResource("2_x2r2f")]([SubResource("Resource_ihysn"), SubResource("Resource_x2r2f"), SubResource("Resource_8mtqw")])
+creature_scene_path = "uid://4a37py7xsiba"
+diet = 1
+max_hunger = 200.0
+max_thirst = 200.0
+base_speed = 7.0
+max_health = 250.0
+max_energy = 250.0
+metadata/_custom_type_script = "uid://bo75guvl3khwr"

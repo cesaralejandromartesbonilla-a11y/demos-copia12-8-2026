@@ -1,0 +1,7 @@
+Escalado automático: 
+Gracias a get_aabb() (Axis-Aligned Bounding Box), 
+no importa si el objeto es una pequeña manzana o una espada larga; 
+la caja se estirará para cubrir su tamaño real.
+
+prioriza los cuerpos con valores menores
+gracias a process_physics_priority por ejemplo -10 o 0.

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dagnk6vdsubca"]
+
+[ext_resource type="PackedScene" uid="uid://cf87hk1ws3nwk" path="res://vehicles/vehiculos_MK2/suspencion_modulos/brazo_modular.tscn" id="1_kh4ms"]
+[ext_resource type="Script" uid="uid://djdo3ncxpye60" path="res://vehicles/vehiculos_MK2/modulos_scripts/modulo_motor.gd" id="2_7m8qp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iqskf"]
+size = Vector3(1, 1, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vggka"]
+albedo_color = Color(0, 0.34901962, 0.34901962, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kh4ms"]
+material = SubResource("StandardMaterial3D_vggka")
+
+[node name="Chasis" type="RigidBody3D" unique_id=62733030]
+mass = 1000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1305950969]
+shape = SubResource("BoxShape3D_iqskf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=286599561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.95, 0, 0, 0)
+mesh = SubResource("BoxMesh_kh4ms")
+
+[node name="PosicionDelanteraIzq" type="Marker3D" parent="." unique_id=2031129780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.8, 1.5)
+
+[node name="PosicionDelanteraDer" type="Marker3D" parent="." unique_id=316142703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.8, 1.5)
+
+[node name="PosiciontraseraIzq" type="Marker3D" parent="." unique_id=249774561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.8, -1.5)
+
+[node name="PosiciontraseraDer" type="Marker3D" parent="." unique_id=1840323888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.8, -1.5)
+
+[node name="Brazo" parent="." unique_id=1649082496 instance=ExtResource("1_kh4ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.4, 1.5)
+
+[node name="Brazo2" parent="." unique_id=1158358827 instance=ExtResource("1_kh4ms")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.6, -0.4, 1.5)
+
+[node name="Brazo3" parent="." unique_id=1252583312 instance=ExtResource("1_kh4ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.4, -1.5)
+
+[node name="Brazo4" parent="." unique_id=982733105 instance=ExtResource("1_kh4ms")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.6, -0.4, -1.5)
+
+[node name="ModuloMotor" type="Node" parent="." unique_id=824990969]
+script = ExtResource("2_7m8qp")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="frezzingEffect" load_steps=2 format=3 uid="uid://bn37riwy48h1j"]
+
+[ext_resource type="Script" uid="uid://hvk2u40223ky" path="res://efectos/freezing.gd" id="1_2jotc"]
+
+[resource]
+script = ExtResource("1_2jotc")
+effect_name = "freeze"
+metadata/_custom_type_script = "uid://hvk2u40223ky"

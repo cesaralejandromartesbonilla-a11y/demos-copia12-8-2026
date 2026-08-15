@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CropVisualData" format=3 uid="uid://c18lgnmopkbva"]
+
+[ext_resource type="Script" uid="uid://5aejr6uf1sel" path="res://scripts de recursos/CropVisualData.gd" id="1_41wv6"]
+
+[sub_resource type="Curve" id="Curve_41wv6"]
+_data = [Vector2(0, 0.77528095), 0.0, 0.0, 0, 0, Vector2(0.11764705, 0.6292135), 0.0, 0.0, 0, 0, Vector2(0.24789914, 0.764045), 0.0, 0.0, 0, 0, Vector2(0.3655462, 0.64044946), 0.0, 0.0, 0, 0, Vector2(0.49999997, 0.8089888), 0.0, 0.0, 0, 0, Vector2(0.605042, 0.6629214), 0.0, 0.0, 0, 0, Vector2(0.7605041, 0.764045), 0.0, 0.0, 0, 0, Vector2(0.89915955, 0.6629214), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_y8o22"]
+curve = SubResource("Curve_41wv6")
+
+[resource]
+script = ExtResource("1_41wv6")
+single_mesh = SubResource("RibbonTrailMesh_y8o22")
+start_color = Color(0.23733792, 0.3214352, 0.28995073, 1)
+ready_color = Color(0, 1, 0, 1)
+metadata/_custom_type_script = "uid://5aejr6uf1sel"

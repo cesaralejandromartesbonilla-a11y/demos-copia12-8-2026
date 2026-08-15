@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpawnGroup" format=3 uid="uid://foii8qysf1e"]
+
+[ext_resource type="Resource" uid="uid://uaavekslgdsy" path="res://bloons/bloons/blue.tres" id="1_0aqrm"]
+[ext_resource type="Script" uid="uid://b325eus225bql" path="res://script_recurs/SpawnGroup.gd" id="1_7dgvc"]
+
+[resource]
+script = ExtResource("1_7dgvc")
+bloon_type = ExtResource("1_0aqrm")
+metadata/_custom_type_script = "uid://b325eus225bql"

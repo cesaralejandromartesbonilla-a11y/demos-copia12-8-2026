@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WheelData" load_steps=2 format=3 uid="uid://bb64jyycegqpt"]
+
+[ext_resource type="Script" uid="uid://bxod0cbwuqc2t" path="res://vehicles/scripts de recursos/wheel_data.gd" id="1_twh6w"]
+
+[resource]
+script = ExtResource("1_twh6w")
+requisitos_etiquetas = Array[String](["30.0", ""])
+radio = 1.0
+rigidez_suspension = 50.0
+recorrido_suspension = 0.5
+metadata/_custom_type_script = "uid://bxod0cbwuqc2t"

@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bp1dkfjtdfcwr"]
+
+[ext_resource type="Shader" uid="uid://dkra4yn7s6ahw" path="res://addons/godot-shaders-main/godot/Demos/WindTrees/foliage_wind_tree_trunk.gdshader" id="1_xubnk"]
+[ext_resource type="Texture2D" uid="uid://c1vt8rp6prxc1" path="res://addons/godot-shaders-main/godot/Demos/WindTrees/Textures/bark_albedo.png" id="2_ipwqd"]
+[ext_resource type="Texture2D" uid="uid://bo6bgmt3vg8v" path="res://addons/godot-shaders-main/godot/Demos/WindTrees/Textures/bark_normal.png" id="3_uxdy0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_22fnd"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y54y6"]
+noise = SubResource("FastNoiseLite_22fnd")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xubnk")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ipwqd")
+shader_parameter/roughness = 0.0
+shader_parameter/texture_normal = ExtResource("3_uxdy0")
+shader_parameter/normal_scale = 0.0
+shader_parameter/tree_height = 10.0
+shader_parameter/wind_angle = 270.0
+shader_parameter/wind_strength = 0.5
+shader_parameter/wind_frequency = 0.75
+shader_parameter/wind_speed = 0.35
+shader_parameter/stretch_correction = 0.01
+shader_parameter/texture_wind_noise = SubResource("NoiseTexture2D_y54y6")

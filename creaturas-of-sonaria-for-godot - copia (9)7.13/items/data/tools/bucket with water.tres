@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bihcxycsuqyoe"]
+
+[ext_resource type="Resource" uid="uid://di3boklndinvb" path="res://items/data/tools/bucket_without_water.tres" id="1_unc12"]
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="2_gfnhr"]
+
+[sub_resource type="Curve" id="Curve_g6uea"]
+_limits = [0.0, 1.0, 0.0, 2.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(2, 1), -0.29970458, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3eql5"]
+albedo_color = Color(0.8392157, 0.5137255, 0, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_28i0x"]
+material = SubResource("StandardMaterial3D_3eql5")
+curve = SubResource("Curve_g6uea")
+
+[resource]
+script = ExtResource("2_gfnhr")
+slot_cost = 2
+item_name = "cubeta sin agua"
+item_mesh = SubResource("TubeTrailMesh_28i0x")
+is_container = true
+filled_result_data = ExtResource("1_unc12")
+metadata/_custom_type_script = "uid://pn1ld58jj7o2"

@@ -1,0 +1,308 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1782936228
+CropSaveManager.gd::GDScript::8224041560936066457::1779755491::0::1::::CropSaveManager<>Node<><>0<>0<><>::
+CropSimulationManager.gd::GDScript::75948497563490913::1779669197::0::1::::CropSimulationManager<>Node<><>0<>0<><>::
+icon.svg::CompressedTexture2D::1912274498417026009::1773628445::1774822463::1::::<><><>0<>0<>44a7f30e903ff47094ec0bcd680e1fa5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex::
+inventory_manager.gd::GDScript::2393553283679886696::1782513245::0::1::::<>Node<><>0<>0<><>::
+ItemSaveManager.gd::GDScript::9208570579963572584::1781223164::0::1::::ItemSaveManager<>Node<><>0<>0<><>::
+LogicManager.gd::GDScript::8251346881003438704::1777853089::0::1::::<>Node<><>0<>0<><>::
+main_menu.gd::GDScript::2890928192821145716::1775146778::0::1::::<>Control<><>0<>0<><>::
+plan de creaturas of sonaria.txt::TextFile::-1::1776618822::0::1::::<><><>0<>0<><>::
+plan de slime modular.txt::TextFile::-1::1782076415::0::1::::<><><>0<>0<><>::
+PowerManager.gd::GDScript::5058424197246427808::1777730775::0::1::::<>Node<><>0<>0<><>::
+WeatherManager.gd::GDScript::3062160580246652647::1781214948::0::1::::<>Node<><>0<>0<><>::
+::res://creatures/::1780617286
+::res://creatures/creatures/::1781309043
+character_body_3d2.tscn::PackedScene::2037234513116300994::1775016607::0::1::::<><><>0<>0<><>::uid://b81vwo060f1ww::::res://creatures/scripts of creatures/creature_controller.gd<>uid://dgds2y4pk25mv::::res://creatures/scrpt modules/interaction_manager.gd<>uid://f5ut6m5076ky::::res://creatures/scrpt modules/ability_manager.gd<>uid://b31r1yj7utd6v::::res://creatures/scrpt modules/survival_manager.gd<>uid://dsqbwl28ywklb::::res://creatures/scrpt modules/effect_manager.gd<>uid://corr1t2235mox::::res://creatures/scrpt modules/level_manager.gd<>uid://dislycohqex4x::::res://creatures/scrpt modules/evolution_manager.gd<>uid://ccpgmaj6aogfa::::res://creatures/scrpt modules/stat_scaler.gd<>uid://cxgohrlgfh2iy::::res://creatures/scrpt modules/combat_manager.gd<>uid://ccewhhv3o6dug::::res://creatures/scrpt modules/environment_manager.gd<>uid://bnj4h6drbtc71::::res://creatures/scrpt modules/temperature_manager.gd<>uid://dou8d5kf7hrju::::res://models/ice.tscn
+character_body_3d3.tscn::PackedScene::3539780282866757586::1781309043::0::1::::<><><>0<>0<><>::uid://b81vwo060f1ww::::res://creatures/scripts of creatures/creature_controller.gd<>uid://dgds2y4pk25mv::::res://creatures/scrpt modules/interaction_manager.gd<>uid://f5ut6m5076ky::::res://creatures/scrpt modules/ability_manager.gd<>uid://b31r1yj7utd6v::::res://creatures/scrpt modules/survival_manager.gd<>uid://cr5e7k7fsccet::::res://habilidades/fireball.tscn<>uid://dsqbwl28ywklb::::res://creatures/scrpt modules/effect_manager.gd<>uid://corr1t2235mox::::res://creatures/scrpt modules/level_manager.gd<>uid://dislycohqex4x::::res://creatures/scrpt modules/evolution_manager.gd<>uid://ccpgmaj6aogfa::::res://creatures/scrpt modules/stat_scaler.gd<>uid://cxgohrlgfh2iy::::res://creatures/scrpt modules/combat_manager.gd<>uid://ccewhhv3o6dug::::res://creatures/scrpt modules/environment_manager.gd<>uid://bnj4h6drbtc71::::res://creatures/scrpt modules/temperature_manager.gd<>uid://dou8d5kf7hrju::::res://models/ice.tscn<>uid://0lxwpcco8gg1::::res://creatures/scrpt modules/hands_inventory.gd<>uid://bmtsivkdxf8lt::::res://creatures/scrpt modules/builder_manager.gd<>uid://chr25gquak0qn::::res://habilidades/freeze.tscn<>uid://d1wmmvw17dh61::::res://ecenas/parcela/crop_plot_basic.tscn<>uid://dw33exkfdrahv::::res://creatures/scrpt modules/farming_manager.gd
+character_body_3d.tscn::PackedScene::1192192231471029886::1774822495::0::1::::<><><>0<>0<><>::uid://b81vwo060f1ww::::res://creatures/scripts of creatures/creature_controller.gd<>uid://dsqbwl28ywklb::::res://creatures/scrpt modules/effect_manager.gd<>uid://b31r1yj7utd6v::::res://creatures/scrpt modules/survival_manager.gd<>uid://f5ut6m5076ky::::res://creatures/scrpt modules/ability_manager.gd<>uid://dgds2y4pk25mv::::res://creatures/scrpt modules/interaction_manager.gd<>uid://corr1t2235mox::::res://creatures/scrpt modules/level_manager.gd<>uid://dislycohqex4x::::res://creatures/scrpt modules/evolution_manager.gd<>uid://ccpgmaj6aogfa::::res://creatures/scrpt modules/stat_scaler.gd<>uid://cxgohrlgfh2iy::::res://creatures/scrpt modules/combat_manager.gd
+creatura2.tres::Resource/CreatureData::5794377869066697190::1776018610::0::1::::<><><>0<>0<><>::uid://dm0pb2oskd8jo::::res://scripts de recursos/evolution_stage.gd<>uid://bjb4cxoa2yuv0::::res://efectos/burn_effect.gd<>uid://cvaxbbxmeo50m::::res://scripts de recursos/BlueprintData.gd<>uid://8shx7jwkrmw5::::res://models/thre_model.tscn<>uid://5qjx05un0gld::::res://habilidades/heal_area.tscn<>uid://bxepnghbx4g4g::::res://models/second_model.tscn<>uid://cr5e7k7fsccet::::res://habilidades/fireball.tscn<>uid://c3jdjlfd3httl::::res://models/firts_model.tscn<>uid://2ik48eqwp8o8::::res://icon.svg<>uid://bo75guvl3khwr::::res://scripts de recursos/creature_data.gd
+criatura1.tres::Resource/CreatureData::575096528303115116::1776018610::0::1::::<><><>0<>0<><>::uid://bo75guvl3khwr::::res://scripts de recursos/creature_data.gd<>uid://dm0pb2oskd8jo::::res://scripts de recursos/evolution_stage.gd<>uid://cr5e7k7fsccet::::res://habilidades/fireball.tscn<>uid://c36hk3s3s5can::::res://models/firts_model1.tscn<>uid://5qjx05un0gld::::res://habilidades/heal_area.tscn<>uid://bjwilgncioy4k::::res://models/second_model2.tscn<>uid://cqiouhmhg7s4j::::res://models/trhe_model1.tscn<>uid://cvaxbbxmeo50m::::res://scripts de recursos/BlueprintData.gd<>uid://2ik48eqwp8o8::::res://icon.svg
+criatura3.tres::Resource/CreatureData::5811966655506372230::1776018610::0::1::::<><><>0<>0<><>::uid://dm0pb2oskd8jo::::res://scripts de recursos/evolution_stage.gd<>uid://p3h7j63etvu5::::res://models/firts_model_3.tscn<>uid://bo75guvl3khwr::::res://scripts de recursos/creature_data.gd<>uid://2ik48eqwp8o8::::res://icon.svg<>uid://bjb4cxoa2yuv0::::res://efectos/burn_effect.gd<>uid://cvaxbbxmeo50m::::res://scripts de recursos/BlueprintData.gd<>uid://5qjx05un0gld::::res://habilidades/heal_area.tscn<>uid://dhw4iq0eswu27::::res://models/second_model_3.tscn<>uid://bfxvkis5hy8kk::::res://models/thre_model_3.tscn<>uid://c6fmud2f67w17::::res://items/blue_prints/crop_plot.tres<>uid://cr5e7k7fsccet::::res://habilidades/fireball.tscn<>uid://c356s5cfm8nco::::res://items/blue_prints/seed.tres
+::res://creatures/scripts of creatures/::1781309043
+creature_controller.gd::GDScript::4757641465056873666::1781309043::0::1::::<>CharacterBody3D<><>0<>0<><>::
+creature_gui.gd::GDScript::5711753046208432912::1775181110::0::1::::<>Control<><>0<>0<><>::
+::res://creatures/scrpt modules/::1781135023
+ability_manager.gd::GDScript::414125468910750008::1774232011::0::1::::AbilityManager<>Node<><>0<>0<><>::
+bite_area.gd::GDScript::8231059869852274065::1774301326::0::1::::MeleeManager<>Area3D<><>0<>0<><>::
+builder_manager.gd::GDScript::3269018295503335173::1781134522::0::1::::BuilderManager<>Node<><>0<>0<><>::
+combat_manager.gd::GDScript::6400434486210772252::1781132758::0::1::::CombatManager<>Node<><>0<>0<><>::
+effect_manager.gd::GDScript::8455791906086405167::1775005089::0::1::::EffectManager<>Node<><>0<>0<><>::
+environment_manager.gd::GDScript::4922825241473169362::1774979949::0::1::::EnvironmentManager<>Node<><>0<>0<><>::
+evolution_manager.gd::GDScript::7758642472744363085::1774918533::0::1::::EvolutionManager<>Node<><>0<>0<><>::
+farming_manager.gd::GDScript::8762927630919721947::1781135023::0::1::::FarmingManager<>Node<><>0<>0<><>::
+hands_inventory.gd::GDScript::1778865815595748262::1781134266::0::1::::HandsInventory<>Node<><>0<>0<><>::
+interaction_manager.gd::GDScript::7587730674530627901::1781132546::0::1::::InteractionManager<>Area3D<><>0<>0<><>::
+level_manager.gd::GDScript::5791659260574968179::1774232011::0::1::::LevelManager<>Node<><>0<>0<><>::
+stat_scaler.gd::GDScript::4944570467768916306::1774836506::0::1::::GrowthStatScaler<>Node<><>0<>0<><>::
+survival_manager.gd::GDScript::4406462022627173975::1776385097::0::1::::SurvivalManager<>Node<><>0<>0<><>::
+temperature_manager.gd::GDScript::3319229977754378218::1774978073::0::1::::TemperatureManager<>Node<><>0<>0<><>::
+::res://ecenas/::1781223353
+coin.tscn::PackedScene::6839722112888176433::1775146091::0::1::::<><><>0<>0<><>::uid://4rr6uklyvmjt::::res://script/coin.gd
+construction_site.tscn::PackedScene::6269011032138553976::1779671247::0::1::::<><><>0<>0<><>::uid://pt2mnwkwnph3::::res://script/construction_site.gd<>uid://7b6gbv8xnyxg::::res://ecenas/parcela/dynamic_free_crop.tscn
+creature_select.tscn::PackedScene::3393423744003108281::1776018436::0::1::::<><><>0<>0<><>::uid://45arx3e6cx6n::::res://script/creature_select.gd
+main_menu.tscn::PackedScene::3348366636254027799::1775693183::0::1::::<><><>0<>0<><>::uid://bhgnfux23hpa7::::res://main_menu.gd
+menu_principal.tscn::PackedScene::6037776820826123332::1775147086::0::1::::<><><>0<>0<><>::uid://c67bxo60bl7nn::::res://script/menu_principal.gd
+shop_creatures.tscn::PackedScene::6487712647166086307::1775615998::0::1::::<><><>0<>0<><>::uid://ll08qs8381x0::::res://script/shop.gd<>uid://bo75guvl3khwr::::res://scripts de recursos/creature_data.gd<>uid://igt0xx50hjs3::::res://creatures/creatures/criatura1.tres<>uid://cos3s620nj2ac::::res://creatures/creatures/creatura2.tres<>uid://co2mihm48vi5s::::res://creatures/creatures/criatura3.tres
+world.tscn::PackedScene::6072749128885425809::1781223353::0::1::::<><><>0<>0<><>::uid://bwctiqmhny7kr::::res://script/world.gd<>uid://cnm20dlf2py6k::::res://creatures/scripts of creatures/creature_gui.gd<>uid://bl1liabpgqmuv::::res://scripts independientes/DayNightSun.gd<>uid://dde0b1qdh3l4v::::res://habilidades/panel.tscn<>uid://b2w6sf70fmki0::::res://script/game_over_layer.gd<>uid://cwy2mei256g0d::::res://script/consumable_resource.gd<>uid://bla2gfcrdy1is::::res://script/pause_menu.gd<>uid://c4phhu3kefogf::::res://ecenas/coin.tscn<>uid://cibs4p1lrv6vk::::res://efectos/status_area_3d.gd<>uid://0xipfq8gtopn::::res://scripts de recursos/status_effect.gd<>uid://bjb4cxoa2yuv0::::res://efectos/burn_effect.gd<>uid://bj0ptuwy4r0ap::::res://efectos/poison_effect.gd<>uid://1kongo8qasiu::::res://test/dummy_npc.tscn<>uid://benv1n3vcb12s::::res://texturas/pool_textur.tres<>uid://7wvclavu1i30::::res://items/pickable_item.tscn<>uid://0w1wasy6mvox::::res://items/data/tools/asadon.tres<>uid://moq8jjwpa2lo::::res://items/data/seeds/item/semilla_agua.tres<>uid://barad038s87v4::::res://items/data/seeds/item/arbol_manzana.tres<>uid://cyo3m4eobt1lp::::res://items/data/seeds/item/cocotero.tres<>uid://k8b74gckyegf::::res://items/data/seeds/item/conifera.tres<>uid://dmd8ajmbchun1::::res://items/data/seeds/item/hongo.tres<>uid://bihcxycsuqyoe::::res://items/data/tools/bucket with water.tres<>uid://bpv7vmanycrjw::::res://items/data/seeds/item/semilla_trigo.tres<>uid://cio84mnhin6t5::::res://ecenas/mesas/crafting_table.tscn<>uid://cnhr3at2ayhur::::res://items/data/fuel/wood.tres<>uid://bsxysefjvdyy5::::res://ecenas/mesas/horno.tscn<>uid://ch02rp6blxgdf::::res://items/data/consumable/refined/flour.tres<>uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd<>uid://ddmv8yv184k2x::::res://ecenas/mesas/warehouse_general.tscn<>uid://crd43dyy076dc::::res://ecenas/mesas/warehouse_specific.tscn<>uid://dta7f26e8fppc::::res://ecenas/mesas/furnace_industrial.tscn<>uid://456exxj4oexy::::res://ecenas/mesas/furnace_industrial_logistic.tscn<>uid://bfxebf5ouinyw::::res://ecenas/mesas/furnace_industrial_logistic01.tscn<>uid://d3c6kf73kh83a::::res://ecenas/mesas/cinta_transportadora.tscn<>uid://d0kqj5s2ftomn::::res://ecenas/mesas/generator.tscn<>uid://rod5s7mfmoch::::res://ecenas/mesas/PowerPole.tscn<>uid://f04ttgrjutbc::::res://ecenas/mesas/mega_factory.tscn<>uid://biaeydtpvsjhu::::res://ecenas/mesas/motor_rotativo.tscn<>uid://xt1025yj5b01::::res://ecenas/mesas/motor_rotativo_2.tscn<>uid://d1wmmvw17dh61::::res://ecenas/parcela/crop_plot_basic.tscn<>uid://2xahc4we5fcs::::res://ecenas/mesas/MotorCommandCenter.tscn
+::res://ecenas/mesas/::1780617286
+cinta_transportadora.tscn::PackedScene::9130578826503500308::1776619255::0::1::::<><><>0<>0<><>::uid://d0ax6ehp8j07::::res://ecenas/scripts_modulos/cinta_transportadora.gd
+crafting_table.gd::GDScript::6255823487145876804::1778954252::0::1::::CraftingTable<>Node3D<><>0<>0<><>::
+crafting_table.tscn::PackedScene::5365309504523778600::1778969921::0::1::::<><><>0<>0<><>::uid://cvemq7wv6pps3::::res://ecenas/mesas/crafting_table.gd<>uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd<>uid://bufeyxraap052::::res://items/data/recipe/flour.tres<>uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://bpv7vmanycrjw::::res://items/data/seeds/item/semilla_trigo.tres<>uid://0w1wasy6mvox::::res://items/data/tools/asadon.tres<>uid://ch02rp6blxgdf::::res://items/data/consumable/refined/flour.tres<>uid://scm4ghxgsjo0::::res://ecenas/scripts_modulos/inventory_component.gd<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://d2ws72ey5lu2p::::res://ecenas/scripts_modulos/physical_drop_zone.gd
+crafting_ui.gd::GDScript::6978529741767231027::1778954210::0::1::::MachineHUD<>CanvasLayer<><>0<>0<><>::
+crafting_ui.tscn::PackedScene::1295258591714503221::1777940828::0::1::::<><><>0<>0<><>::uid://c6opmoiuysged::::res://ecenas/mesas/crafting_ui.gd
+crop_plot1.gd::GDScript::2342076440074224440::1775169272::0::1::::<>Area3D<><>0<>0<><>::
+crop_plot.tscn::PackedScene::2022070252708582224::1776204951::0::1::::<><><>0<>0<><>::uid://8mrwliljkdwa::::res://ecenas/mesas/crop_plot1.gd
+furnace_industrial.tscn::PackedScene::8494803419185415732::1776618628::0::1::::<><><>0<>0<><>::uid://cvemq7wv6pps3::::res://ecenas/mesas/crafting_table.gd<>uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd<>uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://ch02rp6blxgdf::::res://items/data/consumable/refined/flour.tres<>uid://be4q7gs0gebmf::::res://items/data/consumable/refined/bread.tres<>uid://scm4ghxgsjo0::::res://ecenas/scripts_modulos/inventory_component.gd<>uid://hgkjb15f0rad::::res://ecenas/scripts_modulos/burner_component.gd<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://bykcxvv5al08l::::res://items/data/recipe/bread.tres<>uid://d2ws72ey5lu2p::::res://ecenas/scripts_modulos/physical_drop_zone.gd
+furnace_industrial_logistic01.tscn::PackedScene::2785090553615644730::1778954553::0::1::::<><><>0<>0<><>::uid://cvemq7wv6pps3::::res://ecenas/mesas/crafting_table.gd<>uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd<>uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://ch02rp6blxgdf::::res://items/data/consumable/refined/flour.tres<>uid://be4q7gs0gebmf::::res://items/data/consumable/refined/bread.tres<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://bykcxvv5al08l::::res://items/data/recipe/bread.tres<>uid://scm4ghxgsjo0::::res://ecenas/scripts_modulos/inventory_component.gd<>uid://hgkjb15f0rad::::res://ecenas/scripts_modulos/burner_component.gd<>uid://cl8ltbn6xfvud::::res://ecenas/scripts_modulos/PowerReceiverComponent.gd<>uid://d2ws72ey5lu2p::::res://ecenas/scripts_modulos/physical_drop_zone.gd<>uid://r3heksferujw::::res://ecenas/scripts_modulos/power_terminal.gd<>uid://dla70xlsjjqpl::::res://ecenas/scripts_modulos/machine_connector.gd<>uid://d3aao274f01mx::::res://materiales/wire.tres
+furnace_industrial_logistic.tscn::PackedScene::2099298412091895510::1778954420::0::1::::<><><>0<>0<><>::uid://cvemq7wv6pps3::::res://ecenas/mesas/crafting_table.gd<>uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd<>uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://ch02rp6blxgdf::::res://items/data/consumable/refined/flour.tres<>uid://be4q7gs0gebmf::::res://items/data/consumable/refined/bread.tres<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://bykcxvv5al08l::::res://items/data/recipe/bread.tres<>uid://scm4ghxgsjo0::::res://ecenas/scripts_modulos/inventory_component.gd<>uid://hgkjb15f0rad::::res://ecenas/scripts_modulos/burner_component.gd<>uid://cl8ltbn6xfvud::::res://ecenas/scripts_modulos/PowerReceiverComponent.gd<>uid://d2ws72ey5lu2p::::res://ecenas/scripts_modulos/physical_drop_zone.gd<>uid://r3heksferujw::::res://ecenas/scripts_modulos/power_terminal.gd<>uid://bc1fro2b5ocus::::res://ecenas/scripts_modulos/logic_receiver_component.gd<>uid://dla70xlsjjqpl::::res://ecenas/scripts_modulos/machine_connector.gd<>uid://d3aao274f01mx::::res://materiales/wire.tres<>uid://8rwed126oa2l::::res://ecenas/scripts_modulos/LogicConnector.gd<>uid://volhx16orw7k::::res://materiales/wire_logic.tres<>uid://bkv4gwax4hp57::::res://materiales/logic_conector.tres<>uid://bvmwsxx1pmtga::::res://ecenas/scripts_modulos/universal_status_light.gd<>uid://b4wodka5j2gpm::::res://materiales/machine_conector.tres
+generator.tscn::PackedScene::8935616068341303333::1778954282::0::1::::<><><>0<>0<><>::uid://cvemq7wv6pps3::::res://ecenas/mesas/crafting_table.gd<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://xc1v5premdxh::::res://ecenas/scripts_modulos/power_generator_component.gd<>uid://scm4ghxgsjo0::::res://ecenas/scripts_modulos/inventory_component.gd<>uid://hgkjb15f0rad::::res://ecenas/scripts_modulos/burner_component.gd<>uid://bc1fro2b5ocus::::res://ecenas/scripts_modulos/logic_receiver_component.gd<>uid://d2ws72ey5lu2p::::res://ecenas/scripts_modulos/physical_drop_zone.gd<>uid://dla70xlsjjqpl::::res://ecenas/scripts_modulos/machine_connector.gd<>uid://bvmwsxx1pmtga::::res://ecenas/scripts_modulos/universal_status_light.gd<>uid://8rwed126oa2l::::res://ecenas/scripts_modulos/LogicConnector.gd<>uid://b4wodka5j2gpm::::res://materiales/machine_conector.tres<>uid://volhx16orw7k::::res://materiales/wire_logic.tres<>uid://bkv4gwax4hp57::::res://materiales/logic_conector.tres
+horno.tscn::PackedScene::3698790127892293110::1776558882::0::1::::<><><>0<>0<><>::uid://cvemq7wv6pps3::::res://ecenas/mesas/crafting_table.gd<>uid://scm4ghxgsjo0::::res://ecenas/scripts_modulos/inventory_component.gd<>uid://hgkjb15f0rad::::res://ecenas/scripts_modulos/burner_component.gd<>uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd<>uid://bykcxvv5al08l::::res://items/data/recipe/bread.tres<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://d2ws72ey5lu2p::::res://ecenas/scripts_modulos/physical_drop_zone.gd<>uid://ch02rp6blxgdf::::res://items/data/consumable/refined/flour.tres<>uid://be4q7gs0gebmf::::res://items/data/consumable/refined/bread.tres
+manager_hud.gd::GDScript::5881186796704829649::1779034208::0::1::::ManagerHUD<>CanvasLayer<><>0<>0<><>::
+manager_hud.tscn::PackedScene::4702817090575205946::1778954209::0::1::::<><><>0<>0<><>::uid://cp15j1dvocbhp::::res://ecenas/mesas/manager_hud.gd
+mega_factory.tscn::PackedScene::404349392913793344::1779034119::0::1::::<><><>0<>0<><>::uid://teokjmvd3okp::::res://ecenas/mesas/processor_manager.gd<>uid://cl8ltbn6xfvud::::res://ecenas/scripts_modulos/PowerReceiverComponent.gd<>uid://8rwed126oa2l::::res://ecenas/scripts_modulos/LogicConnector.gd<>uid://b4wodka5j2gpm::::res://materiales/machine_conector.tres<>uid://volhx16orw7k::::res://materiales/wire_logic.tres<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://dla70xlsjjqpl::::res://ecenas/scripts_modulos/machine_connector.gd<>uid://bkv4gwax4hp57::::res://materiales/logic_conector.tres<>uid://d3aao274f01mx::::res://materiales/wire.tres
+MotorCommandCenter.tscn::PackedScene::1942592117979721498::1778455408::0::1::::<><><>0<>0<><>::uid://cvgise0fmml5g::::res://ecenas/mesas/motor_command_center.gd<>uid://bc1fro2b5ocus::::res://ecenas/scripts_modulos/logic_receiver_component.gd<>uid://dla70xlsjjqpl::::res://ecenas/scripts_modulos/machine_connector.gd<>uid://b4wodka5j2gpm::::res://materiales/machine_conector.tres<>uid://d3aao274f01mx::::res://materiales/wire.tres<>uid://8rwed126oa2l::::res://ecenas/scripts_modulos/LogicConnector.gd<>uid://volhx16orw7k::::res://materiales/wire_logic.tres<>uid://bkv4gwax4hp57::::res://materiales/logic_conector.tres<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd
+motor_command_center.gd::GDScript::6259711479498870190::1778198853::0::1::::MotorCommandCenter<>Area3D<><>0<>0<><>::
+motor_manager_hud.gd::GDScript::5723128123987726517::1778298926::0::1::::MotorManagerHUD<>CanvasLayer<><>0<>0<><>::
+motor_manager_hud.tscn::PackedScene::3152068523106672744::1778298925::0::1::::<><><>0<>0<><>::uid://cnslc4fhe570t::::res://ecenas/mesas/motor_manager_hud.gd
+motor_rotativo.tscn::PackedScene::2948217347453790374::1778455517::0::1::::<><><>0<>0<><>::uid://b5unylbyp3ia8::::res://ecenas/scripts_modulos/motor_rotativo.gd<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://cl8ltbn6xfvud::::res://ecenas/scripts_modulos/PowerReceiverComponent.gd<>uid://bc1fro2b5ocus::::res://ecenas/scripts_modulos/logic_receiver_component.gd<>uid://dla70xlsjjqpl::::res://ecenas/scripts_modulos/machine_connector.gd<>uid://d3aao274f01mx::::res://materiales/wire.tres<>uid://b4wodka5j2gpm::::res://materiales/machine_conector.tres<>uid://8rwed126oa2l::::res://ecenas/scripts_modulos/LogicConnector.gd<>uid://volhx16orw7k::::res://materiales/wire_logic.tres<>uid://bkv4gwax4hp57::::res://materiales/logic_conector.tres
+motor_rotativo_2.tscn::PackedScene::1655191333239675760::1778455476::0::1::::<><><>0<>0<><>::uid://b5unylbyp3ia8::::res://ecenas/scripts_modulos/motor_rotativo.gd<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://cl8ltbn6xfvud::::res://ecenas/scripts_modulos/PowerReceiverComponent.gd<>uid://bc1fro2b5ocus::::res://ecenas/scripts_modulos/logic_receiver_component.gd<>uid://dla70xlsjjqpl::::res://ecenas/scripts_modulos/machine_connector.gd<>uid://d3aao274f01mx::::res://materiales/wire.tres<>uid://b4wodka5j2gpm::::res://materiales/machine_conector.tres<>uid://8rwed126oa2l::::res://ecenas/scripts_modulos/LogicConnector.gd<>uid://volhx16orw7k::::res://materiales/wire_logic.tres<>uid://bkv4gwax4hp57::::res://materiales/logic_conector.tres
+motor_ui.gd::GDScript::6195793764570418051::1778284465::0::1::::MotorHUD<>CanvasLayer<><>0<>0<><>::
+motor_ui.tscn::PackedScene::4353737790378245479::1778284465::0::1::::<><><>0<>0<><>::uid://cujj22ybluqj8::::res://ecenas/mesas/motor_ui.gd
+piston_machine.tscn::PackedScene::3198898106043818292::1778284938::0::1::::<><><>0<>0<><>::uid://b25bn20ghxk67::::res://ecenas/scripts_modulos/piston_machine.gd<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd<>uid://cl8ltbn6xfvud::::res://ecenas/scripts_modulos/PowerReceiverComponent.gd<>uid://bc1fro2b5ocus::::res://ecenas/scripts_modulos/logic_receiver_component.gd<>uid://dla70xlsjjqpl::::res://ecenas/scripts_modulos/machine_connector.gd<>uid://d3aao274f01mx::::res://materiales/wire.tres<>uid://8rwed126oa2l::::res://ecenas/scripts_modulos/LogicConnector.gd<>uid://volhx16orw7k::::res://materiales/wire_logic.tres
+PowerPole.tscn::PackedScene::1222348350605272243::1778455211::0::1::::<><><>0<>0<><>::uid://banbqy5obeoso::::res://materiales/luces/luz_roja.tres<>uid://ct1pvl0yifspl::::res://ecenas/scripts_modulos/PowerPole.gd<>uid://d3aao274f01mx::::res://materiales/wire.tres<>uid://bg3o36hmud2pb::::res://materiales/luces/luz_amarilla.tres<>uid://r57mr841k6kb::::res://materiales/luces/luz_verde.tres<>uid://b4wodka5j2gpm::::res://materiales/machine_conector.tres
+processor_manager.gd::GDScript::1342713928183708107::1779034119::0::1::::CommandCenter<>Area3D<><>0<>0<><>::
+warehouse_general.tscn::PackedScene::7395936397316943565::1777340253::0::1::::<><><>0<>0<><>::uid://cvemq7wv6pps3::::res://ecenas/mesas/crafting_table.gd<>uid://scm4ghxgsjo0::::res://ecenas/scripts_modulos/inventory_component.gd<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd
+warehouse_specific.tscn::PackedScene::5974055833285005172::1777340244::0::1::::<><><>0<>0<><>::uid://cvemq7wv6pps3::::res://ecenas/mesas/crafting_table.gd<>uid://scm4ghxgsjo0::::res://ecenas/scripts_modulos/inventory_component.gd<>uid://cw3ffmom8r6oq::::res://ecenas/scripts_modulos/processor_component.gd
+::res://ecenas/modulos/::1776205193
+::res://ecenas/parcela/::1781811939
+crop_architecture.gd::GDScript::6011728295871784921::1780962402::0::1::::CropArchitecture<>Node<><>0<>0<><>::
+crop_metabolism.gd::GDScript::2545021949324762487::1781215619::0::1::::CropMetabolism<>Node<><>0<>0<><>::
+crop_plot_basic.gd::GDScript::4071193839858875259::1779755472::0::1::::CropPlotBasic<>Area3D<><>0<>0<><>::
+crop_plot_basic.tscn::PackedScene::9030339467897777580::1779752071::0::1::::<><><>0<>0<><>::uid://byad75x2i71dn::::res://ecenas/parcela/crop_plot_basic.gd
+crop_segment_3d.gd::GDScript::2546411657087396974::1781811939::0::1::::CropSegment3D<>Node3D<><>0<>0<><>::
+crop_segment_3d.tscn::PackedScene::309465156868313794::1781048639::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://oqskn5yif8qp::::res://ecenas/parcela/crop_segment_area.gd
+crop_segment_area.gd::GDScript::1016785349055315547::1781048616::0::1::::CropSegmentArea<>Area3D<><>0<>0<><>::
+dynamic_free_crop.gd::GDScript::6494900827025587297::1779914397::0::1::::DynamicFreeCrop<>Area3D<><>0<>0<><>::
+dynamic_free_crop.tscn::PackedScene::2250000402205172908::1779914724::0::1::::<><><>0<>0<><>::uid://cysgckjbufunp::::res://ecenas/parcela/dynamic_free_crop.gd
+procedural_free_crop.gd::GDScript::3853098758564532513::1780965157::0::1::::ProceduralFreeCrop<>Area3D<><>0<>0<><>::
+procedural_free_crop.tscn::PackedScene::1517126782878759617::1780625883::0::1::::<><><>0<>0<><>::uid://bu5p8dqyp56u4::::res://ecenas/parcela/procedural_free_crop.gd<>uid://bci3e0pyc24nr::::res://ecenas/parcela/crop_metabolism.gd<>uid://crwej0o152q6d::::res://ecenas/parcela/crop_architecture.gd
+::res://ecenas/parcela/manzano procedural/::1781044600
+flor.tscn::PackedScene::5536089393397441232::1781044503::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres
+flor_E1_V1.tscn::PackedScene::8294314663504916503::1781044525::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres
+flor_E2_V1.tscn::PackedScene::317646267838054323::1781044536::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres
+flor_E3_V1.tscn::PackedScene::9810865015798454::1781044543::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres
+fruto.tscn::PackedScene::4148407974272215434::1781044550::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres
+hojas.tscn::PackedScene::8948573816209707223::1781044564::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://be4q7gs0gebmf::::res://items/data/consumable/refined/bread.tres
+hojas_V1.tscn::PackedScene::7753539306034588512::1781044582::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://barad038s87v4::::res://items/data/seeds/item/arbol_manzana.tres
+ramas.tscn::PackedScene::6710961029599540935::1781044589::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://cnhr3at2ayhur::::res://items/data/fuel/wood.tres
+tronco.tscn::PackedScene::1473852736256512582::1781044595::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://cnhr3at2ayhur::::res://items/data/fuel/wood.tres
+tronco_V1.tscn::PackedScene::5116531798588111157::1781044600::0::1::::<><><>0<>0<><>::uid://bcjra7k2yo56i::::res://ecenas/parcela/crop_segment_3d.gd<>uid://cnhr3at2ayhur::::res://items/data/fuel/wood.tres
+::res://ecenas/scripts_modulos/::1780617286
+burner_component.gd::GDScript::504331508122405663::1778371194::0::1::::BurnerComponent<>Node<><>0<>0<><>::
+burner_light.gd::GDScript::3210846499635985809::1777405680::0::1::::BurnerLight<>MeshInstance3D<><>0<>0<><>::
+cinta_transportadora.gd::GDScript::262218682767877614::1776619194::0::1::::<>StaticBody3D<><>0<>0<><>::
+inventory_component.gd::GDScript::1268308659936624937::1778371194::0::1::::InventoryComponent<>Node<><>0<>0<><>::
+inventory_light.gd::GDScript::1556464792462118474::1777405632::0::1::::InventoryLight<>MeshInstance3D<><>0<>0<><>::
+LogicConnector.gd::GDScript::2352669377894265953::1778184395::0::1::::LogicConnector<>CollisionObject3D<><>0<>0<><>::
+logic_receiver_component.gd::GDScript::2580806913157635570::1778371194::0::1::::LogicReceiverComponent<>Node<><>0<>0<><>::
+MachineStatusLight.gd::GDScript::6589261563102442769::1777339752::0::1::::MachineStatusLight<>MeshInstance3D<><>0<>0<><>::
+machine_connector.gd::GDScript::7933328145573947937::1778105818::0::1::::MachineConnector<>CollisionObject3D<><>0<>0<><>::
+motor_rotativo.gd::GDScript::4534206308288210641::1778459822::0::1::::MotorHingeMachine<>Area3D<><>0<>0<><>::
+physical_drop_zone.gd::GDScript::9100928616610913837::1777407648::0::1::::PhysicalDropZone<>Area3D<><>0<>0<><>::
+piston_machine.gd::GDScript::4343536183888746638::1778459822::0::1::::PistonMachine<>Area3D<><>0<>0<><>::
+PowerPole.gd::GDScript::6161052092156192057::1777421894::0::1::::PowerPole<>StaticBody3D<><>0<>0<><>::
+PowerReceiverComponent.gd::GDScript::5613745004338417975::1777774405::0::1::::PowerReceiverComponent<>Node<><>0<>0<><>::
+power_generator_component.gd::GDScript::1620089902317589281::1777321877::0::1::::PowerGeneratorComponent<>Node<><>0<>0<><>::
+power_terminal.gd::GDScript::1251445634358404096::1777130248::0::1::::PowerTerminal<>Node<><>0<>0<><>::
+processor_component.gd::GDScript::6375111670967437312::1778953919::0::1::::ProcessorComponent<>Node<><>0<>0<><>::
+universal_status_light.gd::GDScript::3886528096041063528::1777407649::0::1::::UniversalStatusLight<>MeshInstance3D<><>0<>0<><>::
+::res://efectos/::1780617286
+burn.tres::Resource/BurnEffect::5366083292932388854::1774378621::0::1::::<><><>0<>0<><>::uid://bjb4cxoa2yuv0::::res://efectos/burn_effect.gd
+burn_effect.gd::GDScript::3021950248268852899::1774125424::0::1::::BurnEffect<>StatusEffect<><>0<>0<><>::
+freeze.tres::Resource/frezzingEffect::3358651985669114097::1775090577::0::1::::<><><>0<>0<><>::uid://hvk2u40223ky::::res://efectos/freezing.gd
+freezing.gd::GDScript::535330321103970372::1774972448::0::1::::frezzingEffect<>StatusEffect<><>0<>0<><>::
+poison.tres::Resource/PoisonEffect::3939204427448307127::1774302906::0::1::::<><><>0<>0<><>::uid://bj0ptuwy4r0ap::::res://efectos/poison_effect.gd
+poison_effect.gd::GDScript::3070675490845177931::1774056909::0::1::::PoisonEffect<>StatusEffect<><>0<>0<><>::
+status_area_3d.gd::GDScript::5337562016676095592::1774126537::0::1::::<>Area3D<><>0<>0<><>::
+status_area_3d.tscn::PackedScene::4699321494599982345::1774057360::0::1::::<><><>0<>0<><>::uid://cibs4p1lrv6vk::::res://efectos/status_area_3d.gd
+::res://habilidades/::1780617286
+fireball.gd::GDScript::7934742570815889654::1775077886::0::1::::<>AbilityBase<><>0<>0<><>::
+fireball.tscn::PackedScene::6028283630149123443::1775337153::0::1::::<><><>0<>0<><>::uid://dlbwby2bkmi43::::res://habilidades/fireball.gd<>uid://bjb4cxoa2yuv0::::res://efectos/burn_effect.gd
+freeze.gd::GDScript::633574839390957172::1777328183::0::1::::<>AbilityBase<><>0<>0<><>::
+freeze.tscn::PackedScene::5300950968059388897::1777328183::0::1::::<><><>0<>0<><>::uid://ja55ddstvg1q::::res://habilidades/freeze.gd<>uid://bn37riwy48h1j::::res://efectos/freeze.tres
+heal_area.gd::GDScript::4867499970042685320::1775080780::0::1::::<>AbilityBase<><>0<>0<><>::
+heal_area.tscn::PackedScene::2139284239755595561::1775016729::0::1::::<><><>0<>0<><>::uid://cbl4apo7bt5om::::res://habilidades/heal_area.gd
+panel.gd::GDScript::6322918555534278780::1774232204::0::1::::<>Control<><>0<>0<><>::
+panel.tscn::PackedScene::7379607194093455179::1774297944::0::1::::<><><>0<>0<><>::uid://cwc4sr2ufq8g3::::res://habilidades/panel.gd
+::res://items/::1781215619
+pickable_item.tscn::PackedScene::2292738514181011233::1781215619::0::1::::<><><>0<>0<><>::uid://b31q2vvhoj7ek::::res://script/PickableItem.gd
+semilla_de_manzana.tscn::PackedScene::1748064091022967024::1775167412::0::1::::<><><>0<>0<><>::
+::res://items/blue_prints/::1780617286
+crop_plot.tres::Resource/BlueprintData::6959781928276457660::1779751861::0::1::::<><><>0<>0<><>::uid://d1wmmvw17dh61::::res://ecenas/parcela/crop_plot_basic.tscn<>uid://dmd8ajmbchun1::::res://items/data/seeds/item/hongo.tres<>uid://cvaxbbxmeo50m::::res://scripts de recursos/BlueprintData.gd
+seed.tres::Resource/BlueprintData::6801976271973589102::1778969490::0::1::::<><><>0<>0<><>::uid://cvaxbbxmeo50m::::res://scripts de recursos/BlueprintData.gd<>uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres<>uid://dmd8ajmbchun1::::res://items/data/seeds/item/hongo.tres
+::res://items/data/::1780617286
+::res://items/data/consumable/::1782776115
+manzana_data.tres::Resource/ItemData::887005489589294793::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd
+::res://items/data/consumable/refined/::1782776116
+bread.tres::Resource/ItemData::2728071974492826945::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd
+flour.tres::Resource/ItemData::5317443269805236171::1782776116::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd
+::res://items/data/fuel/::1782776115
+wood.tres::Resource/ItemData::5700829200644400949::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd
+::res://items/data/recipe/::1780617286
+bread.tres::Resource/RecipeData::4091760352586592425::1776296910::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd<>uid://ch02rp6blxgdf::::res://items/data/consumable/refined/flour.tres<>uid://be4q7gs0gebmf::::res://items/data/consumable/refined/bread.tres
+flour.tres::Resource/RecipeData::3800806406548178867::1778969921::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://bpv7vmanycrjw::::res://items/data/seeds/item/semilla_trigo.tres<>uid://0w1wasy6mvox::::res://items/data/tools/asadon.tres<>uid://ch02rp6blxgdf::::res://items/data/consumable/refined/flour.tres<>uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd
+::res://items/data/refined/::1776206604
+::res://items/data/seeds/::1780617286
+::res://items/data/seeds/item/::1782776116
+arbol_manzana.tres::Resource/ItemData::2421521820756866991::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://drwlda5p2ol08::::res://items/data/seeds/seedata/manzano.tres
+cocotero.tres::Resource/ItemData::6487997938574717269::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://5sw5wt68pxdt::::res://items/data/seeds/seedata/cocotero.tres
+conifera.tres::Resource/ItemData::770132297213182593::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://hwelm0s6ccte::::res://items/data/seeds/seedata/conifera.tres
+hongo.tres::Resource/ItemData::8009725460055375516::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://df161fvl7xjx7::::res://items/data/seeds/seedata/hongo.tres
+semilla_agua.tres::Resource/ItemData::872198302929397472::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://dqfxmt4wq0pxy::::res://items/data/seeds/seedata/algas.tres
+semilla_manzana_data.tres::Resource/ItemData::6654361550185488037::1779033854::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd
+semilla_trigo.tres::Resource/ItemData::3484586347442404668::1782776116::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd<>uid://de7mm5aid4k0y::::res://items/data/seeds/seedata/semilla_trigo.tres
+::res://items/data/seeds/seedata/::1781215396
+algas.tres::Resource/SeedData::8294024402183549866::1779751212::0::1::::<><><>0<>0<><>::uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres<>uid://m1igiyj2iiu4::::res://scripts de recursos/SeedData.gd<>uid://c18lgnmopkbva::::res://items/data/seeds/visuals/kelp.tres
+cocotero.tres::Resource/SeedData::2144214642690257149::1780962249::0::1::::<><><>0<>0<><>::uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres<>uid://m1igiyj2iiu4::::res://scripts de recursos/SeedData.gd<>uid://c0yn1pbtjx2p::::res://items/data/seeds/visuals/coconut_procedural.tres
+conifera.tres::Resource/SeedData::537001397519219218::1781215396::0::1::::<><><>0<>0<><>::uid://m1igiyj2iiu4::::res://scripts de recursos/SeedData.gd<>uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres<>uid://dvwua6wba0ne4::::res://items/data/seeds/visuals/pine_tree_procedural.tres
+hongo.tres::Resource/SeedData::7565809043893418026::1779318009::0::1::::<><><>0<>0<><>::uid://m1igiyj2iiu4::::res://scripts de recursos/SeedData.gd<>uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres<>uid://b50x0ye7k456j::::res://items/data/seeds/visuals/fungus.tres
+manzano.tres::Resource/SeedData::8398561994879623327::1781215396::0::1::::<><><>0<>0<><>::uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres<>uid://m1igiyj2iiu4::::res://scripts de recursos/SeedData.gd<>uid://cnhr3at2ayhur::::res://items/data/fuel/wood.tres<>uid://dbsnh2f00h4uc::::res://items/data/seeds/visuals/appel_tree_procedural.tres
+semilla_trigo.tres::Resource/SeedData::7506829123270550826::1779243467::0::1::::<><><>0<>0<><>::uid://mvw36sv7fmrp::::res://items/data/consumable/manzana_data.tres<>uid://m1igiyj2iiu4::::res://scripts de recursos/SeedData.gd<>uid://wc4bhelghmsu::::res://items/data/seeds/visuals/wheat_visual.tres
+::res://items/data/seeds/visuals/::1782776116
+appel_tree_procedural.tres::Resource/ProceduralVisualData::7267412942777789126::1781215396::0::1::::<><><>0<>0<><>::uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd<>uid://djbkxg85x7mn6::::res://scripts de recursos/ProceduralVisualData.gd<>uid://bxgup5jnin3of::::res://items/data/seeds/visuals/manzano_variaciones/rama_normal.tres<>uid://16bcgljyd757::::res://items/data/seeds/visuals/manzano_variaciones/flor_normal.tres<>uid://dshlwksjckd08::::res://items/data/seeds/visuals/manzano_variaciones/flor_racimo.tres<>uid://j27n0eomas5i::::res://items/data/seeds/visuals/manzano_variaciones/fruta_normal.tres<>uid://tqsj42sml1ri::::res://items/data/seeds/visuals/manzano_variaciones/hojas_normal.tres<>uid://iy6foe27at8a::::res://items/data/seeds/visuals/manzano_variaciones/tronco_normal.tres
+coconut_procedural.tres::Resource/ProceduralVisualData::193468943125095001::1780272099::0::1::::<><><>0<>0<><>::uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd<>uid://bxgup5jnin3of::::res://items/data/seeds/visuals/manzano_variaciones/rama_normal.tres<>uid://16bcgljyd757::::res://items/data/seeds/visuals/manzano_variaciones/flor_normal.tres<>uid://dshlwksjckd08::::res://items/data/seeds/visuals/manzano_variaciones/flor_racimo.tres<>uid://j27n0eomas5i::::res://items/data/seeds/visuals/manzano_variaciones/fruta_normal.tres<>uid://tqsj42sml1ri::::res://items/data/seeds/visuals/manzano_variaciones/hojas_normal.tres<>uid://c5etgvnsc1ays::::res://items/data/seeds/visuals/manzano_variaciones/hojas_grande.tres<>uid://djbkxg85x7mn6::::res://scripts de recursos/ProceduralVisualData.gd<>uid://iy6foe27at8a::::res://items/data/seeds/visuals/manzano_variaciones/tronco_normal.tres
+fungus.tres::Resource/CropVisualData::4545137840574911655::1782776115::0::1::::<><><>0<>0<><>::uid://5aejr6uf1sel::::res://scripts de recursos/CropVisualData.gd
+kelp.tres::Resource/CropVisualData::6666555071540617934::1782776115::0::1::::<><><>0<>0<><>::uid://5aejr6uf1sel::::res://scripts de recursos/CropVisualData.gd
+pine_tree_procedural.tres::Resource/ProceduralVisualData::8679860080178612417::1781215396::0::1::::<><><>0<>0<><>::uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd<>uid://djbkxg85x7mn6::::res://scripts de recursos/ProceduralVisualData.gd<>uid://bxgup5jnin3of::::res://items/data/seeds/visuals/manzano_variaciones/rama_normal.tres<>uid://16bcgljyd757::::res://items/data/seeds/visuals/manzano_variaciones/flor_normal.tres<>uid://dshlwksjckd08::::res://items/data/seeds/visuals/manzano_variaciones/flor_racimo.tres<>uid://j27n0eomas5i::::res://items/data/seeds/visuals/manzano_variaciones/fruta_normal.tres<>uid://tqsj42sml1ri::::res://items/data/seeds/visuals/manzano_variaciones/hojas_normal.tres<>uid://iy6foe27at8a::::res://items/data/seeds/visuals/manzano_variaciones/tronco_normal.tres
+tree_apple.tres::Resource/CropVisualData::8115071038071995518::1779913472::0::1::::<><><>0<>0<><>::uid://5aejr6uf1sel::::res://scripts de recursos/CropVisualData.gd
+wheat_visual.tres::Resource/CropVisualData::1550046268479730336::1782776116::0::1::::<><><>0<>0<><>::uid://5aejr6uf1sel::::res://scripts de recursos/CropVisualData.gd
+::res://items/data/seeds/visuals/manzano_variaciones/::1782776115
+flor_normal.tres::Resource/CropVariantData::1888970266119367572::1782776115::0::1::::<><><>0<>0<><>::uid://ck4yt3q7u7a13::::res://ecenas/parcela/manzano procedural/flor.tscn<>uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd
+flor_racimo.tres::Resource/CropVariantData::8437819608680613135::1780090652::0::1::::<><><>0<>0<><>::uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd<>uid://dqf3feg3875l0::::res://ecenas/parcela/manzano procedural/flor_E1_V1.tscn<>uid://er4t8j6hvnu6::::res://ecenas/parcela/manzano procedural/flor_E2_V1.tscn<>uid://e0t3sn84s35::::res://ecenas/parcela/manzano procedural/flor_E3_V1.tscn
+fruta_normal.tres::Resource/CropVariantData::689405271106320972::1782776115::0::1::::<><><>0<>0<><>::uid://b0drw5jjh41v7::::res://ecenas/parcela/manzano procedural/fruto.tscn<>uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd
+hojas_grande.tres::Resource/CropVariantData::6887929649063748402::1782776115::0::1::::<><><>0<>0<><>::uid://dip4woprjpgoe::::res://ecenas/parcela/manzano procedural/hojas_V1.tscn<>uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd
+hojas_normal.tres::Resource/CropVariantData::1367728616923722186::1782776115::0::1::::<><><>0<>0<><>::uid://d0q0x6cp5oy7h::::res://ecenas/parcela/manzano procedural/hojas.tscn<>uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd
+rama_normal.tres::Resource/CropVariantData::4014393070861746329::1782776115::0::1::::<><><>0<>0<><>::uid://c2u3svd1is4yt::::res://ecenas/parcela/manzano procedural/ramas.tscn<>uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd
+tronco_grande.tres::Resource/CropVariantData::7051268772677336025::1780014573::0::1::::<><><>0<>0<><>::uid://ce5qscb21k56p::::res://ecenas/parcela/manzano procedural/tronco_V1.tscn<>uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd
+tronco_normal.tres::Resource/CropVariantData::612947713722640526::1782776115::0::1::::<><><>0<>0<><>::uid://c8rpp7k3skcj6::::res://scripts de recursos/CropVariantData.gd<>uid://u87ey7o3ch55::::res://ecenas/parcela/manzano procedural/tronco.tscn
+::res://items/data/tools/::1782776116
+asadon.tres::Resource/ItemData::1801755359756812951::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd
+bucket with water.tres::Resource/ItemData::2962545848816357824::1782776116::0::1::::<><><>0<>0<><>::uid://di3boklndinvb::::res://items/data/tools/bucket_without_water.tres<>uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd
+bucket_without_water.tres::Resource/ItemData::7778661638226020687::1782776115::0::1::::<><><>0<>0<><>::uid://pn1ld58jj7o2::::res://scripts de recursos/Item_Data.gd
+::res://materiales/::1782776116
+fire.tres::StandardMaterial3D::3630077454995774292::1782776116::0::1::::<><><>0<>0<><>::
+logic_conector.tres::StandardMaterial3D::3133433717060102208::1778455138::0::1::::<><><>0<>0<><>::
+machine_conector.tres::StandardMaterial3D::4468169381675460298::1778455110::0::1::::<><><>0<>0<><>::
+piedra.tres::StandardMaterial3D::8737632139444001895::1782776116::0::1::::<><><>0<>0<><>::
+stone.gdshader::Shader::208664359551151397::1782776116::0::1::::<><><>0<>0<><>::
+wire.tres::StandardMaterial3D::9124576142948395727::1776730486::0::1::::<><><>0<>0<><>::
+wire_logic.tres::StandardMaterial3D::1503548642063151978::1777941190::0::1::::<><><>0<>0<><>::
+::res://materiales/luces/::1780617287
+luz_amarilla.tres::StandardMaterial3D::2866258002372623491::1776617071::0::1::::<><><>0<>0<><>::
+luz_azul.tres::StandardMaterial3D::4574229413095954765::1777941075::0::1::::<><><>0<>0<><>::
+luz_roja.tres::StandardMaterial3D::2413348191733265178::1776617071::0::1::::<><><>0<>0<><>::
+luz_verde.tres::StandardMaterial3D::1257106992992028833::1776617071::0::1::::<><><>0<>0<><>::
+::res://models/::1781824300
+firts_model1.tscn::PackedScene::6802569076273087013::1774822332::0::1::::<><><>0<>0<><>::
+firts_model.tscn::PackedScene::6756907197815985397::1774299704::0::1::::<><><>0<>0<><>::
+firts_model_3.tscn::PackedScene::1111117917915878578::1774380554::0::1::::<><><>0<>0<><>::
+ice.tscn::PackedScene::8185204026654743522::1774977842::0::1::::<><><>0<>0<><>::
+Rig_Large_IK.glb::PackedScene::4141527896980549503::1781824300::1781824300::1::::<><><>0<>0<>efb4246a4fa18d56730ee5336ebe753b<>res://.godot/imported/Rig_Large_IK.glb-21a93183c1b02b0a550bb3aadfce1b7e.scn::uid://dv7iirvnj5vdq::::res://models/Rig_Large_IK_mannequin_texture.png
+Rig_Large_IK_mannequin_texture.png::CompressedTexture2D::8699788803843003178::1781823861::1781823867::1::::<><><>0<>0<>660739a17a5d782a18e23e7fcc3d4b51<>res://.godot/imported/Rig_Large_IK_mannequin_texture.png-41cf5c9ad336eff7faa0f490915d52b7.s3tc.ctex::
+Rig_Large_IK_Tex_2.jpg::CompressedTexture2D::3355638439398879460::1781823860::1781823867::1::::<><><>0<>0<>fa5c0122b1e41b3c5f67ca2c05295f5e<>res://.godot/imported/Rig_Large_IK_Tex_2.jpg-4ada64998304dcf897c575fc183a9967.s3tc.ctex::
+Rig_Large_IK_Tex_8.jpg::CompressedTexture2D::2191249684669839774::1781823861::1781823867::1::::<><><>0<>0<>d69c6f07dce19d218c9ffcfa2efd36fb<>res://.godot/imported/Rig_Large_IK_Tex_8.jpg-4c2bbce53f903be6f902d0f2083ea9d2.s3tc.ctex::
+Rig_Large_MovementBasic.glb::PackedScene::5112618925817296583::1781304004::1781304006::1::::<><><>0<>0<>b148ec75c209e4e958847325093e0e99<>res://.godot/imported/Rig_Large_MovementBasic.glb-960eab1cdcf2754a13bbb5c091dd8227.scn::
+second_model2.tscn::PackedScene::3064042302024491956::1774822355::0::1::::<><><>0<>0<><>::
+second_model.tscn::PackedScene::4009955894627396272::1774299689::0::1::::<><><>0<>0<><>::
+second_model_3.tscn::PackedScene::7697776225476708758::1774380729::0::1::::<><><>0<>0<><>::
+test_mesh.tscn::PackedScene::7311200071349864662::1775241222::0::1::::<><><>0<>0<><>::
+thre_model.tscn::PackedScene::2353858427501392354::1774299912::0::1::::<><><>0<>0<><>::
+thre_model_3.tscn::PackedScene::2786138954380462034::1774380757::0::1::::<><><>0<>0<><>::
+trhe_model1.tscn::PackedScene::5913264027932476395::1774822380::0::1::::<><><>0<>0<><>::
+::res://models/clima/::1781214626
+cloud.tscn::PackedScene::3624725812501219748::1781214626::0::1::::<><><>0<>0<><>::uid://bnbyvolkg7paq::::res://models/clima/WeatherEntity.gd<>uid://hwmegb380hom::::res://models/clima/tornado.tscn
+tornado.gd::GDScript::2016710871159638997::1775091074::0::1::::TornadoEntity<>Area3D<><>0<>0<><>::
+tornado.tscn::PackedScene::537474281146546332::1781214626::0::1::::<><><>0<>0<><>::uid://3y560ap3n8np::::res://models/clima/tornado.gd<>uid://bn37riwy48h1j::::res://efectos/freeze.tres<>uid://cipmuwwsq3nt3::::res://efectos/burn.tres
+WeatherEntity.gd::GDScript::3302435491023377708::1775004739::0::1::::WeatherEntity<>Area3D<><>0<>0<><>::
+::res://recursos/::1780617287
+new_resource.tres::Resource/ProductionLineData::5149320842713049688::1777421894::0::1::::<><><>0<>0<><>::uid://bgxcbs4vbbqp2::::res://scripts de recursos/RecipeData.gd<>uid://1s63qmwog13e::::res://scripts de recursos/ProductionLineData.gd
+::res://script/::1781215620
+coin.gd::GDScript::2071659502257785341::1774054997::0::1::::<>Area3D<><>0<>0<><>::
+construction_site.gd::GDScript::1093717337502705998::1779670907::0::1::::ConstructionSite<>Area3D<><>0<>0<><>::
+consumable_resource.gd::GDScript::6368202005571811109::1774820978::0::1::::ConsumableResource<>Area3D<><>0<>0<><>::
+creature_select.gd::GDScript::2097439408135966983::1776018436::0::1::::<>Control<><>0<>0<><>::
+crop_plot.gd::GDScript::1312562455386313820::1775146045::0::1::::<>Area3D<><>0<>0<><>::
+game_over_layer.gd::GDScript::4328850456768881825::1774227432::0::1::::<>CanvasLayer<><>0<>0<><>::
+LogicGrid.gd::GDScript::3249665462017917695::1777853040::0::1::::LogicGrid<>RefCounted<><>0<>0<><>::
+menu_principal.gd::GDScript::7014858182901228559::1776018610::0::1::::<>Control<><>0<>0<><>::
+pause_menu.gd::GDScript::3160148303763325594::1779846305::0::1::::<>CanvasLayer<><>0<>0<><>::
+PickableItem.gd::GDScript::4406402951251650906::1781215620::0::1::::PickableItem<>RigidBody3D<><>0<>0<><>::
+power_grid.gd::GDScript::1750264446633527931::1779753735::0::1::::PowerGrid<>RefCounted<><>0<>0<><>::
+shop.gd::GDScript::796363161049233015::1776018610::0::1::::<>Control<><>0<>0<><>::
+world.gd::GDScript::3935872767699391317::1779842332::0::1::::<>Node<><>0<>0<><>::
+::res://scripts de recursos/::1782173641
+ability_base.gd::GDScript::5240435453669149508::1774230131::0::1::::AbilityBase<>Area3D<><>0<>0<><>::
+BlueprintData.gd::GDScript::6248205449017423686::1775440298::0::1::::BlueprintData<>Resource<><>0<>0<><>::
+CreatureDNA.gd::GDScript::331071588303030261::1782173641::0::1::::CreatureDNA<>Resource<><>0<>0<><>::
+CreaturePartData.gd::GDScript::6232570038959450454::1782173451::0::1::::CreaturePartData<>Resource<><>0<>0<><>::
+creature_data.gd::GDScript::3436957890747395145::1774917567::0::1::::CreatureData<>Resource<><>0<>0<><>::
+creature_save_state.gd::GDScript::8132063067307328534::1774576622::0::1::::CreatureSaveState<>Resource<><>0<>0<><>::
+CropVariantData.gd::GDScript::7125106868552247753::1780090387::0::1::::CropVariantData<>Resource<><>0<>0<><>::
+CropVisualData.gd::GDScript::2105925190959503803::1776189801::0::1::::CropVisualData<>Resource<><>0<>0<><>::
+evolution_stage.gd::GDScript::8054051599861661116::1775261756::0::1::::EvolutionStage<>Resource<><>0<>0<><>::
+Item_Data.gd::GDScript::1081268056344114927::1779158406::0::1::::ItemData<>Resource<><>0<>0<><>::
+LimbSocketConfig.gd::GDScript::-1::1781800714::0::1::::LimbSocketConfig<>Resource<><>0<>0<><>::
+player_data.gd::GDScript::5380774640720433158::1774057446::0::1::::PlayerData<>Resource<><>0<>0<><>::
+ProceduralVisualData.gd::GDScript::7793674632276848761::1780625883::0::1::::ProceduralVisualData<>CropVisualData<><>0<>0<><>::
+RecipeData.gd::GDScript::2855158644819277265::1778459315::0::1::::RecipeData<>Resource<><>0<>0<><>::
+SeedData.gd::GDScript::896436853674935285::1780191103::0::1::::SeedData<>Resource<><>0<>0<><>::
+status_effect.gd::GDScript::1802714590986661467::1774124485::0::1::::StatusEffect<>Resource<><>0<>0<><>::
+::res://scripts independientes/::1780617287
+DayNightSun.gd::GDScript::3212853960823678957::1774979873::0::1::::<>DirectionalLight3D<><>0<>0<><>::
+::res://slime_test/::1782863148
+aim_ik_coordinator.gd::GDScript::790125403588271700::1781968646::0::1::::AimIKCoordinator<>Node3D<><>0<>0<><>::
+ArmTracker.gd::GDScript::7691960640289307176::1781973981::0::1::::ArmTracker<>Marker3D<><>0<>0<><>::
+arm_L_large.tscn::PackedScene::3980600323529851323::1781979809::0::1::::<><><>0<>0<><>::uid://bb87t06n08af6::::res://slime_test/procedural_limb.gd<>uid://dv7iirvnj5vdq::::res://models/Rig_Large_IK_mannequin_texture.png<>uid://dhubp560141n5::::res://slime_test/ArmTracker.gd
+arm_R_large.tscn::PackedScene::9019273162309904680::1781979001::0::1::::<><><>0<>0<><>::uid://bb87t06n08af6::::res://slime_test/procedural_limb.gd<>uid://dv7iirvnj5vdq::::res://models/Rig_Large_IK_mannequin_texture.png<>uid://dhubp560141n5::::res://slime_test/ArmTracker.gd
+building_sockets_manager.gd::GDScript::5821190625365725933::1781828151::0::1::::BuildingSocketsManager<>Node3D<><>0<>0<><>::
+CameraController.gd::GDScript::5595885850152859578::1782343277::0::1::::CameraController<>Node3D<><>0<>0<><>::
+chasis.tscn::PackedScene::3484769144022355963::1782513635::0::1::::<><><>0<>0<><>::uid://jjbo88ngmyb2::::res://slime_test/test/CreatureChassis.gd<>uid://dv7iirvnj5vdq::::res://models/Rig_Large_IK_mannequin_texture.png<>res://slime_test/interactive_socket.tscn
+comsumableitem.tscn::PackedScene::380238586706439488::1782068612::0::1::::<><><>0<>0<><>::uid://bwhhktdj22kmb::::res://slime_test/ConsumableItem.gd
+ConsumableItem.gd::GDScript::3945469767920785193::1782153427::0::1::::ConsumableItem<>RigidBody3D<><>0<>0<><>::
+ConsumerComponent.gd::GDScript::3610212859911403394::1782500398::0::1::::ConsumerComponent<>Area3D<><>0<>0<><>::
+escenario.tscn::PackedScene::2352065851300272897::1782863148::0::1::::<><><>0<>0<><>::uid://bw51xxrhenu3s::::res://slime_test/slime_base.gd<>uid://bro2xcfvtd30y::::res://slime_test/ConsumerComponent.gd<>uid://dc3xfk2f73fo5::::res://slime_test/transformation_module.gd<>uid://bryo30gtlbyr1::::res://materiales/fire.tres<>uid://bcrejgmn8wda0::::res://slime_test/matter_controller.gd<>uid://5v47ce4dbr4f::::res://slime_test/static_body_3d_2.gd<>uid://uvohgh4r08tm::::res://slime_test/magic_inventory.gd<>uid://c10q5v8yre7d8::::res://slime_test/modular_hands_inventory.gd<>uid://li0iq7mk3dno::::res://slime_test/aim_ik_coordinator.gd<>uid://bwqby210d11mm::::res://slime_test/static_body_3d_3.gd<>uid://ctf5ftlc68o8v::::res://slime_test/LegStepper.gd<>uid://dsqaqtk58gg23::::res://slime_test/step_coordinator.gd<>uid://bvkd6wf7gdqd3::::res://slime_test/mass_manager.gd<>res://slime_test/interactive_socket.tscn<>uid://c8cw3jiolep6::::res://materiales/stone.gdshader<>uid://dv7iirvnj5vdq::::res://models/Rig_Large_IK_mannequin_texture.png<>uid://clyxomjloqaus::::res://slime_test/CameraController.gd<>uid://cwyws6oc8mhwo::::res://slime_test/health_component.gd<>uid://fogqd55rkgh1::::res://slime_test/comsumableitem.tscn<>uid://cdxd6lntjwbag::::res://slime_test/locomotion_controller.gd<>uid://b4hd1gidnbdq7::::res://slime_test/form_controller.gd
+form_controller.gd::GDScript::4436576702746543492::1782423298::0::1::::FormController<>Node<><>0<>0<><>::
+health_component.gd::GDScript::6367910561638066246::1782343277::0::1::::HealthComponent<>Node<><>0<>0<><>::
+interactive_socket.gd::GDScript::-1::1781810057::0::1::::InteractiveSocket<>Area3D<><>0<>0<><>::
+interactive_socket.tscn::PackedScene::-1::1781820326::0::1::::<><><>0<>0<><>::
+LegStepper.gd::GDScript::6118582739101747623::1781810868::0::1::::LegStepper<>Marker3D<><>0<>0<><>::
+locomotion_controller.gd::GDScript::5031126695948500202::1782343602::0::1::::LocomotionController<>Node<><>0<>0<><>::
+magic_inventory.gd::GDScript::1447991671347065934::1782504203::0::1::::MagicInventory<>Node<><>0<>0<><>::
+mass_manager.gd::GDScript::3881268852921543418::1782862420::0::1::::MassManager<>Node3D<><>0<>0<><>::
+matter_controller.gd::GDScript::2562152067217773573::1782862420::0::1::::MatterController<>Node<><>0<>0<><>::
+modular_hands_inventory.gd::GDScript::6650386946610209783::1781995486::0::1::::ModularHandsInventory<>Node<><>0<>0<><>::
+procedural_limb.gd::GDScript::2526712228665882561::1781979809::0::1::::ProceduralLimb<>Node3D<><>0<>0<><>::
+slime_base.gd::GDScript::3994127526046004194::1782776252::0::1::::<>CharacterBody3D<><>0<>0<><>::
+static_body_3d_2.gd::GDScript::2150835292719025147::1782610540::0::1::::<>StaticBody3D<><>0<>0<><>::
+static_body_3d_3.gd::GDScript::3963710323277569580::1782611513::0::1::::<>StaticBody3D<><>0<>0<><>::
+step_coordinator.gd::GDScript::8455720868130423242::1781831787::0::1::::StepCoordinator<>Node<><>0<>0<><>::
+transformation_module.gd::GDScript::7358848302486462158::1782613031::0::1::::TransformationModule<>Node<><>0<>0<><>::
+::res://slime_test/test/::1782514106
+AssemblerModule.gd::GDScript::3878206891176408644::1782514053::0::1::::AssemblerModule<>Node<><>0<>0<><>::
+boneattachment.gd::GDScript::6136428551965621558::1782077127::0::1::::<>Node3D<><>0<>0<><>::
+bone_attachment_3d.tscn::PackedScene::1713770483486436078::1782077127::0::1::::<><><>0<>0<><>::uid://ctosc1poujm1k::::res://slime_test/test/boneattachment.gd
+BuildingSocketsManager.gd::GDScript::6579700478592036319::1782514053::0::1::::<>Node3D<><>0<>0<><>::
+camera_pivot.gd::GDScript::7704523123192465439::1782259106::0::1::::<>Node3D<><>0<>0<><>::
+character_body_3d.gd::GDScript::7924056123602936607::1782512514::0::1::::<>CharacterBody3D<><>0<>0<><>::
+ChimeraBuilderHUD.gd::GDScript::4903420043897736409::1782513553::0::1::::ChimeraBuilderHUD<>Control<><>0<>0<><>::
+chimera_builder_hud.tscn::PackedScene::2988480772498397270::1782514106::0::1::::<><><>0<>0<><>::uid://cb4iu2fhj0erp::::res://slime_test/test/ChimeraBuilderHUD.gd<>uid://bvivrba1ciko7::::res://slime_test/test/AssemblerModule.gd<>uid://bpwbvykk6lu6f::::res://slime_test/chasis.tscn<>uid://c00ix8v72dfb8::::res://slime_test/test/BuildingSocketsManager.gd<>uid://jjbo88ngmyb2::::res://slime_test/test/CreatureChassis.gd<>uid://eymx285gjs5j::::res://scripts de recursos/CreatureDNA.gd<>uid://dh1emt7dwjc5t::::res://slime_test/test/camera_pivot.gd<>uid://dv7iirvnj5vdq::::res://models/Rig_Large_IK_mannequin_texture.png<>res://slime_test/interactive_socket.tscn
+CreatureAssembler.tscn::PackedScene::572260160027281770::1782173707::0::1::::<><><>0<>0<><>::
+CreatureChassis.gd::GDScript::650366495484542909::1782513607::0::1::::CreatureChassis<>Node3D<><>0<>0<><>::
+::res://test/::1780617287
+damage_label.gd::GDScript::9041093531738768863::1774226481::0::1::::<>Label3D<><>0<>0<><>::
+damage_label.tscn::PackedScene::3303704193180086332::1774226481::0::1::::<><><>0<>0<><>::uid://d12tqv6f4ta52::::res://test/damage_label.gd
+dummy_npc.gd::GDScript::2166521259656649561::1774232172::0::1::::<>StaticBody3D<><>0<>0<><>::
+dummy_npc.tscn::PackedScene::1846427303637068044::1774384224::0::1::::<><><>0<>0<><>::uid://54qj2vxbvmcn::::res://test/dummy_npc.gd<>uid://dsqbwl28ywklb::::res://creatures/scrpt modules/effect_manager.gd
+::res://texturas/::1782776115
+pool_textur.tres::StandardMaterial3D::2695335183552593112::1782776115::0::1::::<><><>0<>0<><>::

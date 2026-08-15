@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ch02rp6blxgdf"]
+
+[ext_resource type="Script" uid="uid://pn1ld58jj7o2" path="res://scripts de recursos/Item_Data.gd" id="1_gam1o"]
+
+[sub_resource type="Curve" id="Curve_gam1o"]
+_data = [Vector2(0.62536025, 0), 0.0, 8.556726, 0, 0, Vector2(0.6945245, 0.36477274), 2.288456, 2.288456, 0, 0, Vector2(0.7925072, 0.5494318), 0.0, 0.0, 0, 0, Vector2(0.870317, 0.7710227), 3.7771494, 3.7771494, 0, 0, Vector2(0.9365994, 0.9926136), 3.702209, 3.702209, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fylje"]
+albedo_color = Color(1, 0.84705883, 0.7294118, 1)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_4kwpc"]
+material = SubResource("StandardMaterial3D_fylje")
+curve = SubResource("Curve_gam1o")
+
+[resource]
+script = ExtResource("1_gam1o")
+item_name = "harina"
+item_mesh = SubResource("TubeTrailMesh_4kwpc")
+compost_value = 7.0
+metadata/_custom_type_script = "uid://pn1ld58jj7o2"

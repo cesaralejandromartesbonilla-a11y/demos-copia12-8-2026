@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ProceduralVisualData" format=3 uid="uid://dvwua6wba0ne4"]
+
+[ext_resource type="Script" uid="uid://c8rpp7k3skcj6" path="res://scripts de recursos/CropVariantData.gd" id="1_7e4w7"]
+[ext_resource type="Script" uid="uid://djbkxg85x7mn6" path="res://scripts de recursos/ProceduralVisualData.gd" id="2_d0tv8"]
+[ext_resource type="Resource" uid="uid://bxgup5jnin3of" path="res://items/data/seeds/visuals/manzano_variaciones/rama_normal.tres" id="2_o0ddv"]
+[ext_resource type="Resource" uid="uid://16bcgljyd757" path="res://items/data/seeds/visuals/manzano_variaciones/flor_normal.tres" id="3_ehygi"]
+[ext_resource type="Resource" uid="uid://dshlwksjckd08" path="res://items/data/seeds/visuals/manzano_variaciones/flor_racimo.tres" id="4_3um0c"]
+[ext_resource type="Resource" uid="uid://j27n0eomas5i" path="res://items/data/seeds/visuals/manzano_variaciones/fruta_normal.tres" id="5_bg32k"]
+[ext_resource type="Resource" uid="uid://tqsj42sml1ri" path="res://items/data/seeds/visuals/manzano_variaciones/hojas_normal.tres" id="6_q6jpk"]
+[ext_resource type="Resource" uid="uid://iy6foe27at8a" path="res://items/data/seeds/visuals/manzano_variaciones/tronco_normal.tres" id="8_r30f2"]
+
+[resource]
+script = ExtResource("2_d0tv8")
+trunk_variants = Array[ExtResource("1_7e4w7")]([ExtResource("8_r30f2")])
+branch_variants = Array[ExtResource("1_7e4w7")]([ExtResource("2_o0ddv")])
+leaf_variants = Array[ExtResource("1_7e4w7")]([ExtResource("6_q6jpk")])
+fruit_variants = Array[ExtResource("1_7e4w7")]([ExtResource("5_bg32k")])
+flower_variants = Array[ExtResource("1_7e4w7")]([ExtResource("3_ehygi"), ExtResource("4_3um0c")])
+altura_objetivo_tronco = 10
+permitir_ramas_en_tronco = true
+permitir_hojas_en_tronco = false
+max_profundidad_ramas = 3
+inclinacion_caida_hojas = 0.0
+"desvío_caida_aleatoria" = 0.0
+metadata/_custom_type_script = "uid://djbkxg85x7mn6"

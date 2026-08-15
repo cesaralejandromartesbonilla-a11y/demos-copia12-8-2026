@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WheelData" load_steps=2 format=3 uid="uid://7sijwibr8tw1"]
+
+[ext_resource type="Script" uid="uid://bxod0cbwuqc2t" path="res://vehicles/scripts de recursos/wheel_data.gd" id="1_b7i2c"]
+
+[resource]
+script = ExtResource("1_b7i2c")
+requisitos_etiquetas = Array[String](["28", "30", "32"])
+radio = 2.0
+metadata/_custom_type_script = "uid://bxod0cbwuqc2t"

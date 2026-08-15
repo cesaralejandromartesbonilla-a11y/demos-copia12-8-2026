@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CreaturePartData" format=3 uid="uid://c7qfvju7o6t01"]
+
+[ext_resource type="PackedScene" uid="uid://dwybsswai1lmd" path="res://slime_test/recursos/chasis_base.tscn" id="1_snhf6"]
+[ext_resource type="Script" uid="uid://cu2dru0tu5kkk" path="res://scripts de recursos/CreaturePartData.gd" id="1_tl2jt"]
+
+[resource]
+script = ExtResource("1_tl2jt")
+id = "torso"
+display_name = "base"
+slot_type = 3
+part_scene = ExtResource("1_snhf6")
+weight = 200.0
+fire_resistance_mod = 10.0
+speed_mod = 10.0
+metadata/_custom_type_script = "uid://cu2dru0tu5kkk"

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgpjxoygnvyy4"]
+
+[ext_resource type="Script" uid="uid://dqmb6cb8e0cbu" path="res://assets/simple_fpsplayer/Player.gd" id="1_1fhis"]
+[ext_resource type="Script" uid="uid://bvjuvw5scvntb" path="res://assets/simple_fpsplayer/ability_grab.gd" id="2_gwqkd"]
+[ext_resource type="PackedScene" uid="uid://soelbkfse7qm" path="res://ecena/TierraFisica.tscn" id="3_qgpe0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_euj4i"]
+
+[node name="Player" type="CharacterBody3D"]
+disable_mode = 2
+floor_max_angle = 0.802851
+script = ExtResource("1_1fhis")
+tierra_escena = ExtResource("3_qgpe0")
+
+[node name="body" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_euj4i")
+
+[node name="rotation_helper" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="rotation_helper"]
+
+[node name="flashlight_player" type="SpotLight3D" parent="rotation_helper/Camera3D"]
+visible = false
+light_energy = 3.0
+light_bake_mode = 0
+spot_range = 10.0
+spot_angle = 15.0
+spot_angle_attenuation = 1.56917
+
+[node name="ability_grab" type="RayCast3D" parent="rotation_helper/Camera3D"]
+target_position = Vector3(0, 0, -2)
+script = ExtResource("2_gwqkd")
+
+[node name="GrabPosition3D" type="Marker3D" parent="rotation_helper/Camera3D/ability_grab"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="RayCast3D" type="RayCast3D" parent="rotation_helper/Camera3D"]
+target_position = Vector3(0, -1, -5)
+
+[node name="VoxelViewer" type="VoxelViewer" parent="."]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://dou8d5kf7hrju"]
+
+[sub_resource type="Gradient" id="Gradient_qab0n"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_781fm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r327o"]
+noise = SubResource("FastNoiseLite_781fm")
+color_ramp = SubResource("Gradient_qab0n")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_1hswx"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cuckf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7m8l2"]
+noise = SubResource("FastNoiseLite_cuckf")
+color_ramp = SubResource("Gradient_1hswx")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_nj2ip"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v7idi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_awegk"]
+noise = SubResource("FastNoiseLite_v7idi")
+color_ramp = SubResource("Gradient_nj2ip")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esnc2"]
+albedo_color = Color(0, 0.7137255, 1, 1)
+metallic = 1.0
+metallic_texture = SubResource("NoiseTexture2D_r327o")
+roughness_texture = SubResource("NoiseTexture2D_awegk")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_7m8l2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_debrq"]
+material = SubResource("StandardMaterial3D_esnc2")
+
+[node name="ice" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 0, 0, 0)
+mesh = SubResource("BoxMesh_debrq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 0, 1, 0)
+mesh = SubResource("BoxMesh_debrq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 0, 0, 0)
+mesh = SubResource("BoxMesh_debrq")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881904, 0, 1, 0)
+mesh = SubResource("BoxMesh_debrq")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://u7xim74pw24k"]
+
+[ext_resource type="Script" uid="uid://b325eus225bql" path="res://script_recurs/SpawnGroup.gd" id="1_s8uss"]
+[ext_resource type="Script" uid="uid://cpxat5jn7xfyp" path="res://script_recurs/WaveData.gd" id="2_h5mjj"]
+[ext_resource type="Resource" uid="uid://dpmr806nlh3a4" path="res://bloons/waves/wave_1.tres" id="2_xqnwa"]
+[ext_resource type="Resource" uid="uid://foii8qysf1e" path="res://bloons/waves/wave_2.tres" id="3_xqnwa"]
+
+[resource]
+script = ExtResource("2_h5mjj")
+groups = Array[ExtResource("1_s8uss")]([ExtResource("2_xqnwa"), ExtResource("3_xqnwa")])
+metadata/_custom_type_script = "uid://cpxat5jn7xfyp"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b77neybd2tfw8"]
+
+[ext_resource type="Script" uid="uid://cibs4p1lrv6vk" path="res://efectos/status_area_3d.gd" id="1_epmhw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dsfh0"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_epmhw"]
+
+[node name="status_area_3d" type="Area3D"]
+script = ExtResource("1_epmhw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dsfh0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_epmhw")

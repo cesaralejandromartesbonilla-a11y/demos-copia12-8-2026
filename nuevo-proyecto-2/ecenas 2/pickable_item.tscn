@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd3vhb5pq7esj"]
+
+[ext_resource type="Script" uid="uid://cg5o1n0gcvrar" path="res://pickable_item.gd" id="1_4t33m"]
+[ext_resource type="Script" uid="uid://blqelpgav0fvh" path="res://ecenas 2/pickable_item.gd" id="1_ylyer"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lywpy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4t33m"]
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["items"]]
+script = ExtResource("1_ylyer")
+
+[node name="PickableItem" type="Area3D" parent="."]
+script = ExtResource("1_4t33m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickableItem"]
+shape = SubResource("BoxShape3D_lywpy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4t33m")
+skeleton = NodePath("../PickableItem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lywpy")

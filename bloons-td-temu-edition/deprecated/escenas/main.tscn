@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bsgsry0vc1y1c"]
+
+[ext_resource type="Script" uid="uid://8o60avsju36u" path="res://tower_manager.gd" id="1_a8p2b"]
+[ext_resource type="Script" uid="uid://5iada7c40nin" path="res://ui_manager.gd" id="1_dkga6"]
+[ext_resource type="PackedScene" uid="uid://w2qee5ma5bvm" path="res://bloons/bloon_base.tscn" id="2_a8p2b"]
+[ext_resource type="Resource" uid="uid://5t2cw73lcy8h" path="res://Tower/data/tower_test.tres" id="3_68mvh"]
+[ext_resource type="Resource" uid="uid://uaavekslgdsy" path="res://bloons/bloons/blue.tres" id="3_o8odp"]
+[ext_resource type="Script" uid="uid://5ovoyap5t1ke" path="res://escenas/modulos/WaveManager.gd" id="4_68mvh"]
+[ext_resource type="Script" uid="uid://dg5pqldr2gfx3" path="res://scripts/track.gd" id="4_lyxkq"]
+[ext_resource type="Resource" uid="uid://u7xim74pw24k" path="res://bloons/waves/wavedata_1.tres" id="5_lyxkq"]
+[ext_resource type="Script" uid="uid://cpxat5jn7xfyp" path="res://script_recurs/WaveData.gd" id="8_dg7ii"]
+[ext_resource type="PackedScene" uid="uid://bn6hujaimd1di" path="res://test/dummy_bloon.tscn" id="10_dg7ii"]
+
+[sub_resource type="Curve2D" id="Curve2D_dg7ii"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 553, 51, 0, 0, 0, 0, 244, 388, 0, 0, 0, 0, 753, 310, 0, 0, 0, 0, 1152, 648)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8odp"]
+size = Vector2(916, 465.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68mvh"]
+size = Vector2(95, 148.75)
+
+[node name="Main" type="Node" unique_id=561302091]
+
+[node name="MapManager" type="Node2D" parent="." unique_id=891106814]
+
+[node name="CurrencyManager" type="Node" parent="." unique_id=589927819]
+
+[node name="TowerManager" type="Node2D" parent="." unique_id=847603114]
+script = ExtResource("1_a8p2b")
+
+[node name="UIManager" type="CanvasLayer" parent="." unique_id=2004465700]
+script = ExtResource("1_dkga6")
+dart_monkey_data = ExtResource("3_68mvh")
+
+[node name="HUD" type="Control" parent="UIManager" unique_id=827630775]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelRight" type="PanelContainer" parent="UIManager/HUD" unique_id=1816890996]
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -41.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UIManager/HUD/PanelRight" unique_id=1295092801]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIManager/HUD/PanelRight/MarginContainer" unique_id=1176715242]
+layout_mode = 2
+
+[node name="Button_Dart" type="Button" parent="UIManager/HUD/PanelRight/MarginContainer/VBoxContainer" unique_id=1890764160]
+layout_mode = 2
+focus_mode = 0
+text = "dart"
+
+[node name="Track" type="Path2D" parent="." unique_id=1476536630]
+curve = SubResource("Curve2D_dg7ii")
+script = ExtResource("4_lyxkq")
+globo_prueba = ExtResource("3_o8odp")
+
+[node name="WaveManager" type="Node" parent="." unique_id=721688097 node_paths=PackedStringArray("path_to_follow")]
+script = ExtResource("4_68mvh")
+waves = Array[ExtResource("8_dg7ii")]([ExtResource("5_lyxkq")])
+path_to_follow = NodePath("../Track")
+bloon_scene = ExtResource("2_a8p2b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1674973557 groups=["camino"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1663903141]
+position = Vector2(699, 421.75)
+shape = SubResource("RectangleShape2D_o8odp")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1889554078 groups=["no_apto"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1541971243]
+position = Vector2(352, 91)
+shape = SubResource("RectangleShape2D_68mvh")
+
+[node name="DummyBloon" parent="." unique_id=1362098387 instance=ExtResource("10_dg7ii")]
+position = Vector2(571, 118)
+
+[connection signal="pressed" from="UIManager/HUD/PanelRight/MarginContainer/VBoxContainer/Button_Dart" to="UIManager" method="_on_dart_button_pressed"]

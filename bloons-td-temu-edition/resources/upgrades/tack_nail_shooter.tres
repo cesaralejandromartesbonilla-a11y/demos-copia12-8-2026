@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://tack_p3_t3"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+[ext_resource type="PackedScene" uid="uid://c3x_nail_proj" path="res://scenes/entities/projectiles/nail_projectile.tscn" id="2_proj"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Clavadora"
+description = "Dispara clavos a altísima velocidad."
+cost = 400
+cooldown_multiplier = 0.7
+range_bonus = 10.0
+damage_bonus = 0
+pierce_bonus = 1
+grant_camo = false
+change_damage_type = 0
+projectile_scene_override = ExtResource("2_proj")

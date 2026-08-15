@@ -1,0 +1,122 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://e8iojcfvf11q"
+path="res://.godot/imported/meshes.glb-030ff425937f3e98d423cb5cef7ede3d.scn"
+
+[deps]
+
+source_file="res://vehicles/meshes/meshes.glb"
+dest_files=["res://.godot/imported/meshes.glb-030ff425937f3e98d423cb5cef7ede3d.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"car_blue": {
+"use_external/enabled": false,
+"use_external/fallback_path": "",
+"use_external/path": "res://town/materials/car_blue.tres"
+},
+"car_yellow": {
+"use_external/enabled": false,
+"use_external/fallback_path": "",
+"use_external/path": "res://town/materials/car_red.tres"
+},
+"chrome": {
+"use_external/enabled": false,
+"use_external/fallback_path": "",
+"use_external/path": "res://town/materials/chrome.tres"
+},
+"truck_trailer": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://vehicles/truck_trailer.tres",
+"use_external/path": "uid://dyg750wqca86r"
+}
+},
+"meshes": {
+"meshes_minivan": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://vehicles/meshes/minivan.res",
+"save_to_file/make_streamable": "",
+"save_to_file/path": "uid://b2xi556mwp7ue"
+},
+"meshes_tow_truck": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://vehicles/meshes/tow_truck.res",
+"save_to_file/make_streamable": "",
+"save_to_file/path": "uid://cbpqxxd14g8un"
+},
+"meshes_truck_cab": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://vehicles/meshes/truck_cab.res",
+"save_to_file/make_streamable": "",
+"save_to_file/path": "uid://ctglc27jx8xe2"
+},
+"meshes_truck_trailer": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://vehicles/meshes/truck_trailer.res",
+"save_to_file/make_streamable": "",
+"save_to_file/path": "uid://d0n61oj27qnya"
+},
+"meshes_wheel": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://vehicles/meshes/wheel.res",
+"save_to_file/make_streamable": "",
+"save_to_file/path": "uid://bqrwin8ccgptt"
+}
+}
+}
+gltf/naming_version=0
+gltf/embedded_image_handling=1

@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmevcdsqawsfl"]
+
+[ext_resource type="Script" uid="uid://cxxpq2ov31bp2" path="res://ecenas/GruaControl.gd" id="1_qxua5"]
+[ext_resource type="Script" uid="uid://b7yknaa2dxj1a" path="res://ecenas/gancho.gd" id="2_v3vvj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjadm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xypgb"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_qxua5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v3vvj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v3vvj"]
+height = 3.5463867
+radius = 1.5800781
+
+[sub_resource type="BoxMesh" id="BoxMesh_xjadm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xjadm"]
+height = 4.008789
+radius = 2.0444336
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b14ma"]
+height = 0.72021484
+radius = 5.6069336
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v3vvj"]
+
+[node name="VehicleBody3D" type="VehicleBody3D"]
+collision_layer = 3
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -10, 0)
+script = ExtResource("1_qxua5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 1, 0, 22.68, 0)
+shape = SubResource("BoxShape3D_xjadm")
+
+[node name="BaseEstatica" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 1, 0, 22.68, 0)
+mesh = SubResource("BoxMesh_xypgb")
+skeleton = NodePath("")
+
+[node name="TorreGiratoria" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 49.676018, 0)
+
+[node name="Pluma" type="MeshInstance3D" parent="TorreGiratoria"]
+transform = Transform3D(1.021, 0, 0, 0, 1.021, 0, 0, 0, 50, 0, 0, 13.181686)
+mesh = SubResource("PrismMesh_qxua5")
+
+[node name="Carrito" type="Node3D" parent="TorreGiratoria/Pluma"]
+
+[node name="Cable" type="CSGCylinder3D" parent="TorreGiratoria/Pluma/Carrito"]
+transform = Transform3D(0.9794319, 0, 0, 0, 0.9794319, 0, 0, 0, 0.02, 0, -1.1963234, -0.20683211)
+layers = 3
+
+[node name="Gancho" type="Area3D" parent="TorreGiratoria/Pluma/Carrito/Cable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6849594, 0.02565384)
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("2_v3vvj")
+
+[node name="Marker3D" type="Marker3D" parent="TorreGiratoria/Pluma/Carrito/Cable/Gancho"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8385315, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TorreGiratoria/Pluma/Carrito/Cable/Gancho/Marker3D"]
+transform = Transform3D(0.67, 0, 0, 0, 0.67, 0, 0, 0, 0.67, 0, 0, 0)
+mesh = SubResource("CylinderMesh_v3vvj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TorreGiratoria/Pluma/Carrito/Cable/Gancho"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.77319336, 0)
+shape = SubResource("CylinderShape3D_v3vvj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TorreGiratoria/Pluma/Carrito/Cable/Gancho/CollisionShape3D"]
+transform = Transform3D(0.67, 0, 0, 0, 0.67, 0, 0, 0, 0.67, 0, 0, 0)
+mesh = SubResource("CylinderMesh_v3vvj")
+
+[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="TorreGiratoria/Pluma/Carrito/Cable/Gancho"]
+
+[node name="PuntoAcopleCamion" type="Marker3D" parent="TorreGiratoria/Pluma/Carrito/Cable/Gancho"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7715683, 0.009693384)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TorreGiratoria"]
+transform = Transform3D(2.81, 0, 0, 0, 2.81, 0, 0, 0, 2.81, 0, 0, 0)
+mesh = SubResource("BoxMesh_xjadm")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="TorreGiratoria"]
+transform = Transform3D(2.985, 0, 0, 0, 2.985, 0, 0, 0, 2.985, 0, 0, -12.029135)
+mesh = SubResource("BoxMesh_xjadm")
+
+[node name="ZonaAcceso" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaAcceso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0043945, 0)
+shape = SubResource("CylinderShape3D_xjadm")
+
+[node name="MountPoint_Player" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026280522, 46.045948, 2.8940437)
+
+[node name="ExitPoint_Player" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 52.256348, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4308555, 0)
+shape = SubResource("CylinderShape3D_b14ma")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.954277, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_v3vvj")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

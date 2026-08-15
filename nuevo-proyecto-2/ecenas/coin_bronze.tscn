@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf33eb3y60li8"]
+
+[ext_resource type="Script" uid="uid://qgpybavpy4ok" path="res://coin_bornze.gd" id="1_frt1u"]
+[ext_resource type="PackedScene" uid="uid://do3c36ownl0od" path="res://FBX format/item-coin-bronze.fbx" id="2_47exg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_isyp1"]
+height = 0.1271286
+radius = 0.17529297
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_frt1u")
+
+[node name="item-coin-bronze" parent="." instance=ExtResource("2_47exg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13110228, -0.12612364, -0.049785674)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.725, 0, 0, 0, -3.1690757e-08, -0.725, 0, 0.725, -3.1690757e-08, 0, 0.008530322, 0.0012150765)
+shape = SubResource("CylinderShape3D_isyp1")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -7.649493e-08, -1, 0, 1.75, -4.371139e-08, 0, 0.008530322, -0.0001373291)
+shape = SubResource("CylinderShape3D_isyp1")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

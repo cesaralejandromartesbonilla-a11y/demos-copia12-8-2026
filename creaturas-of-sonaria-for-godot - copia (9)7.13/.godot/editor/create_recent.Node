@@ -1,0 +1,15 @@
+res://rope_system/attach/rope_bridge_3d.gd
+Node3D
+ConeTwistJoint3D
+CSGBox3D
+MeshInstance3D
+CollisionShape3D
+RigidBody3D
+CharacterBody3D
+VehicleBody3D
+Node
+Area3D
+Skeleton3D
+Camera3D
+SpringArm3D
+ColorRect

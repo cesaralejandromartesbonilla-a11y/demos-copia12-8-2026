@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BlueprintData" format=3 uid="uid://c6fmud2f67w17"]
+
+[ext_resource type="PackedScene" uid="uid://d1wmmvw17dh61" path="res://ecenas/parcela/crop_plot_basic.tscn" id="1_6cm23"]
+[ext_resource type="Resource" uid="uid://dmd8ajmbchun1" path="res://items/data/seeds/item/hongo.tres" id="2_6cm23"]
+[ext_resource type="Script" uid="uid://cvaxbbxmeo50m" path="res://scripts de recursos/BlueprintData.gd" id="3_kroye"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_6cm23"]
+
+[resource]
+script = ExtResource("3_kroye")
+building_name = "parcel de cultivo"
+hologram_mesh = SubResource("PrismMesh_6cm23")
+required_items = Array[Resource]([ExtResource("2_6cm23")])
+required_amounts = Array[int]([3])
+final_scene = ExtResource("1_6cm23")
+metadata/_custom_type_script = "uid://cvaxbbxmeo50m"

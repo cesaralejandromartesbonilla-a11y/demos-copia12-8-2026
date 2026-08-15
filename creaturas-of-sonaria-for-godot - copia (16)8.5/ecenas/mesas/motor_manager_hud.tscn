@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bk55dw55tlvrk"]
+
+[ext_resource type="Script" uid="uid://cnslc4fhe570t" path="res://ecenas/mesas/motor_manager_hud.gd" id="1_m0aa8"]
+
+[node name="motor_manager_hud" type="CanvasLayer" unique_id=967739029]
+script = ExtResource("1_m0aa8")
+
+[node name="PanelBackground" type="Panel" parent="." unique_id=228881014]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelBackground" unique_id=14745529]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelBackground/HBoxContainer" unique_id=1344868157]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelBackground/HBoxContainer/ScrollContainer" unique_id=1872618387]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+
+[node name="Botonshift" type="Button" parent="PanelBackground" unique_id=498412606]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 3.0
+offset_right = 418.0
+offset_bottom = 34.0
+text = "apagar motor"
+
+[node name="BotonCerrar" type="Button" parent="PanelBackground" unique_id=359903473]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 31.0
+text = "Cerrar"
+
+[node name="RefreshTimer" type="Timer" parent="." unique_id=1038276068]
+autostart = true

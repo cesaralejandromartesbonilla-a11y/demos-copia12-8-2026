@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dah1tqntplhqo"]
+
+[ext_resource type="Texture2D" uid="uid://cli6ayirdca2c" path="res://icon.svg" id="1_ila0q"]
+[ext_resource type="PackedScene" uid="uid://d2fpnfwe235to" path="res://player voxel terrarin.tscn" id="2_rqg3e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ls7df"]
+albedo_texture = ExtResource("1_ila0q")
+uv1_triplanar = true
+
+[sub_resource type="VoxelGeneratorFlat" id="VoxelGeneratorFlat_uc646"]
+
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_uuybd"]
+
+[sub_resource type="Environment" id="Environment_ila0q"]
+ambient_light_source = 3
+ambient_light_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="VoxelTerrain" type="VoxelTerrain" parent="."]
+material_override = SubResource("StandardMaterial3D_ls7df")
+generator = SubResource("VoxelGeneratorFlat_uc646")
+mesher = SubResource("VoxelMesherTransvoxel_uuybd")
+
+[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("voxel_terrain") instance=ExtResource("2_rqg3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+voxel_terrain = NodePath("../VoxelTerrain")
+
+[node name="VoxelViewer" type="VoxelViewer" parent="CharacterBody3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.48528266, 0.87435734, 0, -0.87435734, -0.48528266, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ila0q")

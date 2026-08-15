@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bryo30gtlbyr1"]
+
+[sub_resource type="Gradient" id="Gradient_gv5b1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_434d5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_12dja"]
+noise = SubResource("FastNoiseLite_434d5")
+color_ramp = SubResource("Gradient_gv5b1")
+in_3d_space = true
+as_normal_map = true
+
+[resource]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+normal_enabled = true
+normal_scale = 6.0
+normal_texture = SubResource("NoiseTexture2D_12dja")

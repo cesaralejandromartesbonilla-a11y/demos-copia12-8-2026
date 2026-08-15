@@ -1,0 +1,9 @@
+VBoxContainer
+DirectionalLight3D
+Label
+RigidBody3D
+Area3D
+Marker3D
+MeshInstance3D
+CollisionShape3D
+VoxelLodTerrain

@@ -1,0 +1,326 @@
+[gd_scene load_steps=22 format=4 uid="uid://dqfpi5leym3vr"]
+
+[ext_resource type="Script" path="res://voxel_lod_terrain.gd" id="1_g14j6"]
+[ext_resource type="PackedScene" uid="uid://77cnef3syxw8" path="res://player.tscn" id="2_vbegm"]
+[ext_resource type="Script" uid="uid://dp0vjm6lf36x0" path="res://ecenas/vender.gd" id="3_ehkex"]
+[ext_resource type="Resource" uid="uid://bqql4qhpl7tq2" path="res://cubo.tres" id="4_xersf"]
+[ext_resource type="Resource" uid="uid://dwv044gju1cju" path="res://pelota.tres" id="5_00tp4"]
+[ext_resource type="Resource" uid="uid://d0gb3vq2pclpb" path="res://car.tres" id="6_77dp3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g14j6"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_vbegm"]
+sky_material = SubResource("ProceduralSkyMaterial_g14j6")
+
+[sub_resource type="Environment" id="Environment_ehkex"]
+background_mode = 2
+sky = SubResource("Sky_vbegm")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Shader" id="Shader_fj7yv"]
+code = "shader_type spatial;
+
+// From Voxel Tools API
+uniform int u_transition_mask;
+
+// Textures should preferably be in a Texture2DArray, so looking them up is cheap
+uniform sampler2DArray u_texture_array : source_color, filter_nearest;
+
+// We'll need to pass data from the vertex shader to the fragment shader
+varying vec4 v_indices;
+varying vec4 v_weights;
+varying vec3 v_normal;
+varying vec3 v_pos;
+
+// We'll use a utility function to decode components.
+// It returns 4 values in the range [0..255].
+vec4 decode_8bit_vec4(float v) {
+    uint i = floatBitsToUint(v);
+    return vec4(
+        float(i & uint(0xff)),
+        float((i >> uint(8)) & uint(0xff)),
+        float((i >> uint(16)) & uint(0xff)),
+        float((i >> uint(24)) & uint(0xff)));
+}
+
+// A voxel mesh can have overhangs in any direction,
+// so we may have to use triplanar mapping functions.
+vec3 get_triplanar_blend(vec3 world_normal) {
+    vec3 blending = abs(world_normal);
+    blending = normalize(max(blending, vec3(0.00001))); // Force weights to sum to 1.0
+    float b = blending.x + blending.y + blending.z;
+    return blending / vec3(b, b, b);
+}
+
+vec4 texture_array_triplanar(sampler2DArray tex, vec3 world_pos, vec3 blend, float i) {
+    vec4 xaxis = texture(tex, vec3(world_pos.yz, i));
+    vec4 yaxis = texture(tex, vec3(world_pos.xz, i));
+    vec4 zaxis = texture(tex, vec3(world_pos.xy, i));
+    // blend the results of the 3 planar projections.
+    return xaxis * blend.x + yaxis * blend.y + zaxis * blend.z;
+}
+
+float get_transvoxel_secondary_factor(int idata) {
+	int transition_mask = u_transition_mask & 0xff;
+
+	int cell_border_mask = idata & 63; // Which sides the cell is touching
+	int vertex_border_mask = (idata >> 8) & 63; // Which sides the vertex is touching
+	// If the vertex is near a side where there is a low-resolution neighbor,
+	// move it to secondary position
+	int m = transition_mask & cell_border_mask;
+	float t = float(m != 0);
+	// If the vertex lies on one or more sides, and at least one side has no low-resolution neighbor,
+	// don't move the vertex.
+	t *= float((vertex_border_mask & ~transition_mask) == 0);
+	
+	// Debugging
+	//t *= 0.5 + 0.5 * sin(TIME * 4.0);
+	//t *= 2.0;
+
+	return t;
+}
+
+vec3 get_transvoxel_position(vec3 vertex_pos, vec4 fdata) {
+	int idata = floatBitsToInt(fdata.a);
+
+	// Move vertices to smooth transitions
+	float secondary_factor = get_transvoxel_secondary_factor(idata);
+	vec3 secondary_position = fdata.xyz;
+	vec3 pos = mix(vertex_pos, secondary_position, secondary_factor);
+
+	// If the mesh combines transitions and the vertex belongs to a transition,
+	// when that transition isn't active we change the position of the vertices so
+	// all triangles will be degenerate and won't be visible.
+	// This is an alternative to rendering them separately,
+	// which has less draw calls and less mesh resources to create in Godot.
+	// Ideally I would tweak the index buffer like LOD does but Godot does not
+	// expose anything to use it that way.
+	int itransition = (idata >> 16) & 0xff; // Is the vertex on a transition mesh?
+	float transition_cull = float(itransition == 0 || (itransition & u_transition_mask) != 0);
+	pos *= transition_cull;
+
+	return pos;
+}
+
+void vertex() {
+	VERTEX = get_transvoxel_position(VERTEX, CUSTOM0);
+	
+    // Indices are integer values so we can decode them as-is
+    v_indices = decode_8bit_vec4(CUSTOM1.x);
+
+    // Weights must be in [0..1] so we divide them
+    v_weights = decode_8bit_vec4(CUSTOM1.y) / 255.0;
+
+    v_pos = VERTEX;
+    v_normal = NORMAL;
+
+    //...
+}
+
+void fragment() {
+    // Define a texture scale for convenience.
+    // We can use an array instead if different scales per index is needed.
+    float uv_scale = 0.5;
+
+    // Sample the 4 blending textures, all with triplanar mapping.
+    // We can re-use the same triplanar blending factors for all of them so separating that part
+    // of the function improves performance a little.
+    vec3 blending = get_triplanar_blend(v_normal);
+    vec3 col0 = texture_array_triplanar(u_texture_array, v_pos * uv_scale, blending, v_indices.x).rgb;
+    vec3 col1 = texture_array_triplanar(u_texture_array, v_pos * uv_scale, blending, v_indices.y).rgb;
+    vec3 col2 = texture_array_triplanar(u_texture_array, v_pos * uv_scale, blending, v_indices.z).rgb;
+    vec3 col3 = texture_array_triplanar(u_texture_array, v_pos * uv_scale, blending, v_indices.w).rgb;
+
+    // Get weights and make sure they are normalized.
+    // We may add a tiny safety margin so we can afford some degree of error.
+    vec4 weights = v_weights;
+    weights /= (weights.x + weights.y + weights.z + weights.w + 0.00001);
+
+    // Calculate albedo
+    vec3 col = 
+        col0 * weights.r + 
+        col1 * weights.g + 
+        col2 * weights.b + 
+        col3 * weights.a;
+
+    ALBEDO = col;
+
+    //...
+}"
+
+[sub_resource type="Image" id="Image_g14j6"]
+data = {
+"data": PackedByteArray("fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8cnJycnJycnJyfHx8cnJycnJyfHx8fHx8fHx8fHx8fHx8cnJycnJycnJycnJyfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8goKCgoKCfHx8fHx8fHx8fHx8fHx8goKCgoKCgoKCgoKCfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8cnJycnJyfHx8fHx8cnJycnJycnJycnJycnJycnJyfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8goKCgoKCfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8cnJycnJycnJycnJycnJycnJycnJyfHx8fHx8fHx8cnJyfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8goKCgoKCgoKCfHx8fHx8fHx8fHx8fHx8fHx8goKCgoKCcnJycnJyfHx8fHx8fHx8fHx8cnJycnJycnJycnJyfHx8fHx8cnJycnJycnJycnJyfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8goKCgoKCgoKCgoKCfHx8fHx8fHx8fHx8fHx8goKCgoKCgoKCgoKCfHx8cnJycnJyfHx8cnJycnJycnJycnJycnJyfHx8fHx8cnJycnJycnJycnJycnJycnJyfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8cnJycnJycnJycnJycnJyfHx8fHx8fHx8fHx8fHx8fHx8fHx8goKCgoKC"),
+"format": "RGB8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="Image" id="Image_vbegm"]
+data = {
+"data": PackedByteArray("I4c9I4c9I4c9I4c9JpNDI4c9I4c9JpNDH3c2I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9H3c2I4c9JpNDI4c9I4c9I4c9JpNDI4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9JpNDI4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9H3c2I4c9I4c9JpNDI4c9I4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9I4c9JpNDI4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9H3c2I4c9I4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9JpNDI4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9H3c2I4c9I4c9JpNDI4c9I4c9I4c9I4c9I4c9I4c9I4c9H3c2I4c9I4c9I4c9JpNDI4c9I4c9I4c9I4c9H3c2I4c9I4c9I4c9I4c9JpNDI4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9JpNDI4c9I4c9JpNDI4c9I4c9I4c9I4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9JpNDI4c9I4c9I4c9JpNDI4c9I4c9H3c2I4c9I4c9I4c9I4c9I4c9H3c2JpNDI4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9I4c9H3c2I4c9"),
+"format": "RGB8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="Image" id="Image_ehkex"]
+data = {
+"data": PackedByteArray("8sOT8sOT8sOT8sOT8sOT8sOT5biL5biL5biL5biL5biL5biL5biL5biL5biL5biLxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxx5biL5biL5biL5biL5biL5biL5biL5biL5biL8sOT8sOT8sOT8sOT8sOT8sOT8sOT26x95biL26x926x95biL5biL26x926x926x926x95biL5biL5biL5biL26x926x95biL5biL8sOT8sOT8sOT8sOT5biL5biL5biL5biL5biL5biL5biL5biL5biL5biLxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxx5biL5biL5biL5biL5biL5biL5biL8sOT8sOT8sOT8sOT8sOT8sOT8sOT8sOT5biL5biL26x926x95biL26x926x926x926x95biL5biL5biL26x926x926x926x95biL8sOT8sOT8sOT8sOT8sOT8sOT8sOT8sOT8sOT5biL5biL5biL5biL5biL5biL5biLxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxx5biL5biL5biL5biL5biL5biL5biL5biL5biL5biL8sOT8sOT8sOT8sOT8sOT8sOT26x926x926x926x926x926x95biL5biL5biL26x926x95biL26x926x926x95biL5biL8sOT8sOT8sOT8sOT8sOT8sOT8sOT8sOT8sOT5biL5biL5biL5biL5biL5biLxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxxxpxx8sOT8sOT8sOT8sOT8sOT8sOT5biL5biL5biL5biL5biL5biL5biL5biL5biL5biL5biL26x926x95biL5biL26x926x926x95biL5biL26x926x95biL26x926x95biL"),
+"format": "RGB8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="Texture2DArray" id="Texture2DArray_00tp4"]
+_images = Array[Image]([SubResource("Image_g14j6"), SubResource("Image_vbegm"), SubResource("Image_ehkex")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3se8"]
+render_priority = 0
+shader = SubResource("Shader_fj7yv")
+shader_parameter/u_transition_mask = 0
+shader_parameter/u_texture_array = SubResource("Texture2DArray_00tp4")
+
+[sub_resource type="VoxelStreamMemory" id="VoxelStreamMemory_uty7l"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xersf"]
+
+[sub_resource type="VoxelGeneratorNoise" id="VoxelGeneratorNoise_00tp4"]
+noise = SubResource("FastNoiseLite_xersf")
+height_range = 100.0
+
+[sub_resource type="VoxelMesherTransvoxel" id="VoxelMesherTransvoxel_4uo0j"]
+texturing_mode = 1
+mesh_optimization_target_ratio = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_xersf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00tp4"]
+
+[node name="Node" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ehkex")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="VoxelLodTerrain" type="VoxelLodTerrain" parent="." groups=["Grass"]]
+lod_count = 6
+material = SubResource("ShaderMaterial_a3se8")
+collision_layer = 519
+collision_mask = 517
+stream = SubResource("VoxelStreamMemory_uty7l")
+generator = SubResource("VoxelGeneratorNoise_00tp4")
+mesher = SubResource("VoxelMesherTransvoxel_4uo0j")
+render_layers_mask = 7
+script = ExtResource("1_g14j6")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_vbegm")]
+unique_name_in_owner = true
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 381.62485, 0)
+collision_layer = 1
+collision_mask = 1
+terreno_path = NodePath("../VoxelLodTerrain")
+dinero_jugador = 50
+
+[node name="Marker3D" type="Marker3D" parent="Player"]
+
+[node name="Control" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button2" type="Button" parent="Player/Control" node_paths=PackedStringArray("tienda")]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 454.0
+offset_right = 190.0
+offset_bottom = 485.0
+text = "boton"
+script = ExtResource("3_ehkex")
+item_a_generar = ExtResource("4_xersf")
+tienda = NodePath("../..")
+
+[node name="Button3" type="Button" parent="Player/Control" node_paths=PackedStringArray("tienda")]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 409.0
+offset_right = 189.0
+offset_bottom = 440.0
+text = "boton"
+script = ExtResource("3_ehkex")
+item_a_generar = ExtResource("5_00tp4")
+tienda = NodePath("../..")
+
+[node name="Button4" type="Button" parent="Player/Control" node_paths=PackedStringArray("tienda")]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 506.0
+offset_right = 191.0
+offset_bottom = 537.0
+text = "boton"
+script = ExtResource("3_ehkex")
+item_a_generar = ExtResource("6_77dp3")
+tienda = NodePath("../..")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 883.0
+offset_top = -3.0
+offset_right = 1118.0
+offset_bottom = 112.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.95868987, 0.8472607)
+theme_override_constants/separation = 17
+
+[node name="PanelContainer" type="PanelContainer" parent="Player/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Player/Control/VBoxContainer/PanelContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.647059)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Control/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="Player/Control/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SAVES"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Player/Control/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SAVE GAME [F5]"
+
+[node name="Button2" type="Button" parent="Player/Control/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "LOAD GAME [F6]"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 371.62485, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6368701, 0)
+mesh = SubResource("BoxMesh_xersf")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6368701, 0)
+shape = SubResource("BoxShape3D_00tp4")

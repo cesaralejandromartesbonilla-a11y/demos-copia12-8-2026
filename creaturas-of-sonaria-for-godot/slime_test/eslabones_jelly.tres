@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://da2r21ps4cwwl"]
+
+[ext_resource type="Shader" uid="uid://d04fmxdnpmu73" path="res://slime_test/eslabones_jelly.gdshader" id="1_q334g"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_q334g")
+shader_parameter/base_color = Color(0, 0.5, 1, 0.8)
+shader_parameter/element_color = Color(0, 0, 0, 0)
+shader_parameter/element_blend = 0.0
+shader_parameter/roughness = 0.1
+shader_parameter/fresnel_power = 2.0
+shader_parameter/velocity_wobble = Vector3(0, 0, 0)
+shader_parameter/deformation_speed = 3.0
+shader_parameter/deformation_strength = 0.05

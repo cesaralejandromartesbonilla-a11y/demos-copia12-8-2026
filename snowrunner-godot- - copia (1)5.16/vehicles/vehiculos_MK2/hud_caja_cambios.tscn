@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dmgjtrbw2htfa"]
+
+[ext_resource type="Script" uid="uid://h41wyys5jmxw" path="res://vehicles/vehiculos_MK2/hud_caja_cambios.gd" id="1_x4kvn"]
+
+[node name="HudCajaCambios" type="CanvasLayer" unique_id=593817831]
+script = ExtResource("1_x4kvn")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1607662761]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -159.0
+offset_right = 84.0
+grow_vertical = 0
+
+[node name="ContenedorRadiador" type="VBoxContainer" parent="VBoxContainer2" unique_id=1634209726]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/ContenedorRadiador" unique_id=857389163]
+layout_mode = 2
+text = "tamp"
+
+[node name="pbRadiador" type="ProgressBar" parent="VBoxContainer2/ContenedorRadiador" unique_id=1739217138]
+layout_mode = 2
+
+[node name="ContenedorMotor" type="VBoxContainer" parent="VBoxContainer2" unique_id=1098136733]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/ContenedorMotor" unique_id=1375020212]
+layout_mode = 2
+text = "motor"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer2/ContenedorMotor" unique_id=676235034]
+layout_mode = 2
+
+[node name="LblAlerta" type="Label" parent="VBoxContainer2" unique_id=1256386348]
+layout_mode = 2
+text = "temp embrague"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2" unique_id=1936548274]
+layout_mode = 2
+
+[node name="ContenedorMarchas" type="VBoxContainer" parent="VBoxContainer2" unique_id=1434547491]
+layout_mode = 2
+
+[node name="LblMarcha" type="Label" parent="VBoxContainer2/ContenedorMarchas" unique_id=338525768]
+layout_mode = 2
+text = "marcha--:--"
+
+[node name="BtnSubir" type="Button" parent="VBoxContainer2/ContenedorMarchas" unique_id=1324833435]
+layout_mode = 2
+text = "Subir"
+
+[node name="BtnBajar" type="Button" parent="VBoxContainer2/ContenedorMarchas" unique_id=1499091339]
+layout_mode = 2
+text = "Bajar"
+
+[node name="Pbcaja" type="ProgressBar" parent="VBoxContainer2/ContenedorMarchas" unique_id=1218261377]
+layout_mode = 2

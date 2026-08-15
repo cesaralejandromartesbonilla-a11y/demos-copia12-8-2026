@@ -1,0 +1,13 @@
+JacobianIK3D
+AnimationPlayer
+AnimationTree
+Node3D
+Node
+CharacterBody3D
+MeshInstance3D
+CollisionShape3D
+StaticBody3D
+SkeletonIK3D
+RayCast3D
+Camera3D
+Marker3D

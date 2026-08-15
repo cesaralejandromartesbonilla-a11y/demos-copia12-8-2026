@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4tp2offia6ji"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ehldl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s4fxn"]
+
+[node name="EdificioTerminado" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4332213, 0, 1.5190957)
+mesh = SubResource("BoxMesh_ehldl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4332213, 0, 1.5190957)
+shape = SubResource("BoxShape3D_s4fxn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4332213, 1.1406724, 1.5190957)
+mesh = SubResource("BoxMesh_ehldl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4332213, 1.1406724, 1.5190957)
+shape = SubResource("BoxShape3D_s4fxn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4332213, 0, -1.4977534)
+mesh = SubResource("BoxMesh_ehldl")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4332213, 0, -1.4977534)
+shape = SubResource("BoxShape3D_s4fxn")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4332213, 1.1406724, -1.4977534)
+mesh = SubResource("BoxMesh_ehldl")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4332213, 1.1406724, -1.4977534)
+shape = SubResource("BoxShape3D_s4fxn")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8410301, 0, 1.5190957)
+mesh = SubResource("BoxMesh_ehldl")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8410301, 0, 1.5190957)
+shape = SubResource("BoxShape3D_s4fxn")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8410301, 1.1406724, 1.5190957)
+mesh = SubResource("BoxMesh_ehldl")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8410301, 1.1406724, 1.5190957)
+shape = SubResource("BoxShape3D_s4fxn")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8410301, 0, -1.4977534)
+mesh = SubResource("BoxMesh_ehldl")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8410301, 0, -1.4977534)
+shape = SubResource("BoxShape3D_s4fxn")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8410301, 1.1406724, -1.4977534)
+mesh = SubResource("BoxMesh_ehldl")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8410301, 1.1406724, -1.4977534)
+shape = SubResource("BoxShape3D_s4fxn")

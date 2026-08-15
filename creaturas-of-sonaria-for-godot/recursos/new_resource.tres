@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ProductionLineData" format=3 uid="uid://cfmmtdvb0uebw"]
+
+[ext_resource type="Script" uid="uid://bgxcbs4vbbqp2" path="res://scripts de recursos/RecipeData.gd" id="1_wolv1"]
+[ext_resource type="Script" uid="uid://1s63qmwog13e" path="res://scripts de recursos/ProductionLineData.gd" id="2_qcgeo"]
+
+[resource]
+script = ExtResource("2_qcgeo")
+metadata/_custom_type_script = "uid://1s63qmwog13e"

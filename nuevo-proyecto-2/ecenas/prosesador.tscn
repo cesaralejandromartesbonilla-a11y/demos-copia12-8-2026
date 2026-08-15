@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://q362iuc3irs3"]
+
+[ext_resource type="Script" uid="uid://dsrmr6fwngqm2" path="res://prosesador.gd" id="1_e2x2y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_841nx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bhol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trf6h"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_841nx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3bhol")
+
+[node name="Area3D" type="Area3D" parent="." groups=["tierra"]]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_e2x2y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("BoxShape3D_trf6h")

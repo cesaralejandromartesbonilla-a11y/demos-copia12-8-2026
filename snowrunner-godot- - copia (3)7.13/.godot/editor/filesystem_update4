@@ -1,0 +1,3 @@
+res://vehicles/vehiculos_MK2/vehiculos/chasis_alpha_1.tscn
+res://vehicles/vehiculos_MK2/modulos_scripts/ModuloSuspension.gd
+res://vehicles/vehiculos_MK2/modulos_scripts/RuedaFisica.gd

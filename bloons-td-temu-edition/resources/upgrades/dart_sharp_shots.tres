@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c5sharpshots140"]
+
+[ext_resource type="Script" path="res://src/resources/upgrade_data.gd" id="1_upgrade_data"]
+
+[resource]
+script = ExtResource("1_upgrade_data")
+upgrade_name = "Dardos Afilados"
+description = "Aumenta la penetración (+2 globos) y el daño (+1)."
+cost = 140
+cooldown_multiplier = 1.0
+range_bonus = 0.0
+damage_bonus = 1
+pierce_bonus = 2
+grant_camo = false
+change_damage_type = 0

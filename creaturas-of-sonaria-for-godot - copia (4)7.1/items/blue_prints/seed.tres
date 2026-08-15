@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BlueprintData" format=3 uid="uid://c356s5cfm8nco"]
+
+[ext_resource type="Script" uid="uid://cvaxbbxmeo50m" path="res://scripts de recursos/BlueprintData.gd" id="1_s8vlf"]
+[ext_resource type="Resource" uid="uid://mvw36sv7fmrp" path="res://items/data/consumable/manzana_data.tres" id="2_yb5hv"]
+[ext_resource type="Resource" uid="uid://dmd8ajmbchun1" path="res://items/data/seeds/item/hongo.tres" id="3_tjkkq"]
+
+[sub_resource type="Resource" id="Resource_kojh7"]
+metadata/__load_path__ = "res://items/manzana.tscn"
+
+[sub_resource type="BoxMesh" id="BoxMesh_tjkkq"]
+
+[resource]
+script = ExtResource("1_s8vlf")
+building_name = "semilla"
+hologram_mesh = SubResource("BoxMesh_tjkkq")
+required_items = Array[Resource]([ExtResource("3_tjkkq"), ExtResource("2_yb5hv")])
+required_amounts = Array[int]([2, 3])
+final_scene = SubResource("Resource_kojh7")
+metadata/_custom_type_script = "uid://cvaxbbxmeo50m"

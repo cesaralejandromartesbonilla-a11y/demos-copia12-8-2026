@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://csa0kjic3go0k"]
+
+[ext_resource type="Script" uid="uid://c67bxo60bl7nn" path="res://script/menu_principal.gd" id="1_7dedb"]
+
+[node name="menu_principal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7dedb")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 597
+theme_override_constants/margin_bottom = 273
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "creaturas of temu"
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "JUGAR"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/HBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "SALIR"
+
+[node name="StatsLabel" type="Label" parent="MarginContainer/HBoxContainer/ButtonsContainer"]
+layout_mode = 2
+text = "stats"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2

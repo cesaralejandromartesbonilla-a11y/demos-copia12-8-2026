@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d0gb3vq2pclpb"]
+
+[ext_resource type="PackedScene" uid="uid://diipnlekq6k22" path="res://auto.tscn" id="1_71ljj"]
+[ext_resource type="Script" uid="uid://bg7tetb80nwkw" path="res://ItemData.gd" id="1_itcmk"]
+
+[resource]
+script = ExtResource("1_itcmk")
+nombre = "car"
+precio = 100
+escena_visual = ExtResource("1_71ljj")
+metadata/_custom_type_script = "uid://bg7tetb80nwkw"

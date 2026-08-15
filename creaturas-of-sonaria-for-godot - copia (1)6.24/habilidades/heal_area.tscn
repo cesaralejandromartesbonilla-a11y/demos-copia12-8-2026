@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://5qjx05un0gld"]
+
+[ext_resource type="Script" uid="uid://cbl4apo7bt5om" path="res://habilidades/heal_area.gd" id="1_urm1w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_urm1w"]
+radius = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86tnx"]
+albedo_color = Color(0.59651345, 1.4687854, 1.0213212, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dx1tn"]
+material = SubResource("StandardMaterial3D_86tnx")
+
+[node name="HealArea" type="Area3D" groups=["ability_projectile"]]
+script = ExtResource("1_urm1w")
+original_scene = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_urm1w")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+mesh = SubResource("PlaneMesh_dx1tn")
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 2.0

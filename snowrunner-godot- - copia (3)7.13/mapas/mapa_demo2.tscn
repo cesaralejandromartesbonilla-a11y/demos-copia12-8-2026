@@ -1,0 +1,365 @@
+[gd_scene load_steps=38 format=3 uid="uid://wqt4xkdjdqj"]
+
+[ext_resource type="Script" uid="uid://cwdicyg56atqw" path="res://scipts/main.gd" id="1_kh4rt"]
+[ext_resource type="Script" uid="uid://4cb7r1pyhtd2" path="res://edificaciones/scripts/Gasolinera.gd" id="2_kh4rt"]
+[ext_resource type="Script" uid="uid://cn2erhhjhyn2g" path="res://edificaciones/scripts/ZonaCarga.gd" id="4_xplrd"]
+[ext_resource type="Script" uid="uid://blc5teyj41dpj" path="res://edificaciones/scripts/sitio_construccion.gd" id="5_rix0x"]
+[ext_resource type="Script" uid="uid://b6n6umfdf617k" path="res://edificaciones/scripts/SitioConstruccionSpawner.gd" id="6_ibofl"]
+[ext_resource type="PackedScene" uid="uid://c4tp2offia6ji" path="res://edificaciones/modelos/edificio_terminado.tscn" id="7_lbjl2"]
+[ext_resource type="Script" uid="uid://djwisuxbgl36f" path="res://edificaciones/scripts/sitio_de_construcion.gd" id="8_00113"]
+[ext_resource type="Script" uid="uid://cy5lh0s1a184s" path="res://edificaciones/scripts/entrada_garaje.gd" id="8_kh4rt"]
+[ext_resource type="Material" uid="uid://bvfe11cwafpmp" path="res://texturas/barro_estandar.tres" id="10_ibofl"]
+[ext_resource type="Script" uid="uid://cc6ordtalbv1a" path="res://mapas/cambio de mapa.gd" id="10_xplrd"]
+[ext_resource type="Material" uid="uid://lcr80nsgeivq" path="res://texturas/barro_extremo.tres" id="11_lbjl2"]
+[ext_resource type="Material" uid="uid://gn5rthfu2fpa" path="res://texturas/barro_ligero.tres" id="12_00113"]
+[ext_resource type="Material" uid="uid://bh47ro7gt62gf" path="res://texturas/barro_profundo.tres" id="13_bxepe"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kh4rt"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_glprt"]
+sky_material = SubResource("ProceduralSkyMaterial_kh4rt")
+
+[sub_resource type="Environment" id="Environment_xplrd"]
+background_mode = 2
+sky = SubResource("Sky_glprt")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_6xtcm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vm5rx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fxlwm"]
+noise = SubResource("FastNoiseLite_vm5rx")
+color_ramp = SubResource("Gradient_6xtcm")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="Gradient" id="Gradient_nvxry"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kpqpm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qbfbd"]
+noise = SubResource("FastNoiseLite_kpqpm")
+color_ramp = SubResource("Gradient_nvxry")
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brrcx"]
+albedo_color = Color(0, 0, 0, 1)
+roughness_texture = SubResource("NoiseTexture2D_qbfbd")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_fxlwm")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7lhse"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("StandardMaterial3D_brrcx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ddo2p"]
+size = Vector3(129, 1, 129)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvxry"]
+size = Vector3(7, 3, 7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kpqpm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbfbd"]
+albedo_color = Color(1, 0.3254902, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_brrcx"]
+material = SubResource("StandardMaterial3D_qbfbd")
+top_radius = 0.1
+
+[sub_resource type="Animation" id="Animation_uokpg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Edificio:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1q8ri"]
+resource_name = "construir"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Edificio:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -5, 0), Vector3(0, -1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvgbl"]
+_data = {
+&"RESET": SubResource("Animation_uokpg"),
+&"construir": SubResource("Animation_1q8ri")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kh4rt"]
+size = Vector3(29, 0.20864868, 29)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bxepe"]
+material = ExtResource("10_ibofl")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m2uis"]
+material = ExtResource("11_lbjl2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xrcnw"]
+material = ExtResource("12_00113")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hroo7"]
+material = ExtResource("13_bxepe")
+
+[node name="main" type="Node"]
+script = ExtResource("1_kh4rt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xplrd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="suelo principal" type="StaticBody3D" parent="."]
+collision_layer = 17
+collision_mask = 17
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="suelo principal"]
+transform = Transform3D(64, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7lhse")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="suelo principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ddo2p")
+
+[node name="PuntoAparicion" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="zona de carga" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 50)
+script = ExtResource("4_xplrd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="zona de carga"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_nvxry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="zona de carga"]
+mesh = SubResource("BoxMesh_kpqpm")
+
+[node name="gasolineria" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 50)
+script = ExtResource("2_kh4rt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gasolineria"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_nvxry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="gasolineria"]
+mesh = SubResource("BoxMesh_kpqpm")
+
+[node name="zona de construccion" type="Node3D" parent="." node_paths=PackedStringArray("marcadores_zona")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 50)
+script = ExtResource("6_ibofl")
+escena_edificio = ExtResource("7_lbjl2")
+marcadores_zona = NodePath("Node3D/MeshInstance3D")
+
+[node name="Area3D" type="Area3D" parent="zona de construccion"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="zona de construccion/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_nvxry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="zona de construccion/Area3D"]
+mesh = SubResource("BoxMesh_kpqpm")
+
+[node name="Node3D" type="Node3D" parent="zona de construccion"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="zona de construccion/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="zona de construccion/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="zona de construccion/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="zona de construccion/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="zona de construccion2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 50)
+script = ExtResource("5_rix0x")
+
+[node name="Area3D" type="Area3D" parent="zona de construccion2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="zona de construccion2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_nvxry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="zona de construccion2/Area3D"]
+mesh = SubResource("BoxMesh_kpqpm")
+
+[node name="Edificio" type="Node3D" parent="zona de construccion2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="zona de construccion2/Edificio"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 2, -2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="zona de construccion2/Edificio"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2, 2, 2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="zona de construccion2/Edificio"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 2, -2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="zona de construccion2/Edificio"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 2, 2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zona de construccion2"]
+libraries = {
+&"": SubResource("AnimationLibrary_tvgbl")
+}
+
+[node name="zona de construccion3" type="Node3D" parent="." node_paths=PackedStringArray("marcadores_zona")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 40)
+script = ExtResource("8_00113")
+escena_edificio = ExtResource("7_lbjl2")
+marcadores_zona = NodePath("Node3D")
+
+[node name="Area3D" type="Area3D" parent="zona de construccion3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="zona de construccion3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_nvxry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="zona de construccion3/Area3D"]
+mesh = SubResource("BoxMesh_kpqpm")
+
+[node name="Node3D" type="Node3D" parent="zona de construccion3"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="zona de construccion3/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="zona de construccion3/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="zona de construccion3/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="zona de construccion3/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 2)
+mesh = SubResource("CylinderMesh_brrcx")
+skeleton = NodePath("../..")
+
+[node name="entrada a garaje" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -35)
+script = ExtResource("8_kh4rt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="entrada a garaje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_nvxry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="entrada a garaje"]
+mesh = SubResource("BoxMesh_kpqpm")
+
+[node name="tunel de cambio de mapa" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -35)
+script = ExtResource("10_xplrd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tunel de cambio de mapa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_nvxry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tunel de cambio de mapa"]
+mesh = SubResource("BoxMesh_kpqpm")
+
+[node name="barros" type="Node" parent="."]
+
+[node name="barro_estandar" type="StaticBody3D" parent="barros" groups=["barro_estandar"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barros/barro_estandar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23321533, 0)
+shape = SubResource("BoxShape3D_kh4rt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="barros/barro_estandar"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.01, 0)
+mesh = SubResource("PlaneMesh_bxepe")
+skeleton = NodePath("")
+
+[node name="barro_extremo" type="StaticBody3D" parent="barros" groups=["barro_extremo"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -32)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barros/barro_extremo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10110474, 0)
+shape = SubResource("BoxShape3D_kh4rt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="barros/barro_extremo"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.01, 0)
+mesh = SubResource("PlaneMesh_m2uis")
+skeleton = NodePath("")
+
+[node name="barro_ligero" type="StaticBody3D" parent="barros" groups=["barro_ligero"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, 0)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barros/barro_ligero"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06135559, 0)
+shape = SubResource("BoxShape3D_kh4rt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="barros/barro_ligero"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.01, 0)
+mesh = SubResource("PlaneMesh_xrcnw")
+skeleton = NodePath("")
+
+[node name="barro_profundo" type="StaticBody3D" parent="barros" groups=["barro_profundo"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, -32)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="barros/barro_profundo"]
+shape = SubResource("BoxShape3D_kh4rt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="barros/barro_profundo"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.01, 0)
+mesh = SubResource("PlaneMesh_hroo7")
+skeleton = NodePath("")

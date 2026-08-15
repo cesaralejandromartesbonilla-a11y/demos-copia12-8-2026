@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5t5cuocg1o68"]
+
+[ext_resource type="Script" uid="uid://cnsxkjd4yjwjg" path="res://ecenas/Tienda.gd" id="1_ut087"]
+[ext_resource type="PackedScene" uid="uid://cguesh2hh2eyv" path="res://ecenas/ground.tscn" id="2_ut087"]
+[ext_resource type="PackedScene" uid="uid://dafbul8kormep" path="res://ecenas/player.tscn" id="3_67j7p"]
+[ext_resource type="Script" uid="uid://dp0vjm6lf36x0" path="res://ecenas/vender.gd" id="4_5uw18"]
+[ext_resource type="Resource" path="res://pelota.tres" id="5_3bbhm"]
+[ext_resource type="Resource" path="res://cubo.tres" id="6_3bbhm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5uw18"]
+size = Vector3(2.0668945, 4.0063477, 2.637207)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_ut087")
+
+[node name="Node" parent="." instance=ExtResource("2_ut087")]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_67j7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3.5224626)
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3.6785924)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.031777117, 0.999495, 0, -0.999495, 0.031777117, 0, 7.325837, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.031777114, 0.99949497, 0, -0.99949497, 0.031777114, 0, 0, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button2" type="Button" parent="Control" node_paths=PackedStringArray("tienda")]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 454.0
+offset_right = 190.0
+offset_bottom = 485.0
+text = "boton"
+script = ExtResource("4_5uw18")
+item_a_vender = ExtResource("5_3bbhm")
+tienda = NodePath("../..")
+
+[node name="Button3" type="Button" parent="Control" node_paths=PackedStringArray("tienda")]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 409.0
+offset_right = 189.0
+offset_bottom = 440.0
+text = "boton"
+script = ExtResource("4_5uw18")
+item_a_vender = ExtResource("6_3bbhm")
+tienda = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53344727, 1.5031738, -3.8235054)
+shape = SubResource("BoxShape3D_5uw18")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

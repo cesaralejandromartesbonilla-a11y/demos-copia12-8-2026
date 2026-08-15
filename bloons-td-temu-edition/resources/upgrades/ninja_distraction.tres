@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://ninja_p2_t1"]
+
+[ext_resource type="Script" uid="uid://bkm3vuho1oakq" path="res://src/resources/upgrade_data.gd" id="1_upgrade"]
+
+[resource]
+script = ExtResource("1_upgrade")
+upgrade_name = "Distracción"
+description = "Probabilidad de que un globo retroceda al ser golpeado."
+cost = 350
+cooldown_multiplier = 1.0
+range_bonus = 0.0
+damage_bonus = 0
+pierce_bonus = 0
+grant_camo = false
+change_damage_type = 0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SeedData" format=3 uid="uid://dqfxmt4wq0pxy"]
+
+[ext_resource type="Resource" uid="uid://mvw36sv7fmrp" path="res://items/data/consumable/manzana_data.tres" id="1_a76vl"]
+[ext_resource type="Script" uid="uid://m1igiyj2iiu4" path="res://scripts de recursos/SeedData.gd" id="1_maf8a"]
+[ext_resource type="Resource" uid="uid://c18lgnmopkbva" path="res://items/data/seeds/visuals/kelp.tres" id="3_a76vl"]
+
+[resource]
+script = ExtResource("1_maf8a")
+result_item_data = ExtResource("1_a76vl")
+visual_data = ExtResource("3_a76vl")
+crop_type = 3
+requires_submerged = true
+vulnerable_to_pests = false
+metadata/_custom_type_script = "uid://m1igiyj2iiu4"

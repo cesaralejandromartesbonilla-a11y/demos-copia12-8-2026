@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7j4udydxs8l4"]
+
+[ext_resource type="Script" uid="uid://b5ddpq2qh7bni" path="res://slot.gd" id="1_3dmie"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7uwg"]
+size = Vector3(0.20031738, 0.19903564, 0.19927979)
+
+[sub_resource type="TorusMesh" id="TorusMesh_s81dk"]
+
+[node name="Slot" type="Area3D"]
+script = ExtResource("1_3dmie")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1035156e-05, -3.0517578e-05, 9.1552734e-05)
+shape = SubResource("BoxShape3D_t7uwg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.080781035, 0)
+mesh = SubResource("TorusMesh_s81dk")
+
+[node name="ItemPoint" type="Marker3D" parent="."]

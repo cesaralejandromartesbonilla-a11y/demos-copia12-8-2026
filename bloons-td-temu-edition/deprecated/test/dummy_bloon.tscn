@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bn6hujaimd1di"]
+
+[ext_resource type="Script" uid="uid://mhfmwsy0n7pk" path="res://test/dummy_bloon.gd" id="1_54kf1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ojfww"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mh2u8"]
+
+[node name="DummyBloon" type="Area2D" unique_id=1362098387 groups=["enemigo"]]
+script = ExtResource("1_54kf1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=135762998]
+position = Vector2(-5.066395e-07, -2.6226044e-06)
+scale = Vector2(0.039062496, 0.039062493)
+texture = SubResource("NoiseTexture2D_ojfww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1632142987]
+shape = SubResource("CircleShape2D_mh2u8")

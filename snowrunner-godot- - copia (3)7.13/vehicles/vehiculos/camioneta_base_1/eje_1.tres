@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DatosEje" format=3 uid="uid://braincdf68rct"]
+
+[ext_resource type="Script" uid="uid://oen3vl1aorvr" path="res://scripts_recursos/datos_eje.gd" id="1_kvt74"]
+
+[resource]
+script = ExtResource("1_kvt74")
+ruta_rueda_izq = NodePath("VehicleWheel3D2")
+ruta_rueda_der = NodePath("VehicleWheel3D")
+hueso_brazo_izq = "suspencion.delanteraL"
+hueso_brazo_der = "suspencion.delanteraR"
+hueso_llanta_izq = "llanta.delanteraL"
+hueso_llanta_der = "llanta.delanteraR"
+metadata/_custom_type_script = "uid://oen3vl1aorvr"
